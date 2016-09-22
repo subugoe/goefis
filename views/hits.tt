@@ -1,0 +1,233 @@
+<!-- hits.tt (Start) -->
+[% path = request.path -%]
+[% num = total; n = 0 -%]
+[% UNLESS request.path.match("/marked") %]
+
+<!-- Results (Start) -->
+<div class="lc-results__wrap">
+	<div class="lc-results">
+		<div class="row">
+
+			<!-- Hits (Start) -->
+			<div class="col-xl-9">
+				<div class="lc-hits">
+					<h2>
+						[% qp = {} -%]
+						[% qp = h.extract_params -%]
+
+						[%- IF (qp.q.size > 0 AND !qp.embed) OR pd.delete_them %]
+						  [% other = {} %]
+						  [% CALL other.import(qp) %]
+						  [% CALL other.delete('q') %]
+						  [%- FOREACH val IN qp.q %]
+						    [%- removed = [] -%]
+						    [%- CALL removed.import(qp.q) -%]
+						    [%- CALL removed.splice(loop.index, 1) -%]
+						    [% val |html %],
+
+						  [%- END %]
+						[%- END %]
+						[% total %]
+
+						[% IF total == 1 %]
+						<!-- IF total == 1 (Start) -->
+
+							[% IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" %]
+							<!-- IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" (Start) -->
+								[% lf.hits.data_publication %]
+							[% ELSE %]
+								[% lf.hits.publication %]
+							[% END %]
+						<!-- IF total == 1 (End) -->
+						[% ELSE %]
+							[% IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" %]
+								<!-- IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" (Start) -->
+								[% lf.tabs.data_publications %]
+							[% ELSE %]
+								[% lf.hits.publications %]
+							[% END %]
+
+						[% END %]
+
+						[% IF backend AND session.role == "delegate" %]
+							<!-- IF backend AND session.role == "delegate" (Start) -->
+							[% lf.main_page.by %] [% delegate_name %]
+							<!-- IF backend AND session.role == "delegate" (End) -->
+						[% END %]
+					</h2>
+					<!-- [% UNLESS request.path.match("/person") OR total == 0 %]
+						<a href="#facets">[% lf.facets.search_filter %]</a>
+					[% END %] -->
+					[% END %]
+
+					[% IF !backend AND total > 1 %]
+						[% IF request.path.match("/person") %]
+						<!-- IF request.path.match("/person") (Start) -->
+							[% all_marked = h.all_marked(request.params) %]
+							[% IF all_marked %]
+								<a class="btn btn-xs mark_all padding0" data-marked="1">[% lf.mark.unmark_all %]</a>
+							[% ELSE %]
+								<a class="btn btn-xs mark_all padding0" data-marked="0">[% lf.mark.mark_all %]</a>
+							[% END %]
+						[% ELSIF request.path.match("/marked") %]
+							<a class="btn btn-xs mark_all padding0" data-marked="1">[% lf.mark.unmark_all %]</a>
+						[% END %]
+					<!-- IF request.path.match("/person") (End) -->
+					[% END %]
+
+
+
+					<!-- This publication list is displayed in "[% style %]" style and sorted "[% sorto %]" -->
+					[% num = total; n = 0 %]
+
+					[% IF request.path == "/marked" %]
+						<!-- IF request.path == "/marked" -->
+						<ul class="list-unstyled" id="sortable">
+					[% ELSE %]
+						<ul class="list-unstyled">
+					[% END %]
+
+					[% FOREACH entry IN hits %]
+
+						[% IF request.path == "/marked" %]
+							<li class="markedme" id="fade_[% n+1 %]">
+						[% ELSE %]
+							<li class="lc-hit">
+						[% END %]
+
+						[% bag = entry.type == "researchData" ? "data" : "publication" %]
+
+						[% IF backend  %]
+						<!-- IF backend (Start) -->
+
+					[% ELSIF request.path == "/marked" OR request.path.match("/person") %]
+					<!-- ELSIF request.path == "/marked" OR request.path.match("/person") -->
+
+					  [% UNLESS request.path == "/marked" %]
+							[[% num - n %]] [% n = n +1 %]
+						[% END %]
+
+						[% IF !backend %]
+						<!-- IF !backend (Start) -->
+							<a [% IF request.path == "/marked" %]id="clickme_[% n %]" [% END %]class="mark btn btn-xs padding0" data-marked="[% h.is_marked(entry._id) %]" data-id="[% entry._id %]">[% IF h.is_marked(entry._id) %][check][% ELSE %][square][% END %]</a>
+						<!-- IF !backend (End) -->
+						[% END %]
+
+					[% ELSE %]
+
+					[% END %]
+
+					[% IF backend OR request.path == "/marked" OR request.path.match("/person") %]
+					<!-- <div class="[% IF backend AND loop.first %] helpme" data-placement="top" title="[% lf.help.citation %][% END %]"> -->
+					[% END %]
+
+					<!-- <div class="citation-block-div"> -->
+
+						[% IF style == 'default' %]
+							<a href="[% h.host %]/[% IF backend %]librecat/record/edit[% ELSE %][% bag %][% END %]/[% entry._id %]"[% IF request.path.match("/embed") %] target="_blank"[% END %] title="" class="h5">[% entry.title %]</a>
+						[% END %]
+
+						<div>
+							[% IF backend  %]
+								[% IF entry.status %]
+				    			[% SWITCH entry.status %] |
+				    			[% CASE "public" %]
+										[% lf.main_page.statuses.public %] |
+				    			[% CASE "returned" %]
+				      			[% lf.main_page.statuses.returned %] |
+				    			[% CASE "submitted" %]
+				      			[% lf.main_page.statuses.submitted %] |
+				    			[% CASE "invalid" %]
+				      			[% lf.main_page.statuses.invalid %] |
+				    			[% CASE "new" %]
+				      			[% lf.main_page.statuses.qae %] |
+				    			[% CASE %]
+				      			[% lf.main_page.statuses.private %] |
+				    			[% END %]
+								[% END %]
+							[% END %]
+							PUB-ID: <span class="pubid">[% entry._id %]</span> | [% lf.forms.item(entry.type).label %] |[% IF entry.year %]
+								[% entry.year %]
+							[% ELSE %]
+								[n.d.]<!-- TODO: translate this -->
+							[% END %]
+						</div>
+
+						<!-- IF backend AND ((!entry.locked AND !entry.type.match("^bi")) OR session.role == "super_admin") (Start) -->
+						[% IF backend AND ((!entry.locked AND !entry.type.match("^bi")) OR session.role == "super_admin") %]
+							<a href="/librecat/record/edit/[% entry._id %]" onclick="window.top.location='/librecat/record/edit/[% entry._id %]'" class="citation-block-link"></a>
+						[% ELSIF backend AND entry.status != "public" %]
+							<!-- ELSIF backend AND entry.status != "public" (Start) -->
+							<a href="/librecat/record/preview/[% entry._id %]" onclick="window.top.location='/librecat/record/preview/[% entry._id %]'" class="citation-block-link" data-toggle="tooltip" data-html="true" data-placement="top" title="[% lf.main_page.links.view_details %]"></a>
+							<!-- ELSIF backend AND entry.status != "public" (End) -->
+						[% END %]
+						<!-- IF backend AND ((!entry.locked AND !entry.type.match("^bi")) OR session.role == "super_admin") (End) -->
+
+
+						[% IF entry.citation.$style %]
+							<!-- IF entry.citation.$style (Start) -->
+							[% entry.citation.$style %]
+							[% IF style != "apa_indent" %]
+							[% END %]
+						[% END %]
+						<!-- IF entry.citation.$style (End) -->
+
+					<!-- </div> -->
+
+					<div>
+						[% INCLUDE links.tt %]
+					</div>
+
+					<!-- IF backend (Start) -->
+					[% IF backend %]
+						[% INCLUDE backend/rec_details.tt %]
+						[% IF session.role == 'super_admin' %]
+							[% IF entry.message %]
+								<p class="bg-success">[% entry.message %]</p>
+							[% END %]
+						[% END %]
+					[% END %]
+					<!-- IF backend (End) -->
+
+					<!-- </div> -->
+
+
+					[% IF request.path == "/marked" %]
+						</li>
+					[% END %]
+
+					[% END %]
+
+					[% IF request.path == "/marked" %]
+						</ul>
+					[% END %]
+
+					[% IF error %]
+						<div  class="alert alert-danger">
+							[% error %]
+						</div>
+					[% END %]
+
+					[% IF next_page or previous_page %]
+						[% INCLUDE pagination.tt %]
+					[% END %]
+
+				</div>
+			</div>
+			<!-- Hits (End) -->
+
+			<!-- Filters (Start) -->
+			<div class="col-xl-3">
+				[% INCLUDE filters.tt %]
+			</div>
+			<!-- Filters (End) -->
+
+		</div>
+	</div>
+</div>
+<!-- Results (End) -->
+
+<script>
+  $('.citation-block-link').tooltip();
+</script>
+<!-- hits.tt (End) -->

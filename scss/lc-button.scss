@@ -1,0 +1,20 @@
+.input-group-btn {
+    background-color: none;
+}
+
+.lc-neutral-button {
+    background-color: transparent;
+    border-color: $lc-color--dark;
+    color: $lc-color--dark;
+    svg {
+        fill: $lc-color--dark;
+    }
+}
+
+.lc-neutral-button--on-dark {
+    border-color: white;
+    color: white;
+    svg {
+        fill: white;
+    }
+}

@@ -1,0 +1,37 @@
+<div class="row innerrow">
+  <div class="col-md-2 ">
+    <label>{% department.label %}</label>
+  </div>
+  <div class="col-md-10" id="affiliation">
+  [% IF !department OR !department.0 %]
+    <div class="row innerrow multirow">
+      <input type="hidden" name="department.0._id" id="aff_idautocomplete_0" />
+
+      <div class="form-group col-md-10 col-xs-11">
+        <div class="input-group sticky">
+          <div class="input-group-addon ">{% department.label %}</div>
+          <input type="text" onfocus="enable_autocomplete('aff',0);" class="sticky form-control" id="aff_autocomplete_0" value="" />
+          <div class="input-group-addon"><span onclick="add_field('affiliation');">[+]</span></div>
+          <div class="input-group-addon"><span onclick="remove_field(this);">[-]</span></div>
+        </div>
+      </div>
+    </div>
+  [% ELSE %]
+  [% FOREACH dept IN department %]
+    <div class="row innerrow multirow">
+      <input type="hidden" name="department.[% loop.index %]._id" id="aff_idautocomplete_[% loop.index %]" value="[% dept._id %]" />
+
+      <div class="form-group col-md-10 col-xs-11">
+        <div class="input-group sticky">
+          <div class="input-group-addon ">{% department.label %}</div>
+          <input type="text" onfocus="enable_autocomplete('aff',[% loop.index %]);" class="sticky form-control" id="aff_autocomplete_[% loop.index %]" value="[% h.get_department(dept._id).display %]" disabled="disabled" />
+          <div class="input-group-addon"><span onclick="add_field('affiliation');">[+]</span></div>
+          <div class="input-group-addon"><span onclick="remove_field(this);">[-]</span></div>
+        </div>
+      </div>
+    </div>
+  [% END %]
+  [% END %]
+
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<!-- index_publication.tt (Start) -->
+<!-- Templating Parameters from index_publication.tt (Start) -->
+	<!-- path = request.path -->
+[% path = request.path %]
+<!-- qp = request.params.hash -->
+[% qp = request.params.hash %]
+<!-- qp.delete('splat') -->
+[% qp.delete('splat') %]
+<!-- Templating Parameters from index_publication.tt (End) -->
+[% PROCESS partials/header.tt %]
+[% PROCESS partials/topbar.tt %]
+[% PROCESS partials/menu.tt %]
+
+[% IF bag == 'home' || !bag %]
+  [% PROCESS partials/title.tt %]
+  [% PROCESS partials/hero.tt %]
+	[% PROCESS partials/features.tt %]
+  [% INCLUDE websites/tab_home.tt %]
+[% END %]
+
+[% IF bag == "publication" %]
+  [% PROCESS partials/title.tt %]
+  [% INCLUDE hits.tt %]
+[% END %]
+
+[% IF bag == "data" %]
+  [% INCLUDE hits.tt %]
+  [% INCLUDE filters.tt %]
+[% END %]
+
+[% IF bag == 'person' %]
+  [% INCLUDE person/hits.tt %]
+  [% INCLUDE filters.tt %]
+[% END %]
+
+[% INCLUDE partials/footer.tt %]
+[% INCLUDE partials/copyright.tt %]
+[% INCLUDE base/js_append.tt %]
+[% INCLUDE base/html_end.tt %]
+<!-- index_publication.tt (End) -->

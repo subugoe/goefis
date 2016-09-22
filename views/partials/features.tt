@@ -1,0 +1,68 @@
+<!-- features.tt (Start) -->
+<div class="lc-features__wrap">
+	<div class="lc-features">
+
+		<div class="lc-feature">
+			<div class="lc-feature__column  lc-feature--halfs  lc-feature--right-align">
+				<h3 class="lc-feature__header">Lorem ipsum dolor</h3>
+				<div class="lc-feature__body">
+					<p>
+						Lorem ipsum dolor sit lorem amet, consectetur sit adipiscing elit. Aliquam luctus magna tellus.
+					</p>
+					<p>
+						Nullam mi vitae lorem ligula, faucibus a ultrices vitae, pellentesque id nulla.
+					</p>
+				</div>
+			</div>
+			<div class="lc-feature__column  lc-feature--halfs">
+				col-1-2
+			</div>
+		</div>
+
+		<div class="lc-feature">
+			<div class="lc-feature__column  lc-feature--full  lc-feature--center-align">
+				<h3 class="lc-feature__header">Lorem ipsum dolor sit amut</h3>
+			</div>
+			<div class="lc-feature__column  lc-feature--thirds">
+				<div class="lc-feature__body">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam at eum accusamus.
+					</p>
+				</div>
+			</div>
+			<div class="lc-feature__column  lc-feature--thirds">
+				<div class="lc-feature__body">
+					<p>
+						Architecto magnam dignissimos nihil distinctio, fuga qui est iure unde minima atque voluptatum, accusantium ab perferendis eaque quis! Nam at eum accusamus.
+					</p>
+				</div>
+			</div>
+			<div class="lc-feature__column  lc-feature--thirds">
+				<div class="lc-feature__body">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto magnam dignissimos nihil distinctio, fuga qui est.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="lc-feature">
+			<div class="lc-feature__column  lc-feature--halfs  lc-feature--right-align">
+				col-1-2
+			</div>
+			<div class="lc-feature__column  lc-feature--halfs">
+				<h3 class="lc-feature__header">Lorem ipsum dolor</h3>
+				<div class="lc-feature__body">
+					<p>
+						Lorem ipsum dolor sit lorem amet, consectetur sit adipiscing elit. Aliquam luctus magna tellus.
+					</p>
+					<p>
+						Nullam mi vitae lorem ligula, faucibus a ultrices vitae, pellentesque id nulla.
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- features.tt (End) -->

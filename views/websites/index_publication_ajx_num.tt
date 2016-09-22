@@ -1,0 +1,3 @@
+[% lang = session.lang ? session.lang : h.config.default_lang %]
+[% lf = h.config.language.$lang %]
+[% INCLUDE hits.tt %]

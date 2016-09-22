@@ -1,0 +1,17 @@
+<div class="row innerrow">
+  <div class="col-md-2 ">
+    <label for="id_message">
+      [% lf.$type.field.message.label %]
+    </label>
+  </div>
+  <div class="col-md-10">
+    <div class="row innerrow">
+      <div class="form-group col-md-10 col-xs-11">
+        <div class="sticky">
+          <div class="input-group-addon ">[% lf.$type.field.message.label %]</div>
+          <textarea rows="3" name="message" id="id_message" placeholder="[% lf.$type.field.message.placeholder %]" class="sticky form-control">[% message | html %]</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

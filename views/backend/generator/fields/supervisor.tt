@@ -1,0 +1,151 @@
+[% lowtype = type.lower.match('^bi') ? 'bithesis' : type.lower %]
+[% confpath = h.config.forms.publicationTypes.$lowtype %]
+[% USE JSON %]
+<div id="superv">
+  <div class="row authorspan innerrow">
+    <div class="col-md-2 form-group ">
+      <label for="supervisor_first_name_0">
+        [% lf.$type.field.supervisor.label %]
+      </label>
+      {% IF fields.basic_fields.supervisor.mandatory OR fields.supplementary_fields.supervisor.mandatory %}<span class="starMandatory"></span>{% END %}
+    </div>
+    <div class="col-md-10 creator" id="supervisor">
+      {% IF fields.basic_fields.supervisor.multiple OR fields.supplementary_fields.supervisor.multiple %}
+      [% IF !supervisor %]
+      <div class="row innerrow multirow">
+        <input type="hidden" id="supervisor_orig_first_name_0" value="" />
+        <input type="hidden" id="supervisor_orig_last_name_0" value="" />
+
+        <span class="form-group col-md-4 col-xs-11">
+          <div class="input-group sticky{% IF fields.basic_fields.supervisor.mandatory %} mandatory{% END %}">
+            <div class="input-group-addon">
+              <span>[% lf.$type.field.supervisor.first_name.label %]</span>
+              <span>[% lf.$type.field.supervisor.first_name.label_short %]</span>
+            </div>
+            <input type="text" id="supervisor_first_name_0" name="supervisor.0.first_name" placeholder="[% lf.$type.field.supervisor.first_name.placeholder %]" class="sticky form-control{% IF fields.basic_fields.supervisor.mandatory || fields.supplementary_fields.supervisor.mandatory %} required{% END %}" value="" />
+            <div class="input-group-addon " onclick="add_field('supervisor');">[+]</div>
+            <div class="input-group-addon " onclick="remove_field(this);">[-]</div>
+            <div class="input-group-addon"></div>
+          </div>
+        </span>
+        <span class="form-group col-md-6 col-xs-11">
+          <div class="input-group sticky{% IF fields.basic_fields.supervisor.mandatory %} mandatory{% END %}">
+            <div class="input-group-addon">
+              <span>[% lf.$type.field.supervisor.last_name.label %]</span>
+              <span>[% lf.$type.field.supervisor.last_name.label_short %]</span>
+            </div>
+            <input type="text" id="supervisor_last_name_0" name="supervisor.0.last_name" placeholder="[% lf.$type.field.supervisor.last_name.placeholder %]" class="sticky form-control{% IF fields.basic_fields.supervisor.mandatory || fields.supplementary_fields.supervisor.mandatory %} required{% END %}" value="" />
+            <div class="input-group-addon " onclick="add_field('supervisor');"><span {% IF fields.basic_fields.supervisor.mandatory || fields.supplementary_fields.supervisor.mandatory %} data-mandatory="yes"{% END %} id="plusSupervisor">[+]</span></div>
+            <div class="input-group-addon " onclick="remove_field(this);">[-]</div>
+            {% IF fields.basic_fields.supervisor.idm OR fields.supplementary_fields.supervisor.idm %}
+            <div class="input-group-addon"><span id="supervisor_link_person_0" onclick="link_person(this);" data-type="supervisor_"><img id="supervisor_Authorized0" src="/images/biNotAuthorized.png" alt="Not Authorized" data-toggle="tooltip" data-html="true" data-placement="left" title="[% lf.$type.field.supervisor.tooltip %]" /></span></div>
+            {% END %}
+            <div class="input-group-addon sortitem">[move]</div>
+          </div>
+        </span>
+        {% IF fields.basic_fields.supervisor.idm OR fields.supplementary_fields.supervisor.idm %}
+        <script>
+          $('#supervisor_Authorized0').tooltip();
+        </script>
+        <input type="hidden" id="supervisor_id_0" name="supervisor.0.id" value="" />
+        <input type="hidden" id="supervisor_orcid_0" name="supervisor.0.orcid" value="" />
+        {% END %}
+      </div>
+      [% ELSE %]
+      [% FOREACH name IN supervisor %]
+      <div class="row innerrow multirow">
+        <input type="hidden" id="supervisor_orig_first_name_[% loop.index %]" value="" />
+        <input type="hidden" id="supervisor_orig_last_name_[% loop.index %]" value="" />
+
+        <span class="form-group col-md-4 col-xs-11">
+          <div class="input-group sticky{% IF fields.basic_fields.supervisor.mandatory %} mandatory{% END %}">
+            <div class="input-group-addon">
+              <span>[% lf.$type.field.supervisor.first_name.label %]</span>
+              <span>[% lf.$type.field.supervisor.first_name.label_short %]</span>
+            </div>
+            <input type="text" id="supervisor_first_name_[% loop.index %]" name="supervisor.[% loop.index %].first_name" placeholder="[% lf.$type.field.supervisor.first_name.placeholder %]" class="sticky form-control{% IF fields.basic_fields.supervisor.mandatory || fields.supplementary_fields.supervisor.mandatory %} required{% END %}" value="[% name.first_name | html %]" [% IF name.id %]readonly="readonly"[% END %]/>
+            <div class="input-group-addon " onclick="add_field('supervisor');">[+]</div>
+            <div class="input-group-addon " onclick="remove_field(this);">[-]</div>
+            <div class="input-group-addon "></div>
+          </div>
+        </span>
+        <span class="form-group col-md-6 col-xs-11">
+          <div class="input-group sticky{% IF fields.basic_fields.supervisor.mandatory %} mandatory{% END %}">
+            <div class="input-group-addon">
+              <span>[% lf.$type.field.supervisor.last_name.label %]</span>
+              <span>[% lf.$type.field.supervisor.last_name.label_short %]</span>
+            </div>
+            <input type="text" id="supervisor_last_name_[% loop.index %]" name="supervisor.[% loop.index %].last_name" placeholder="[% lf.$type.field.supervisor.last_name.placeholder %]" class="sticky form-control{% IF fields.basic_fields.supervisor.mandatory || fields.supplementary_fields.supervisor.mandatory %} required{% END %}" value="[% name.last_name | html %]" [% IF name.id %]readonly="readonly"[% END %]/>
+            <div class="input-group-addon " onclick="add_field('supervisor');"><span {% IF fields.basic_fields.supervisor.mandatory || fields.supplementary_fields.supervisor.mandatory %} data-mandatory="yes"{% END %} id="plusSupervisor">[+]</span></div>
+            <div class="input-group-addon " onclick="remove_field(this);">[-]</div>
+            {% IF fields.basic_fields.supervisor.idm OR fields.supplementary_fields.supervisor.idm %}
+            <div class="input-group-addon"><span id="supervisor_link_person_[% loop.index %]" onclick="link_person(this);" data-type="supervisor_"><img id="supervisor_Authorized[% loop.index %]" [% IF name.id %]src="/images/biAuthorized.png"[% ELSE %]src="/images/biNotAuthorized.png"[% END %] [% IF name.id %]alt="Authorized"[% ELSE %]alt="Not Authorized"[% END %] data-toggle="tooltip" data-html="true" data-placement="left" title="[% lf.$type.field.supervisor.tooltip %]" /></span></div>
+            {% END %}
+            <div class="input-group-addon sortitem">[move]</div>
+          </div>
+        </span>
+        {% IF fields.basic_fields.supervisor.idm OR fields.supplementary_fields.supervisor.idm %}
+        <script>
+          $('#supervisor_Authorized[% loop.index %]').tooltip();
+        </script>
+        <input type="hidden" id="supervisor_id_[% loop.index %]" name="supervisor.[% loop.index %].id" value="[% name.id %]" />
+        <input type="hidden" id="supervisor_orcid_[% loop.index %]" name="supervisor.[% loop.index %].orcid" value="[% name.orcid %]" />
+        {% END %}
+      </div>
+      [% END %]
+      [% END %]
+      {% ELSE %}
+      <div class="row innerrow">
+        <input type="hidden" id="supervisor_orig_first_name_0" value="" />
+        <input type="hidden" id="supervisor_orig_last_name_0" value="" />
+
+        <span class="form-group col-md-4 col-xs-11">
+          <div class="input-group sticky{% IF fields.basic_fields.supervisor.mandatory %} mandatory{% END %}">
+            <div class="input-group-addon">
+              <span>[% lf.$type.field.supervisor.first_name.label %]</span>
+              <span>[% lf.$type.field.supervisor.first_name.label_short %]</span>
+            </div>
+            <input type="text" id="supervisor_first_name_0" name="supervisor.0.first_name" placeholder="[% lf.$type.field.supervisor.first_name.placeholder %]" class="sticky form-control{% IF fields.basic_fields.supervisor.mandatory || fields.supplementary_fields.supervisor.mandatory %} required{% END %}" value="[% supervisor.0.first_name | html %]" [% IF supervisor.0.id %]readonly="readonly"[% END %]/>
+            <div class="input-group-addon"></div>
+          </div>
+        </span>
+        <span class="form-group col-md-6 col-xs-11">
+          <div class="input-group sticky{% IF fields.basic_fields.supervisor.mandatory %} mandatory{% END %}">
+            <div class="input-group-addon">
+              <span>[% lf.$type.field.supervisor.last_name.label %]</span>
+              <span>[% lf.$type.field.supervisor.last_name.label_short %]</span>
+            </div>
+            <input type="text" id="supervisor_last_name_0" name="supervisor.0.last_name" placeholder="[% lf.$type.field.supervisor.last_name.placeholder %]" class="sticky form-control{% IF fields.basic_fields.supervisor.mandatory || fields.supplementary_fields.supervisor.mandatory %} required{% END %}" value="[% supervisor.0.last_name | html %]" [% IF supervisor.0.id %]readonly="readonly"[% END %]/>
+            {% IF fields.basic_fields.supervisor.idm OR fields.supplementary_fields.supervisor.idm %}
+            <div class="input-group-addon"><span id="supervisor_link_person_0" onclick="link_person(this);" data-type="supervisor_"><img id="supervisor_Authorized0" [% IF supervisor.0.id %]src="/images/biAuthorized.png"[% ELSE %]src="/images/biNotAuthorized.png"[% END %] [% IF supervisor.0.id %]alt="Authorized"[% ELSE %]alt="Not Authorized"[% END %] data-toggle="tooltip" data-html="true" data-placement="left" title="[% lf.$type.field.supervisor.tooltip %]" /></span></div>
+            {% ELSE %}
+            <div class="input-group-addon"></div>
+            {% END %}
+          </div>
+        </span>
+        {% IF fields.basic_fields.supervisor.idm OR fields.supplementary_fields.supervisor.idm %}
+        <script>
+          $('#supervisor_Authorized0').tooltip();
+        </script>
+        <input type="hidden" id="supervisor_id_0" name="supervisor.0.id" value="[% supervisor.0.id %]" />
+        <input type="hidden" id="supervisor_orcid_0" name="supervisor.0.orcid" value="[% supervisor.0.orcid %]" />
+        {% END %}
+      </div>
+      {% END %}
+    </div>
+  </div>
+
+    <div class="modal" id="supervisor_link_person_modal">
+      <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <h4 class="modal-title">&hellip;</h4>
+	  </div>
+	  <div class="modal-body">
+	  </div>
+	</div>
+      </div>
+    </div>
+
+</div>

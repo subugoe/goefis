@@ -1,0 +1,22 @@
+.lc-menu__wrap {
+    font-weight: 300;
+}
+
+.lc-menu {
+    @extend .container;
+    @extend .m-b-2;
+}
+
+
+.lc-menu-column {
+    @extend .col-xs-12;
+    @extend .col-sm-6;
+    @extend .col-md-4;
+    @extend .col-lg-3;
+
+}
+
+.lc-menu__list {
+    @extend .list-unstyled;
+    @extend .m-b-0;
+}

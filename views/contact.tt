@@ -1,0 +1,9 @@
+[% INCLUDE base/html_start.tt %]
+[% PROCESS partials/header.tt %]
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus magna tellus. Pellentesque augue nisi, porttitor nec commodo vitae, pharetra vitae mi. Phasellus faucibus molestie dapibus. In consectetur quam nec mauris lacinia vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam mi ligula, faucibus a ultrices vitae, pellentesque id nulla.
+
+[% INCLUDE partials/footer.tt %]
+[% INCLUDE partials/copyright.tt %]
+[% INCLUDE base/js_append.tt %]
+[% INCLUDE base/html_end.tt %]

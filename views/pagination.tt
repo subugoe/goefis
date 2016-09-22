@@ -1,0 +1,42 @@
+<!-- BEGIN pagination.tt -->
+[% IF next_page or previous_page %]
+[% qp = request.params.hash; qp.delete('splat') -%]
+<div class="row lc-pagination">
+	<div class="col-xs-12 text-xs-center">
+		<nav aria-label="Page navigation">
+  		<ul class="pagination">
+    		[% IF previous_page %]
+    			[% s = start-limit < 0 ? 0 : start-limit %]
+    			<li class="page-item">
+      			<a href="[% h.newuri_for("$path", qp, start="$s") %]" title="Previous" class="page-link" aria-label="Previous"><!-- TODO: translate this -->
+							<span aria-hidden="true">&laquo;</span>
+        			<span class="sr-only">Previous</span><!-- TODO: translate this -->
+      			</a>
+    			</li>
+    		[%- END %]
+    		[% FOREACH p IN pages_in_spread %]
+    			[% IF p == page %]
+    				[% s = limit * (p - 1) %]
+    				<li class="page-item active"><a href="#" class="page-link" title="">[% p %] <span class="sr-only">(current)</span></a></li><!-- TODO: translate this -->
+    			[% ELSIF p.defined %]
+    				[% s = limit * (p - 1) %]
+    				<li class="page-item"><a href='[% h.newuri_for("$path", qp, start="$s") %]' title="" class="page-link">[% p %]</a></li>
+    			[% ELSE %]
+    				<li class="page-item disabled"><a href="#" class="page-link">&hellip;</a></li>
+    			[% END %]
+    		[% END %]
+    		[% IF next_page %]
+    			[% s = start+limit %]
+    			<li class="page-item">
+      			<a href="[% h.newuri_for("$path", qp, start="$s") %]" class="page-link" title="Next page" aria-label="Next"><!-- TODO: translate this -->
+        			<span aria-hidden="true">&raquo;</span>
+							<span class="sr-only">Next</span><!-- TODO: translate this -->
+      			</a>
+    			</li>
+    		[% END %]
+  		</ul>
+		</nav>
+	</div>
+</div>
+[% END %]
+<!-- END pagination.tt -->

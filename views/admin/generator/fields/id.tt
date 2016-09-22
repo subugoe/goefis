@@ -1,0 +1,18 @@
+<div class="row innerrow">
+  <div class="col-md-2 ">
+    <label for="id_id">
+      {% id.label %}{% IF id.mandatory %}<span class="starMandatory"></span>{% END %}
+    </label>
+  </div>
+  <div class="col-md-10">
+    <div class="row innerrow">
+      <div class="form-group col-md-10 col-xs-11">
+        <div class="input-group sticky{% IF id.mandatory %} mandatory{% END %}">
+          <div class="input-group-addon ">{% id.label %}</div>
+          <input type="text" name="_id" id="id_id" value="[% _id %]" class="form-control{% IF id.mandatory %} required{% END %}"{% IF id.readonly %} readonly="readonly"{% END %}{% IF id.mandatory %} required{% END %}>
+          <div class="input-group-addon"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

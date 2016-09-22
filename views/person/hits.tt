@@ -1,0 +1,46 @@
+<!-- BEGIN person/hits.tt -->
+
+  <div class="row">
+    <div class="col-md-12[% UNLESS request.path.match("/person") OR total == 0 %] col-xs-9[% END %]">
+      <h2>[% total %] [% IF total == 1 %][% lf.hits.author %][% ELSE %][% lf.hits.authors %][% END %]</h2>
+    </div>
+    [% UNLESS request.path.match("/person") OR total == 0 %]
+    <div class="col-xs-3">
+      <a href="#facets">[% lf.facets.search_filter %]</a>
+    </div>
+    [% END %]
+  </div>
+
+  [% IF next_page or previous_page %]
+  <div class="row">
+    [% INCLUDE pagination.tt %]
+  [% ELSE %]
+  <div class="row ">
+  [% END %]
+  </div>
+
+  [% IF error %]
+  <div class="row">
+    <div class="col-md-10">
+      <div  class="alert alert-danger">[% error %]</div>
+    </div>
+  </div>
+  [% END %]
+
+  <div class="row">
+    <div class="col-md-12">
+    <dl class="hitlist">
+    [% FOREACH person IN hits %]
+    <dt><a href="/person/[% person._id %]">[% person.full_name %][% IF person.idm_title %], [% person.idm_title %][% END %] ([% person.publication_hits %] [% lf.tabs.publications %][% IF person.research_hits %], [% person.research_hits %] [% lf.tabs.data_publications %][% END %])</a></dt>
+    <dd>
+      [% FOREACH affil IN person.department %]
+	<span class="text-muted">[% h.get_department(affil._id).name %]</span>[% IF !loop.last %], [% END %]
+      [% END %]
+    </dd>
+    [% END %]
+    </dl>
+    </div>
+  </div>
+
+
+<!-- END person/hits.tt -->

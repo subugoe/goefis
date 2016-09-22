@@ -1,0 +1,26 @@
+<!-- navbar.tt (Start)-->
+[% thisPerson = h.get_person(session.personNumber) -%]
+[% path = request.path -%]
+[% qp = request.params.hash -%]
+[% qp.delete('splat') -%]
+[% lang = session.lang ? session.lang : h.config.default_lang -%]
+[% style = qp.style || 'default' -%]
+
+
+	<!-- <div class="modal" id="selectAFF">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Title</h4>
+					<div>
+						<small>Click a name to choose. Click [down] to show more.</small>
+					</div>
+				</div>
+				<div class="modal-body">
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+<!-- navbar.tt (END )-->

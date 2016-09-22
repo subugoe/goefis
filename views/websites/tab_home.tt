@@ -1,0 +1,3 @@
+<!-- tab_home.tt (Start) -->
+[% stats = h.get_statistics() %]
+<!-- tab_home.tt (End) -->

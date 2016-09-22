@@ -1,0 +1,93 @@
+[% path = request.path %]
+[% qp = request.params.hash %]
+[% qp.delete('splat') %]
+[% lang = session.lang ? session.lang : h.config.default_lang -%]
+[% lf = h.config.language.$lang -%]
+[% backend = path.match('librecat') ? 1 : 0 %]
+
+
+[% PROCESS partials/header.tt %]
+[% PROCESS partials/topbar.tt %]
+[% PROCESS partials/menu.tt %]
+[% PROCESS partials/title.tt %]
+
+<!-- BEGIN admin/account.tt -->
+<div class="lc-account__wrap">
+	<div class="lc-account">
+		<div class="col-xs-12">
+			<h1>Manage Account Information</h1><!-- TODO: translate this -->
+
+		<form role="form" action="/librecat/admin/account/search" method="GET">
+			<label for="id_q">Search by name or PEVZ-ID</label><!-- TODO: translate this -->
+			<div class="input-group">
+				<input type="text" class="form-control" name="q" id="id_q" placeholder="Einstein, A" value="[% qp.q.join(' ') %]">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-default">Search</button><!-- TODO: translate this -->
+				</span>
+			</div>
+		</form>
+
+		<form role="form" action="/librecat/admin/account/import" method="GET">
+			<label for="id_id">Import by PEVZ-ID</label><!-- TODO: translate this -->
+			<div class="input-group">
+				<input type="text" class="form-control" name="id" id="id_id" placeholder="12345" value="[% qp.id %]" required>
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-default">Import</button><!-- TODO: translate this -->
+				</span>
+			</div>
+		</form>
+
+		[% IF error %]
+			<p class="text-danger">
+				[% error %] <a href="/librecat/admin/account/edit/[% qp.id %]">Edit</a><!-- TODO: translate this -->
+			</p>
+		[% END %]
+
+			<a href="/librecat/admin/account/new" class="btn btn-primary">Add new account</a><!-- TODO: translate this -->
+
+		[% IF hits %]
+
+			<h3>[% total ? total : "0" %] Results</h3><!-- TODO: translate this -->
+
+			[% INCLUDE pagination.tt %]
+
+			<dl class="hitlist">
+				[% FOREACH p IN hits %]
+					<dt>
+						<a href="/librecat/admin/account/edit/[% p._id %]">[% p.full_name %]</a>
+						<span [% IF p.account_status == 'active' %]class="label label-success"[% ELSE %]class="label label-danger"[% END %]>
+						[% p.account_status || 'inactive' %]</span> | <span class="text-muted">BIS-ID: <a href="https://ekvv.uni-bielefeld.de/pers_publ/publ/PersonDetail.jsp?personId=[% p._id %]">[% p._id %]</a></span> | <span class="text-muted">Publications: </span><span data-id="[% p._id %]" class="num_publ"></span><br /> <!-- TODO: remove/replace Bielefeld specific URL --><!-- TODO: translate this -->
+					</dt>
+					<dd>
+						[% FOREACH dep IN p.department %][% h.get_department(dep._id).display %][% UNLESS loop.last %] | [% END %][% END %]
+					</dd>
+				[% END %]
+			</dl>
+
+			[% INCLUDE pagination.tt %]
+
+		[% END %]
+
+		</div>
+
+	</div>
+
+</div>
+
+<script>
+	$(document).ready(function(){
+		$('.num_publ').each(function(){
+			var element = this;
+			var id = $(this).data('id');
+			$.getJSON("/num_of_publ/" + id).done(function( res ) {
+				$(element).html(res.total);
+			});
+		});
+	});
+</script>
+<!-- END admin/account.tt -->
+
+[% INCLUDE partials/footer.tt %]
+[% INCLUDE partials/copyright.tt %]
+[% INCLUDE base/js_append.tt %]
+[% INCLUDE base/html_end.tt %]

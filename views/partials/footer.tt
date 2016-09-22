@@ -1,0 +1,102 @@
+<!-- footer.tt (Start) -->
+<!-- lang = session.lang ? session.lang : h.config.default_lang -->
+[% lang = session.lang ? session.lang : h.config.default_lang -%]
+<!-- lf = h.config.language.$lang -->
+[% lf = h.config.language.$lang -%]
+
+	</div>
+
+<div class="lc-footer__wrap">
+
+	<footer class="lc-footer">
+
+		<!--
+			Footer Heading (Start)
+			for Screenreader only
+		-->
+		<div class="lc-footer__header sr-only">
+			<h1>Footer</h1><!-- TODO: translate this -->
+		</div>
+		<!-- Footer Heading (End) -->
+
+		<div class="row">
+
+			<!-- Footer Login (Start) -->
+			<div class="lc-footer__column" id="anchor__login">
+
+				[% IF backend OR (session.user) %]
+
+				<h2 class="lc-footer__header"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-user"></use></svg>[% session.user %]</h2>
+				<p><a href="/person/[% session.personNumber %]">[% lf.header.my_author_page %]</a></p>
+				<a href="#" class="dropdown-toggle helpme helpme-md" data-placement="bottom" title="[% lf.help.user_settings %]" data-toggle="dropdown">[% lf.header.settings %]</a>
+				<div class="dropdown-menu">
+					[% INCLUDE backend/user_settings.tt %]
+				</div>
+				<div>
+					<a href="/logout" class="btn btn-danger" role="button"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-sign-out"></use></svg>[% lf.main_page.logout %]</a>
+				</div>
+
+				[% ELSE %]
+
+				<h2 class="lc-footer__header"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-sign-in"></use></svg>[% lf.login.login_heading %]</h2>
+
+				[% IF error_message %]
+				<p class="text-danger">[% error_message %]</p>
+				[% END %]
+
+				<form action="/login" method="post" class="form-group">
+					<!-- TODO: add fieldset -->
+					<fieldset>
+						<input type="hidden" name="return_url" value="[% return_url %]">
+						<div class="form-group[% IF error_message AND !login %] has-error[% END %]">
+							<label class="control-label sr-only" for="id_login">[% lf.login.username %]</label>
+							<input type="text" class="lc-footer__textinput" name="user" id="id_login" value="[% login %]" placeholder="[% lf.login.username %]" required>
+						</div>
+						<div class="form-group[% IF error_message %] has-error[% END %]">
+							<label class="control-label sr-only" for="id_password">[% lf.login.password %]</label>
+							<input type="password" class="lc-footer__textinput" name="pass" id="id_password" value="" placeholder="[% lf.login.password %]" required>
+						</div>
+						<div class="form-group lc-footer__login-button-wrap">
+							<input type="submit" class="btn btn-default lc-footer__login-button" value="[% lf.login.login_button %]">
+						</div>
+					</fieldset>
+				</form>
+
+				[% END %]
+
+			</div>
+			<!-- Footer Login (End) -->
+
+			<!-- Footer Pages (Start) -->
+			<div class="lc-footer__column">
+				<h2 class="lc-footer__header">Pages</h2><!-- TODO: translate this -->
+				<ul class="list-unstyled">
+					<li><a href="/" title="">Startseite</a></li><!-- TODO: translate this --><!-- TODO: add title text -->
+					<li><a href="" title="">Leitlinien</a></li><!-- TODO: translate this --><!-- TODO: add title text -->
+					<li><a href="" title="">Kontakt</a></li><!-- TODO: translate this --><!-- TODO: add title text -->
+					<li><a href="" title="">Impressum</a></li><!-- TODO: translate this --><!-- TODO: add title text -->
+				</ul>
+			</div>
+			<!-- Footer Pages (End) -->
+
+			<!-- Footer Contact (Start) -->
+			<div class="lc-footer__column">
+				<h2 class="lc-footer__header"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-info"></use></svg>Contact</h2><!-- TODO: translate this -->
+				<p>Support Team</p>
+				<p>Daniel Beucke</p>
+				<p><a href="tel:+495513913432"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-phone"></use></svg>+49 551 39 12 432</a><br><a href="mailto:support-gro@sub.uni-goettingen.de"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-mail"></use></svg>support-gro@sub.uni-goettingen.de</a></p>
+			</div>
+			<!-- Footer Contact (End) -->
+
+			<!-- Footer Support (Start) -->
+			<div class="lc-footer__column lc-footer_column--full-width">
+				<h2 class="lc-footer__header">Support</h2><!-- TODO: translate this -->
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus magna tellus. Pellentesque augue nisi, porttitor nec commodo vitae, pharetra vitae mi. Phasellus faucibus molestie dapibus. In consectetur quam nec mauris lacinia vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam mi ligula, faucibus a ultrices vitae, pellentesque id nulla.</p><!-- TODO: translate this -->
+			</div>
+			<!-- Footer Support (End) -->
+
+		</div>
+	</footer>
+
+</div>
+<!-- footer.tt (End) -->

@@ -1,0 +1,43 @@
+.lc-feature {
+    @extend .row;
+    @extend .m-b-2;
+}
+
+.lc-feature--align-right {
+    text-align: right;
+}
+
+.lc-feature__header {
+    font-weight: 300;
+}
+
+.lc-feature__body {
+    font-weight: 300;
+    p {
+        @extend .m-b-0;
+    }
+}
+
+.lc-feature--right-align {
+    @include media-breakpoint-up(md) {
+      text-align: right;
+    }
+}
+
+.lc-feature--center-align {
+    @include media-breakpoint-up(md) {
+        text-align: center;
+    }
+}
+
+.lc-feature--full {
+    @extend .col-xs-12;
+}
+
+.lc-feature--halfs {
+    @extend .col-md-6;
+}
+
+.lc-feature--thirds {
+    @extend .col-lg-4;
+}

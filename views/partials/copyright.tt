@@ -1,0 +1,25 @@
+<!-- copyright.tt (start) -->
+<div class="lc-copyright">
+	<div class="row">
+		<div class="lc-copyright__column">
+			<p class="m-y-1">Lorem ipsum dolor sit amut.</p>
+		</div>
+		<div class="lc-copyright__column lc-copyright__column--last">
+			<p class="m-y-1">Lorem ipsum dolor sit amut.</p>
+		</div>
+	</div>
+	<!-- Debug (Start) -->
+	<div class="row">
+		<div class="col-xs-12 text-xs-right">
+			<p class="label label-default text-uppercase">
+				<span class="hidden-sm-up">xs</span>
+				<span class="hidden-md-up hidden-xs-down">sm</span>
+				<span class="hidden-lg-up hidden-sm-down">md</span>
+				<span class="hidden-xl-up hidden-md-down">lg</span>
+				<span class="hidden-lg-down">xl</span>
+			</p>
+		</div>
+	</div>
+	<!-- Debug (End) -->
+</div>
+<!-- copyright.tt (end) -->

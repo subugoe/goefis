@@ -1,0 +1,36 @@
+<!-- BEGIN frontdoor/tab_ebi_links.tt -->
+
+<div class="tab-pane" id="ebi_dblinks">
+
+  <p>[% lf.frontdoor.tabs.ebi_links.data_by %]</p>
+
+  [% FOREACH db IN ebi_data.db.keys %]
+  <div class="row ">
+    <div class="col-md-2 text-muted">[% db %]</div>
+    <div class="col-md-10">
+    [% total = ebi_data.db.$db.total %]
+      [% IF db == 'EMBL' %]<a href="http://www.ebi.ac.uk/ena/data/search?query=[% external_id.pmid %]">[% total %]</a>[% ELSE %][% total %][% END %] [% IF total == "1" %][% lf.frontdoor.item %][% ELSE %][% lf.frontdoor.items %][% END %] [% lf.frontdoor.citation_found %][% IF total > 10 %] [% lf.frontdoor.display_10 %][% END %]
+      [% max = (total - 1 > 9) ? 9 : (total - 1)  %]
+      [% FOREACH i IN [0..max] %]
+	<div class="row ">
+	  <div class="col-md-12">
+	    [% item = ebi_data.db.$db.entries.$i %]
+	    <a href="[% item.info5.content %]">[% item.info2.content %] ([% db %]: [% item.info1.content %])</a><br />
+	    [% item.info3.label %]: [% item.info3.content %]<br />
+	    [% IF db == 'EMBL' %]
+	    <a class="normal" href="http://www.ebi.ac.uk/ena/data/view/[% item.info1.content %]&display=fasta&download=fasta&filename=[% item.info1.content %].fasta">Download in FASTA format</a>
+	    [% ELSIF db == 'UNIPROT' %]
+	    <a class="normal" href="http://www.uniprot.org/uniprot/[% item.info1.content %].fasta">Download in FASTA format</a>
+	    [% ELSIF db == 'PDB' %]
+	    <a class="normal" href="http://www.ebi.ac.uk/pdbe-srv/view/files/[% item.info1.content %].ent">Public wwPDB file in PDB format</a>
+	    [% END %]
+	  </div>
+	</div>
+      [% END %]
+    </div>
+  </div>
+  [% END %]
+
+</div>
+
+<!-- END frontdoor/tab_ebi_links.tt -->

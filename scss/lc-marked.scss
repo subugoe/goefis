@@ -1,0 +1,11 @@
+.lc-marked__wrap {
+
+}
+
+.lc-marked {
+    @extend .container;
+}
+
+.lc-marked__no-marks {
+    @extend .col-xs-12;
+}

@@ -1,0 +1,77 @@
+[% path = request.path %]
+[% qp = request.params.hash %]
+[% qp.delete('splat') %]
+[% lang = session.lang ? session.lang : h.config.default_lang -%]
+[% lf = h.config.language.$lang -%]
+[% backend = path.match('librecat') ? 1 : 0 %]
+[% INCLUDE base/html_start.tt %]
+[% INCLUDE partials/header.tt %]
+
+<!-- BEGIN admin/research_group.tt -->
+
+<div class="row">
+
+  <div class="col-md-11 col-sm-12"> <!-- main content (left) -->
+
+    <div class="page-header">
+      <h1>
+	Manage Research Groups
+      </h1>
+    </div>
+
+    <form role="form" action="/librecat/admin/research_group/search" method="GET">
+      <div class="row">
+	<div class="col-md-5">
+	  <label for="id_q">Search Research Groups</label>
+	  <div class="input-group">
+	    <input type="text" class="form-control" name="cql_query" id="id_q" value="[% qp.cql_query || qp.q %]">
+	    <span class="input-group-btn">
+	      <button type="submit" class="btn btn-default">Search</button>
+	    </span>
+	  </div><!-- /input-group -->
+	</div>
+      </div>
+    </form>
+
+    <div class="row col-md-12  margin-bottom2">
+      <a href="/librecat/admin/research_group/new" class="btn btn-primary">Add new research group</a>
+    </div>
+
+    [% IF hits %]
+    <div class="row ">
+      <div class="col-md-12">
+	<h3>[% total ? total : "0" %] Results</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      [% INCLUDE pagination.tt %]
+    </div>
+
+    [% FOREACH p IN hits %]
+    <div class="row innerrow">
+      <div class="col-md-1">
+	<a href="/research_group/[% p._id %]"><span class="label label-success">[% p._id %]</span></a>
+      </div>
+      <div class="col-md-9">
+	<a href="/librecat/admin/research_group/edit/[% p._id %]"><span class="fw"></span>[% IF p.acronym %][% p.acronym %] | [% END %][% p.name %]</a>
+	<br />
+	<span class="text-muted">[% FOREACH dep IN p.department %][% dep.name %][% UNLESS loop.last %] | [% END %][% END %]</span>
+      </div>
+    </div>
+    [% END %]
+
+    <div class="row">
+      [% INCLUDE pagination.tt %]
+    </div>
+
+    [% END %]
+
+  </div>
+
+</div>
+
+<!-- END admin/research_group.tt -->
+
+[% INCLUDE partials/footer.tt %]
+[% INCLUDE base/html_end.tt %]

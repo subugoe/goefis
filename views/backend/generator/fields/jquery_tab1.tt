@@ -1,0 +1,415 @@
+// Placeholder for MSIE
+if(navigator.userAgent.indexOf('MSIE') != -1){
+  $('[placeholder]').focus(function() {
+    var input = $(this);
+    if (input.val() == input.attr('placeholder')) {
+      input.val('');
+      input.removeClass('placeholder');
+    }
+  }).blur(function() {
+    var input = $(this);
+    if (input.val() == '' || input.val() == input.attr('placeholder')) {
+      input.addClass('placeholder');
+      input.val(input.attr('placeholder'));
+    }
+  }).blur();
+  $('[placeholder]').parents('form').submit(function() {
+    $(this).find('[placeholder]').each(function() {
+      var input = $(this);
+      if (input.val() == input.attr('placeholder')) {
+        input.val('');
+      }
+    })
+  });
+}
+
+$(document).keypress(function(e){
+    if (e.which == 13){
+        $("#oneToTwo").click();
+    }
+});
+
+// Tab forward one to two
+$('.change_tab').click(function(e){
+  var this_button = $(this);
+  var check = 1;
+  var check_license = 1;
+  var oneauthor = 0;
+
+  $('.creator').children('div.row').each(function(){
+    if($(this).find('input[type!="hidden"]').eq(0).val() && $(this).find('input[type!="hidden"]').eq(0).hasClass('has-error')){
+      $(this).find('input[type!="hidden"]').removeClass("has-error");
+      $(this).find('input[type!="hidden"]').closest('div.input-group.mandatory').removeClass("has-error");
+    }
+
+    if($(this).find('input[type!="hidden"]').eq(1).val() && $(this).find('input[type!="hidden"]').eq(1).hasClass('has-error')){
+      $(this).find('input[type!="hidden"]').removeClass("has-error");
+      $(this).find('input[type!="hidden"]').closest('div.input-group.mandatory').removeClass("has-error");
+    }
+
+    if($(this).find('input[type!="hidden"]').eq(0).val() && $(this).find('input[type!="hidden"]').eq(1).val()){
+      oneauthor=1;
+    }
+  });
+  if(!oneauthor){
+    check = 0;
+    var $first_person = $('.creator').children('div.row:first').find('input[type!="hidden"]');
+    if($first_person.eq(0).hasClass('required') && !$first_person.eq(0).val()){
+      $first_person.eq(0).addClass("has-error");
+      $first_person.closest('div.input-group.mandatory').addClass("has-error");
+    }
+    if($first_person.eq(1).hasClass('required') && !$first_person.eq(1).val()){
+      $first_person.eq(0).addClass("has-error");
+      $first_person.closest('div.input-group.mandatory').addClass("has-error");
+    }
+  }
+
+  $('.required').each(function(){
+    if($(this).attr('name').match('ddc')){
+      return;
+    }
+    if(!$(this).val()){
+      $(this).addClass('has-error');
+      $(this).closest('div.input-group.mandatory').addClass("has-error");
+      check = 0;
+    }
+    else if($(this).val() && ($(this).val() == "Publication Title" || $(this).val() == "First Name" || $(this).val() == "Last Name" || $(this).val() == "YYYY")){
+      $(this).addClass('has-error');
+      $(this).closest('div.input-group.mandatory').addClass("has-error");
+      check = 0;
+    }
+    else{
+      $(this).removeClass('has-error');
+      $(this).closest('div.input-group.mandatory').removeClass("has-error");
+    }
+  });
+
+  var year = $('#id_year').val();
+  var currentYear = (new Date).getFullYear();
+  var maxYear = currentYear + 5;
+  if(year.length < 4 || !year.match(/^\d+$/) || year < 1930 || year > maxYear){
+    check = 0;
+    $('#id_year').addClass('has-error');
+    $('#id_year').val("");
+    $('#id_year').attr("placeholder", "1930 < YYYY < " + maxYear);
+  }
+
+  var volume = $('#id_volume').val();
+  if(volume && !volume.match(/^\d*$/)){
+    check = 0;
+    $('#id_volume').addClass('has-error');
+    $('#id_volume').val("");
+    $('#id_volume').attr("placeholder","Numbers only!");
+  }
+
+  if((this_button.attr('href') && (this_button.attr('href') == "#supplementary_fields" || this_button.attr('href') == "#related_material")) || ($(this).attr('name') == "finalSubmit" && ($(this).val() == "recSave" || $(this).val() == "recPublish"))){
+    if($('#id_data_reuse_license').length || $('#id_open_data_release').length){
+      if ($('.dropzone').first().children().length > 1 && $($('.dropzone').first().children()[1]).attr('class') != "fallback" && (!$('#id_open_data_release').is(':checked') || $('#id_data_reuse_license').val() == '')){
+        if($('#id_data_reuse_license').val() == ''){
+          $('#id_data_reuse_license').parent().removeClass('alert-info');
+          $('#id_data_reuse_license').parent().addClass('alert-danger');
+          alert('[% lf.$type.field.license.data_reuse_license.alert %]');
+          e.stopImmediatePropagation();
+        }
+        if(!$('#id_open_data_release').is(':checked')) {
+          $('#odralert').removeClass('alert-info');
+          $('#odralert').addClass('alert-danger');
+          alert('[% lf.$type.field.license.open_data_release.alert %]');
+          check_license = 0;
+          e.stopImmediatePropagation();
+        }
+      }
+      else if ($('.dropzone').first().children().length > 2 && $($('.dropzone').first().children()[1]).attr('class') == "fallback" && (!$('#id_open_data_release').is(':checked') || $('#id_data_reuse_license').val() == '')){
+        if($('#id_data_reuse_license').val() == ''){
+          $('#id_data_reuse_license').parent().removeClass('alert-info');
+          $('#id_data_reuse_license').parent().addClass('alert-danger');
+          alert('[% lf.$type.field.license.data_reuse_license.alert %]');
+          e.stopImmediatePropagation();
+        }
+        if(!$('#id_open_data_release').is(':checked')) {
+          $('#odralert').removeClass('alert-info');
+          $('#odralert').addClass('alert-danger');
+          alert('[% lf.$type.field.license.open_data_release.alert %]');
+          check_license = 0;
+          e.stopImmediatePropagation();
+        }
+      }
+      else {
+        if($('.dropzone').first().children().length == 1){
+          if($('#id_data_reuse_license').val() != ''){
+            $('#id_data_reuse_license').val('');
+          }
+          if($('#id_open_data_release').is(':checked')){
+            $('#id_open_data_release').prop("checked", false);
+          }
+        }
+      }
+    }
+    else if($('#id_pub_license').length){
+      if ($('.dropzone').first().children().length > 1 && $($('.dropzone').first().children()[1]).attr('class') != "fallback" && !$('#id_pub_license').is(':checked')){
+        $('#pub_license_alert').removeClass('alert-info');
+        $('#pub_license_alert').addClass('alert-danger');
+        alert('[% lf.$type.field.license.pub_license.alert %]');
+        check_license = 0;
+        e.preventDefault();
+      }
+      else if ($('.dropzone').first().children().length > 2 && $($('.dropzone').first().children()[1]).attr('class') == "fallback" && !$('#id_pub_license').is(':checked')){
+        $('#pub_license_alert').removeClass('alert-info');
+        $('#pub_license_alert').addClass('alert-danger');
+        alert('[% lf.$type.field.license.pub_license.alert %]');
+        check_license = 0;
+        e.preventDefault();
+      }
+      else {
+        if($('.dropzone').first().children().length == 1){
+          if($('#id_pub_license').is(':checked')){
+            $('#id_pub_license').prop("checked", false);
+          }
+        }
+      }
+    }
+
+    if($('#ddc').length && $('#ddc').find('select').hasClass('required')){
+      if ($('.dropzone').first().children().length > 1 && $($('.dropzone').first().children()[1]).attr('class') != "fallback" && (!$('#select_ddc_0').val() || $('#select_ddc_0').val() == "")){
+        $('#select_ddc_0').addClass('has-error');
+        $('#select_ddc_0').closest('div.input-group.mandatory').addClass("has-error");
+        check_license = 0;
+        e.preventDefault();
+      }
+      else if ($('.dropzone').first().children().length > 2 && $($('.dropzone').first().children()[1]).attr('class') == "fallback" && (!$('#select_ddc_0').val() || $('#select_ddc_0').val() == "")){
+        $('#select_ddc_0').addClass('has-error');
+        $('#select_ddc_0').closest('div.input-group.mandatory').addClass("has-error");
+        check_license = 0;
+        e.preventDefault();
+      }
+      else {
+        if($('.dropzone').first().children().length == 1){
+          if($('#select_ddc_0').val() && $('#select_ddc_0').val() != ""){
+            $('#select_ddc_0').val("");
+          }
+        }
+      }
+    }
+  }
+
+  if(!check || !check_license){
+    $('#basic_fields, #li_basic_fields').removeClass('active');
+    $('#file_upload, #li_file_upload').removeClass('active');
+    $('#supplementary_fields, #li_supplementary_fields').removeClass('active');
+    $('#related_material, #li_related_material').removeClass('active');
+
+    if(!check){
+      $('#basic_fields, #li_basic_fields').addClass('active');
+    }
+    else if(!check_license){
+      $('#file_upload, #li_file_upload').addClass('active');
+    }
+    $('#mandatory-field-error').removeClass('hidden');
+    $('#mandatory-field-error').addClass('show');
+    window.scrollTo(0, 0);
+    e.preventDefault(); // prevents submission of form
+  }
+  else if($(this).attr('name') == "finalSubmit" && ($(this).val() == "recSave" || $(this).val() == "recPublish")){
+    //window.scrollTo(0, 0);
+    //e.preventDefault();
+  }
+  else {
+    $('.creator.has-error').removeClass('has-error');
+    $('#mandatory-field-error').removeClass('show');
+    $('#mandatory-field-error').addClass('hidden');
+    if($(this).attr('name') != "finalSubmit"){
+      if(this_button.attr('href')){
+        var next_tab = this_button.attr('href').replace('#','');
+        $('#basic_fields, #li_basic_fields').removeClass('active');
+        $('#file_upload, #li_file_upload').removeClass('active');
+        $('#supplementary_fields, #li_supplementary_fields').removeClass('active');
+        $('#related_material, #li_related_material').removeClass('active');
+
+        $('#' + next_tab).addClass('active');
+        $('#li_' + next_tab).addClass('active');
+
+        e.preventDefault();
+      }
+    }
+  }
+});
+
+$('#authedtrans_0').change(function() {
+  var selected = $(this).val();
+  var seltext = $(this).find("option:selected").text();
+  $('.authedtrans:not(#authedtrans_0)').children().remove();
+  $('.authedtrans:not(#authedtrans_0)').append('<option value="' + selected + '">' + seltext + '</option>');
+});
+
+// minus
+//$(document).on('click', '.multirow', function(){
+//  $(this).closest('div.multirow').remove();
+//});
+$(document).on('click', '.fullrow', function(){
+  //var index = $(this).parent().parent().parent().parent().index();
+  var index = $(this).closest('.row.authorspan').index();
+  if(parseInt(index) != 0){
+    //$(this).parent().parent().parent().parent().remove();
+    $(this).closest('.row.authorspan').remove();
+  }
+});
+$(document).on('click', '.author', function(){
+  var container = $(this).closest('div.creator');
+  container.find('input').each(function(){
+    if($(this).attr("readonly")){
+      $(this).removeAttr("readonly");
+    }
+    if($(this).is(':checked')){
+      $(this).removeAttr("checked");
+    }
+    this.value = "";
+  });
+  container.find('img').each(function(){
+    this.title = "";
+    this.src = "/images/biNotAuthorized.png";
+  });
+});
+$(document).on('click', '.connect', function(){
+  var index = $(this).parent().parent().parent().index();
+  $(this).parent().parent().parent().remove();
+});
+
+
+// Select author, editor, translator
+function selectAuthedtrans(element){
+  var selected = $(element).val();
+  var index = $(element).attr('id').replace('authedtrans_','');
+  $('#id_au_type_'+index).val(selected);
+}
+
+
+$('button.cancel-button').click(function() {
+  window.location.href = '[% return_url || "/librecat" %]';
+});
+
+
+$("#id_conference_location").autocomplete({
+  messages: {
+	noResults: '',
+	results: function() {}
+  },
+  source: function (request, response) {
+    jQuery.getJSON(
+      "http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
+      function (data) {
+        response(data);
+      }
+    );
+  },
+  minLength: 3,
+  select: function (event, ui) {
+    var selectedObj = ui.item.value.replace(/, \w{1,},/,',');
+    $("#id_conference_location").val(selectedObj);
+    return false;
+  },
+  open: function () {
+    $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+  },
+  close: function () {
+    $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+  }
+});
+$("#id_conference_location").autocomplete("option", "delay", 100);
+
+//$("#id_place").autocomplete({
+//  messages: {
+//	noResults: '',
+//	results: function() {}
+//  },
+//  source: function (request, response) {
+//    jQuery.getJSON(
+//      "http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
+//      function (data) {
+//        response(data);
+//      }
+//    );
+//  },
+//  minLength: 3,
+//  select: function (event, ui) {
+//    var selectedObj = ui.item.value.replace(/, .*/,'');
+//    $("#id_place").val(selectedObj);
+//    return false;
+//  },
+//  open: function () {
+//    $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+//  },
+//  close: function () {
+//    $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+//  }
+//});
+//$("#id_place").autocomplete("option", "delay", 100);
+
+
+// connect publications
+$(function() {
+  var puburl = '';
+  [% IF modus == "super_admin" OR session.role == "super_admin" %]
+    puburl = '/librecat/search/admin?fmt=autocomplete';
+  [% ELSIF modus == "reviewer" OR session.role == "reviewer" %]
+    puburl = '/librecat/search/reviewer?fmt=autocomplete';
+  [% ELSIF modus == "dataManager" OR session.role == "dataManager" %]
+    puburl = '/librecat/search/data_manager?fmt=autocomplete';
+  [% ELSIF modus == "delegate" OR session.role == "delegate" %]
+    puburl = '/librecat/search/delegate?fmt=autocomplete';
+  [% ELSE %]
+    puburl = '/librecat/search?fmt=autocomplete';
+  [% END %]
+
+  $( "#connect_autocomplete" ).autocomplete({
+    source: puburl,
+    minLength: 0,
+    messages: {
+	    noResults: '',
+	    results: function() {}
+	},
+    select: function( event, ui ) {
+      var items = $('#relatesTo div.innerrow');
+      var index = items.index($('#relatesTo div.innerrow').last());
+      if(index > -1){
+        index++;
+      }
+      else{
+        index = 0;
+      }
+      [% IF type == "researchData" %][% relations = h.config.lists.relations_rd %][% END %]
+      $('#relatesTo').append('<div class="col-md-10 col-xs-12 col-md-offset-2 multirow"><div class="row innerrow"><div class="col-xs-3"><select class="relmat form-control" name="related_material.record.' + index + '.relation">[% IF relations %][% FOREACH key IN relations %]<option value="[% key.relation %]"[% IF key.relation == "is_cited_by" %] selected="selected"[% END %]>[% key.link_text %]</option>[% END %][% END %][% FOREACH key IN h.config.lists.relations_record %]<option value="[% key.relation %]">[% key.link_text %]</option>[% END %]</select></div><div class="col-md-7 col-xs-9"><div class="form-group col-xs-9"><a href="/publication/' + ui.item.id + '" target="_blank">' + ui.item.title + '</a><input type="hidden" id="related_material_id_' + index +'" name="related_material.record.' + index + '.id" value="' + ui.item.id + '" /></div><div class="col-xs-1"><button class="btn btn-default remove_rel_rec">[-]</button></div></div></div>');
+      $('.remove_rel_rec').bind("click",function(e){
+        full_remove_field($(this));
+        e.preventDefault();
+      });
+    },
+    close: function(){
+      $("#connect_autocomplete").val("");
+    },
+  });
+});
+
+$('#add_relurl').click(function(){
+  var url = $('#relurl_url').val();
+  var title = $('#relurl_title').val();
+  var description = $('#relurl_description').val();
+
+  if(!url){
+    $('#relurl_url').parent().addClass('has-error');
+  }
+  if(!title){
+    $('#relurl_title').parent().addClass('has-error');
+  }
+
+  if(url && title){
+    $('#relurl_title').parent().removeClass('has-error');
+    $('#relurl_url').parent().removeClass('has-error');
+
+    var index = $('#url div.innerrow').length;
+
+    $('#url').append('<div class="col-md-10 col-xs-12 col-md-offset-2"><div class="row innerrow"><div class="col-xs-3"><select class="relurl form-control" name="related_material.link.' + index + '.relation">[% FOREACH key IN h.config.lists.relations_link %]<option value="[% key.relation %]">[% key.link_text %]</option>[% END %]</select></div><div class="col-md-7 col-xs-9"><div class="form-group col-xs-9"><a href="' + url + '" target="_blank">' + title + '</a><br /><span class="text-muted">' + description + '</span><input type="hidden" name="related_material.link.' + index + '.url" value="' + $('#relurl_url').val() + '" /><input type="hidden" name="related_material.link.' + index + '.title" value="' + $('#relurl_title').val() + '" /><input type="hidden" name="related_material.link.' + index + '.description" value="' + $('#relurl_description').val() + '" /></div><div class="col-xs-1"><button role="button" class="btn btn-default"><span class="connect">[minus]</span></button></div></div></div>');
+    $('#relurl_url').val('');
+    $('#relurl_title').val('');
+    $('#relurl_description').val('');
+  }
+});

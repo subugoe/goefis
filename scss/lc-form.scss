@@ -1,0 +1,29 @@
+.lc-neutral-textinput {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom-color: $lc-color--dark;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background-color: $lc-color--dark;
+    color: $lc-color--dark;
+    font-weight: 300;
+    &:focus {
+        border-color: $lc-color--dark;
+    }
+    &::placeholder {
+        color: $lc-color--dark;
+    }
+}
+
+.lc-neutral-textinput--on-dark {
+    color: white;
+    border-bottom-color: white;
+    background-color: transparent;
+    &:focus {
+        border-color: white;
+    }
+    &::placeholder {
+        color: white;
+    }
+}

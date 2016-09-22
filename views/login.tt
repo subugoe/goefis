@@ -1,0 +1,41 @@
+[% INCLUDE base/html_start.tt %]
+[% INCLUDE partials/header.tt %]
+[% lf = h.config.language.$lang -%]
+<!-- BEGIN login.tt -->
+<div class="row">
+	<div class="
+        col-xl-6 col-xl-offset-3
+        col-lg-8 col-lg-offset-2
+        col-md-10 col-md-offset-1
+        col-sm-8 col-sm-offset-2">
+    <h2>[% lf.login.login_heading %]</h2>
+    [% IF error_message %]
+    <p class="text-danger">[% error_message %]</p>
+    [% END %]
+		<form action="/login" method="post" class="form-horizontal">
+			<input type="hidden" name="return_url" value="[% return_url %]">
+      <div class="form-group[% IF error_message AND !login %] has-error[% END %]">
+				<label class="control-label" for="id_login">[% lf.login.username %]</label>
+        <input type="text" class="form-control" name="user" id="id_login" value="[% login %]" placeholder="[% lf.login.username_placeholder %]" required>
+			</div>
+			<div class="form-group[% IF error_message %] has-error[% END %]">
+				<label class="control-label" for="id_password">[% lf.login.password %]</label>
+				<input type="password" class="form-control" name="pass" id="id_password" value="" placeholder="[% lf.login.password_placeholder %]" required>
+			</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-default" value="[% lf.login.login_button %]">
+			</div>
+		</form>
+    [% lf.login.contact_us %]
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	$('#id_login').focus();
+});
+</script>
+<!-- END login.tt -->
+[% INCLUDE partials/footer.tt %]
+[% INCLUDE partials/copyright.tt %]
+[% INCLUDE base/js_append.tt %]
+[% INCLUDE base/html_end.tt %]

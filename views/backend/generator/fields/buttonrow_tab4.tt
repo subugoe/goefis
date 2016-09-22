@@ -1,0 +1,34 @@
+<div class="row innerrow">
+	<div class="col-md-12 buttonrow padding-top1 padding-bottom1">
+		<div class="col-md-2">
+		</div>
+		<div class="form-group col-md-8">
+			<div class="btn-group">
+				[% IF !edit_mode OR edit_mode == "normal" %]
+				<button type="button" class="btn btn-default change_tab" href="#supplementary_fields">[% lf.button.back %]</button>
+				[% END %]
+				<button type="submit" name="finalSubmit" value="recSave" class="btn btn-success change_tab">[% lf.button.save %]</button>
+				[% IF title %]
+				<button type="button" class="btn btn-warning cancel-button">[% lf.button.cancel %]</button>
+				[% ELSE %]
+				<a href="/librecat/record/new" class="btn btn-warning">[% lf.button.cancel %]</a>
+				[% END %]
+				[% IF (status != "public" AND status != "submitted" AND type != "researchData") OR (status == "submitted" AND session.role == "super_admin") OR (type == "researchData" AND session.role == "super_admin") %]
+				<button type="submit" name="finalSubmit" value="recPublish" class="btn btn-success change_tab">[% lf.button.publish %]</button>
+				[% END %]
+				[% IF type == "researchData" AND session.role != "super_admin" AND status != "public" AND status != "submitted" %]
+				<button type="submit" name="finalSubmit" value="recSubmit" onclick="return confirm('[% lf.confirm_submit %]');" class="btn btn-success change_tab">[% lf.button.submitted %]</button>
+				[% END %]
+				[% IF status == "public" AND (type != "researchData" OR (type == "researchData" AND session.role == "super_admin")) %]
+				<a class="btn btn-danger" href="/librecat/record/return/[% _id %]" onclick="return confirm('[% lf.confirm_return %]');" name="return">[% lf.button.return %]</a>
+				[% END %]
+				[% IF session.role == "super_admin" %]
+				<a class="btn btn-danger" href="/librecat/record/delete/[% _id %]" onclick="return confirm('[% lf.confirm_delete %]');" name="delete">[% lf.button.delete %]</a>
+				[% END %]
+				[% IF !edit_mode OR edit_mode == "normal" %]
+				<button class="btn btn-default" disabled="disabled">[% lf.button.next %]</button>
+				[% END %]
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,122 @@
+<div id="connectPubl" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Link Publications</h3>
+      </div>
+
+      <div class="modal-body">
+        <span class="col-md-12">
+          <span class="form-group col-md-8">
+            <input type="text" class="form-control" id="searchPublInput" placeholder="Search your public publications" />
+          </span>
+          <span class="form-group col-md-2">
+            <button type="button" id="searchPubl" class="btn btn-default">Go!</button>
+          </span>
+        </span>
+        <p>&nbsp;</p>
+        <div id="results">
+        [% linkPubls = h.search_publication() %]
+        [% FOREACH pub IN linkPubls.hits %]
+          [% skip = 0 %]
+          [% IF pub.related_material %]
+            [% FOREACH relations IN pub.related_material %]
+              [% IF relations.record %]
+                [% IF id == relations.record.id %]
+                  [% skip = 1 %]
+                  [% LAST %]
+                [% END %]
+              [% END %]
+            [% END %]
+          [% END %]
+
+          [% NEXT IF skip %]
+        <div class="row innerrow">
+        <div class="col-md-12">
+          <a href="#" onclick="javascript:connect([% pub.id %],"[% pub.title | replace('"', '\"') %]",[% id %])">[+]
+          [% pub.title %]</a><br />
+          [% pub.citation.default %]
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+        </div>
+        [% END %]
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$('#searchPubl').click(function() {
+  var puburl = 'http://pub-dev.ub.uni-bielefeld.de/publication?fmt=jsonintern&q=';
+  [% IF session.role == 'super_admin' %]
+    var searchphrase = $('#searchPublInput').val();
+    if(searchphrase != ""){
+      searchphrase = searchphrase.replace(/\s+/g, ' AND ');
+      puburl += searchphrase;
+    }
+  [% ELSE %]
+    puburl += 'person=[% session.personNumber %]';
+    var searchphrase = $('#searchPublInput').val();
+    if(searchphrase != ""){
+      searchphrase = searchphrase.replace(/\s+/g, ' AND ');
+      puburl += ' AND ' + searchphrase;
+    }
+  [% END %]
+  var relatesTo = $('#relatesTo').children('div');
+  var connectedIds = [];
+  relatesTo.each(function(){
+    if($(this).children().eq(1).html()){
+      connectedIds[connectedIds.length] = $(this).children().eq(1).html().trim();
+    }
+  });
+
+  $.get(puburl, function(response) {
+    var objJSON = eval("(function(){return " + response + ";})()");
+    $('#results').html("");
+    for(var i=0;i<objJSON.length;i++){
+      var data = objJSON[i];
+      var control = "";
+      var oId = "";
+      var title = "";
+      var citation = "";
+      $.each(data, function(key, value){
+        if(key == "oId"){
+          control = ($.inArray(value,connectedIds)== -1 ) ? "use" : "dontuse";
+          oId = value;
+        }
+        if(key == "title"){
+          title = value;
+        }
+        if(key == "citation"){
+          citation = value;
+        }
+      });
+      if(control == "use"){
+        $('#results').append("<div class=\"row innerrow\"><div class=\"col-md-12\"><a href=\"#\" onclick=\"javascript:connect(" + oId + ",[% id %])\">" + title + "</a><br />" + citation + "</div></div><div class=\"row\"><div class=\"col-md-12\">&nbsp;</div></div>");
+      }
+      oId = "";
+      title = "";
+      citation = "";
+      control = "";
+    }
+    if($.trim($('#results').html())==''){
+      $('#results').html("<div class=\"row innerrow\"><div class=\"col-md-12 alert alert-error\">No results found or all matching results have already been connected.</div></div>");
+    }
+  });
+});
+
+$('#searchPublInput').keyup(function(ev) {
+  if (ev.which === 13) {
+    $('#searchPubl').click();
+  }
+});
+
+function connect(other_id, other_title, rec_id){
+
+}
+</script>

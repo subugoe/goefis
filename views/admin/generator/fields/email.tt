@@ -1,0 +1,16 @@
+<div class="row innerrow">
+  <div class="col-md-2 ">
+    <label for="id_email">{% email.label %}</label>
+  </div>
+  <div class="col-md-10">
+    <div class="row innerrow">
+      <div class="form-group col-md-10 col-xs-11">
+        <div class="input-group sticky">
+          <div class="input-group-addon ">{% email.label %}</div>
+          <input type="email" name="email" id="id_email" value="[% email %]" class="form-control sticky">
+          <div class="input-group-addon"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

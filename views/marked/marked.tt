@@ -1,0 +1,60 @@
+[% qp = request.params.hash %]
+[% qp.delete('splat') %]
+
+[% lang = session.lang ? session.lang : h.config.default_lang %]
+[% lf = h.config.language.$lang %]
+[% INCLUDE base/html_start.tt %]
+[% INCLUDE partials/header.tt %]
+[% INCLUDE partials/topbar.tt %]
+[% INCLUDE partials/menu.tt %]
+[% INCLUDE partials/title.tt %]
+
+
+<!-- BEGIN marked/marked.tt -->
+<div class="lc-marked__wrap">
+	<div class="lc-marked">
+		<div class="row">
+			[% IF total %]
+				<div class="col-xs-12">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#"><span class="total-marked">[% total %]</span> [% lf.mark.marked_publication %]</a></li>
+						<li><a href="#export">[% lf.mark.display_export %]</a></li>
+					</ul>
+				</div>
+				<div class="tab-content">
+					<div class="tab-pane active">
+						<div class="col-sm-8">
+							[% INCLUDE hits.tt %]
+						</div>
+						<div class="col-md-3 col-md-offset-1 col-sm-4">
+							[% PROCESS filters.tt %]
+						</div>
+					</div>
+				</div>
+			[% ELSE %]
+				<div class="lc-marked__no-marks">
+					<p>[% lf.mark.no_marked_publication %]</p>
+				</div>
+			[% END %]
+		</div>
+	</div>
+</div>
+
+<script src="/javascripts/jquery-sortable.js"></script>
+<script>
+	$(function() {
+		$( "#sortable" ).sortable({
+			onDrop: function($item) {
+				$.post('[% h.host %]/reorder/' + $item.find('span.pubid').text() + '/' + $item.index(), function(){},'json');
+				$item.removeClass("dragged").removeAttr("style");
+				$("body").removeClass("dragging");
+			}
+		});
+	});
+</script>
+
+<!-- END marked/marked.tt -->
+[% INCLUDE partials/footer.tt %]
+[% INCLUDE partials/copyright.tt %]
+[% INCLUDE base/js_append.tt %]
+[% INCLUDE base/html_end.tt %]

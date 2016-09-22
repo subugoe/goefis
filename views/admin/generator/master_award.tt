@@ -1,0 +1,190 @@
+[% path = request.path %]
+[% lang = session.lang ? session.lang : h.config.default_lang -%]
+[% lf = h.config.language.$lang -%]
+[% backend = path.match('librecat') ? 1 : 0 %]
+[% INCLUDE base/html_start.tt %]
+[% INCLUDE partials/header.tt %]
+
+<!-- BEGIN admin/generator/master_award.tt -->
+
+<div class="row">
+
+  <div class="col-md-11 col-sm-12"> <!-- main content (left) -->
+
+    <div class="page-header">
+      <h1>
+      [% IF !new %]
+      Edit [% SWITCH mode %] [% CASE 'award' %]Award [% CASE 'preis' %] Preis [% END %][% _id %]
+      [% ELSE %]
+      Add new [% SWITCH mode %] [% CASE 'award' %]Award [% CASE 'preis' %] Preis [% END %][% _id %]
+      [% END %]
+      </h1>
+    </div>
+
+
+    <form action="/librecat/admin/award/update" method="POST">
+      <input type="hidden" name="date_created" value="[% date_created %]" />
+      <input type="hidden" name="_id" value="[% _id %]" />
+
+      [% IF rec_type == "preis" OR rec_type == "akademie" OR rec_type == "auszeichnung" %]
+      {% FOREACH key IN award_field_order %}
+{% template = "fields/" _ key _ ".tt" %}
+{% INCLUDE $template %}
+      {% END %}
+      [% END %]
+
+      [% IF rec_type == "record" %]
+      <input type="hidden" name="rec_type" value="record" />
+      {% FOREACH key IN preis_field_order %}
+{% template = "fields/" _ key _ ".tt" %}
+{% INCLUDE $template %}
+      {% END %}
+      [% END %]
+
+      <div class="row innerrow"><!-- button -->
+        <div class="col-md-12 buttonrow">
+          <span class="form-group col-md-10 col-md-offset-2">
+	  <button type="submit" id="id_do_nothing" class="btn btn-success change_tab"><[% lf.forms.button.save %]</button>
+	  <button type="button" class="btn btn-warning cancel-button">[% lf.forms.button.cancel %]</button>
+          </span>
+        </div>
+      </div>
+
+    </form>
+
+    <div class="modal" id="link_person_modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  <h4 class="modal-title">Several Accounts found... make a choice</h4>
+	</div>
+	<div class="modal-body">
+	</div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- col-md -->
+
+</div><!-- row -->
+
+<script>
+$('button.cancel-button').click(function() {
+  window.location.href = '/librecat/admin/account';
+});
+</script>
+
+<script>
+// Select button (dept, proj, rg)
+function selectButton(element){
+	var type = $(element).attr('class').replace('btn select_button', '').trim();
+	var type_short;
+	var type_name;
+
+	var index = $(element).attr('id').replace(type + '_select_','').trim();
+	var modal = $('#select_modal');
+	var container = $('#select_modal').find('.modal-body').first();
+	container.html("");
+	if(type == "data_manager"){
+	    container.append('[% INCLUDE backend/generator/fields/subfields/department_select.tt %]');
+	    type_short = "dp";
+	    type_name = "Department";
+	}
+	else if(type == "reviewer"){
+	    container.append('[% INCLUDE backend/generator/fields/subfields/department_select.tt %]');
+	    type_short = "rv";
+	    type_name = "Department";
+	}
+    else if (type == "affiliation") {
+        container.append('[% INCLUDE backend/generator/fields/subfields/department_select.tt %]');
+        type_short = "aff";
+        type_name = "Department";
+    }
+    else if (type == "department") {
+        container.append('[% INCLUDE backend/generator/fields/subfields/department_select.tt %]');
+        type_short = "dp";
+        type_name = "Department";
+    }
+	var heading = modal.find('h4').first();
+	heading.html("");
+	heading.append('Choose a ' + type_name);
+	$('.selectme').bind("click", function(){
+		var id = $(this).attr('id');
+	    var name = $(this).html();
+	    $('#' + type_short + '_idautocomplete_' + index).val(id);
+	    $('#' + type_short + '_nameautocomplete_' + index).val(name);
+	    $('#' + type_short + '_autocomplete_' + index).val(name);
+	    $('#' + type_short + '_autocomplete_' + index).attr('disabled','disabled');
+	    $('#select_modal').modal('hide');
+	});
+	modal.modal('show');
+}
+
+$('#plusAFF').click(function(){
+  var items = $('#affiliation div.innerrow');
+  var index = items.index($('#affiliation div.innerrow').last()) + 1;
+  $('#affiliation').append('<div class="row innerrow"><input type="hidden" name="department.' + index + '.id" id="aff_idautocomplete_' + index + '" /><input type="hidden" name="department.' + index + '.name" id="aff_nameautocomplete_' + index + '" /><span class="form-group col-md-7"><input type="text" class="form-control" id="aff_autocomplete_' + index + '" value="" /></span><span class="form-group col-md-2"><input type="button" onclick="selectButton(this);" class="btn select_button affiliation" id="affiliation_select_' + index + '" value="Select"/></span><span class="col-md-1"><span class="single"></span></span></div>');
+  $('#affiliation').bind("click", function(){
+    $( "#aff_autocomplete_" + index ).autocomplete({
+      source: "/librecat/get_department",
+      minLength: 2,
+      select: function( event, ui ) {
+        $( "#aff_autocomplete_" + index ).val( ui.item.label );
+        $( "#aff_nameautocomplete_" + index ).val( ui.item.label );
+        $( "#aff_idautocomplete_" + index ).val( ui.item.id );
+        $( "#aff_autocomplete_" + index ).attr("disabled","disabled");
+      }
+    });
+  });
+});
+
+$('#plusRV').click(function(){
+  var items = $('#reviewer div.innerrow');
+  var index = items.index($('#reviewer div.innerrow').last()) + 1;
+  $('#reviewer').append('<div class="row innerrow"><input type="hidden" name="reviewer.' + index + '.id" id="rv_idautocomplete_' + index + '" /><input type="hidden" name="reviewer.' + index + '.name" id="rv_nameautocomplete_' + index + '" /><span class="form-group col-md-7"><input type="text" class="form-control" id="rv_autocomplete_' + index + '" value="" /></span><span class="form-group col-md-2"><input type="button" onclick="selectButton(this);" class="btn select_button reviewer" id="reviewer_select_' + index + '" value="Select"/></span><span class="col-md-1"><span class="single"></span></span></div>');
+  $('#reviewer').bind("click", function(){
+    $( "#rv_autocomplete_" + index ).autocomplete({
+      source: "/librecat/get_department",
+      minLength: 2,
+      select: function( event, ui ) {
+        $( "#rv_autocomplete_" + index ).val( ui.item.label );
+        $( "#rv_nameautocomplete_" + index ).val( ui.item.label );
+        $( "#rv_idautocomplete_" + index ).val( ui.item.id );
+        $( "#rv_autocomplete_" + index ).attr("disabled","disabled");
+      }
+    });
+  });
+});
+
+$('#plusDM').click(function(){
+  var items = $('#data_manager div.innerrow');
+  var index = items.index($('#data_manager div.innerrow').last()) + 1;
+  $('#data_manager').append('<div class="row innerrow"><input type="hidden" name="data_manager.' + index + '.id" id="dp_idautocomplete_' + index + '" /><input type="hidden" name="data_manager.' + index + '.name" id="dp_nameautocomplete_' + index + '" /><span class="form-group col-md-7"><input type="text" class="form-control" name="data_manager.' + index + '.name" id="dp_autocomplete_' + index + '" value="" /></span><span class="form-group col-md-2"><input type="button" onclick="selectButton(this);" class="btn select_button data_manager" id="data_manager_select_' + index + '" value="Select"/></span><span class="col-md-1"><span class="single"></span></span></div>');
+  $('#data_manager').bind("click", function(){
+    $( "#dp_autocomplete_" + index ).autocomplete({
+      source: "/librecat/get_department",
+      minLength: 2,
+      select: function( event, ui ) {
+        $( "#dp_autocomplete_" + index ).val( ui.item.label );
+        $( "#dp_nameautocomplete_" + index ).val( ui.item.label );
+        $( "#dp_idautocomplete_" + index ).val( ui.item.id );
+        $( "#dp_autocomplete_" + index ).attr("disabled","disabled");
+      }
+    });
+  });
+});
+
+$(document).on('click', '.single', function(){
+  var index = $(this).parent().parent().index();
+  if(parseInt(index) != 0){
+    $(this).parent().parent().remove();
+  }
+});
+
+</script>
+
+<!-- END admin/generator/master_account.tt -->
+
+[% INCLUDE partials/footer.tt %]
+[% INCLUDE base/html_end.tt %]

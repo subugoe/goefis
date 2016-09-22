@@ -1,0 +1,99 @@
+<div class="row innerrow">
+  [% publication_identifier_list = h.get_list('publication_identifier') %]
+  <div class="col-md-2 ">
+    <label for="select_publication_identifier">
+      [% lf.$type.field.publication_identifier.label %]
+    </label>
+    {% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %}<span class="starMandatory"></span>&nbsp;{% END %}
+  </div>
+  <div class="col-md-10" id="publId">
+    {% IF fields.basic_fields.publication_identifier.multiple OR fields.supplementary_fields.publication_identifier.multiple %}
+    [% IF !publication_identifier %]
+    <div class="row innerrow multirow">
+      <div class="form-group col-md-10 col-xs-11">
+        <div class="input-group sticky{% IF fields.basic_fields.publication_identifier.mandatory %} mandatory{% END %}">
+          <div class="input-group-addon ">[% lf.$type.field.publication_identifier.label_short || lf.$type.field.publication_identifier.label %]</div>
+          <span class="input-group-btn">
+            <select class="btn btn-default" name="publication_identifier.0.type" id="select_publication_identifier">
+              <option value="">-- [% lf.button.select %] --</option>
+              [% FOREACH pubid IN publication_identifier_list.keys.sort %]
+              <option value="[% pubid %]">[% publication_identifier_list.$pubid %]</option>
+              [% END %]
+            </select>
+          </span>
+          <input type="text" value="" placeholder="[% lf.$type.field.publication_identifier.placeholder %]" class="sticky form-control{% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %} required{% END %}" name="publication_identifier.0.value" id="publication_id_0" {% IF fields.basic_fields.publication_identifier.readonly OR fields.supplementary_fields.publication_identifier.readonly %} readonly="readonly"{% END %}/>
+          <div class="input-group-addon" onclick="add_field('publId');"><span {% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %} data-mandatory="yes"{% END %}>[plus]</span></div>
+          <div class="input-group-addon" onclick="remove_field(this);">[-]</div>
+        </div>
+      </div>
+    </div>
+    [% ELSE %]
+      [% index = 0 %]
+      [% FOREACH pub_id IN publication_identifier.keys %]
+        [% localindex = loop.index %]
+        [% IF publication_identifier.$pub_id.0 %]
+        [% FOREACH identifier IN publication_identifier.$pub_id %]
+        <div class="row innerrow multirow">
+          <div class="form-group col-md-10 col-xs-11">
+            <div class="input-group sticky{% IF fields.basic_fields.publication_identifier.mandatory %} mandatory{% END %}">
+              <div class="input-group-addon ">[% lf.$type.field.publication_identifier.label_short || lf.$type.field.publication_identifier.label %]</div>
+              <span class="input-group-btn">
+                <select class="btn btn-default" name="publication_identifier.[% index %].type">
+                  <option value="">-- [% lf.button.select %] --</option>
+                  [% FOREACH pubid IN publication_identifier_list.keys.sort %]
+                  <option value="[% pubid %]"[% IF pubid == pub_id %] selected="selected"[% END %]>[% publication_identifier_list.$pubid %]</option>
+                  [% END %]
+                </select>
+              </span>
+              <input type="text" value="[% identifier %]" placeholder="[% lf.$type.field.publication_identifier.placeholder %]" class="sticky form-control{% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %}[% IF localindex == "0" %] required[% END %]{% END %}" name="publication_identifier.[% index %].value" id="publication_id_[% index %]" {% IF fields.basic_fields.publication_identifier.readonly OR fields.supplementary_fields.publication_identifier.readonly %} readonly="readonly"{% END %}/>
+              <div class="input-group-addon" onclick="add_field('publId');"><span {% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %} data-mandatory="yes"{% END %}>[plus]</span></div>
+              <div class="input-group-addon" onclick="remove_field(this);">[-]</div>
+            </div>
+          </div>
+        </div>
+        [% index = index + 1 %]
+        [% END %]
+        [% ELSE %]
+        <div class="row innerrow multirow">
+          <div class="form-group col-md-10 col-xs-11">
+            <div class="input-group sticky{% IF fields.basic_fields.publication_identifier.mandatory %} mandatory{% END %}">
+              <div class="input-group-addon ">[% lf.$type.field.publication_identifier.label_short || lf.$type.field.publication_identifier.label %]</div>
+              <span class="input-group-btn">
+                <select class="btn btn-default" name="publication_identifier.[% localindex %].type">
+                  <option value="">-- [% lf.button.select %] --</option>
+                  [% FOREACH pubid IN publication_identifier_list.keys.sort %]
+                  <option value="[% pubid %]"[% IF pubid == pub_id %] selected="selected"[% END %]>[% publication_identifier_list.$pubid %]</option>
+                  [% END %]
+                </select>
+              </span>
+              <input type="text" value="[% publication_identifier.$pub_id %]" placeholder="[% lf.$type.field.publication_identifier.placeholder %]" class="sticky form-control{% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %}[% IF localindex == "0" %] required[% END %]{% END %}" name="publication_identifier.[% localindex %].value" id="publication_id_[% localindex %]" {% IF fields.basic_fields.publication_identifier.readonly OR fields.supplementary_fields.publication_identifier.readonly %} readonly="readonly"{% END %}/>
+              <div class="input-group-addon" onclick="add_field('publId');"><span {% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %} data-mandatory="yes"{% END %}>[plus]</span></div>
+              <div class="input-group-addon" onclick="remove_field(this);">[-]</div>
+            </div>
+          </div>
+        </div>
+        [% END %]
+      [% END %]
+    [% END %]
+    {% ELSE %}
+    <div class="row innerrow">
+      <div class="form-group col-md-10 col-xs-11">
+        <div class="input-group sticky{% IF fields.basic_fields.publication_identifier.mandatory %} mandatory{% END %}">
+          <div class="input-group-addon ">[% lf.$type.field.publication_identifier.label_short || lf.$type.field.publication_identifier.label %]</div>
+          <span class="input-group-btn">
+            <select class="btn btn-default" name="publication_identifer.0.type">
+              <option value="">-- [% lf.button.select %] --</option>
+              [% FOREACH pubid IN publication_identifier_list.keys.sort %]
+              <option value="[% pubid %]">[% publication_identifier_list.$pubid %]</option>
+              [% END %]
+            </select>
+          </span>
+          <input type="text" value="" placeholder="[% lf.$type.field.publication_identifier.placeholder %]" class="sticky form-control{% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %} required{% END %}" name="publication_identifier.0.value" id="publication_id_0" {% IF fields.basic_fields.publication_identifier.readonly OR fields.supplementary_fields.publication_identifier.readonly %} readonly="readonly"{% END %}/>
+          <div class="input-group-addon" onclick="add_field('publId');"><span {% IF fields.basic_fields.publication_identifier.mandatory OR fields.supplementary_fields.publication_identifier.mandatory %} data-mandatory="yes"{% END %}>[plus]</span></div>
+          <div class="input-group-addon" onclick="remove_field(this);">[-]</div>
+        </div>
+      </div>
+    </div>
+    {% END %}
+  </div>
+</div>

@@ -1,0 +1,12 @@
+*.swp
+.DS_Store
+node_modules
+public/RePEc/*
+public/images/dummy.jpg
+public/javascripts/MathJax/*
+public/javascripts/commonmarkjs/*
+public/pub_index.txt
+views/admin/forms/
+views/backend/forms/
+views/docs
+~$
