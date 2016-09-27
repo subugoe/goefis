@@ -4451,9 +4451,9 @@ a.bg-danger:focus, a.bg-danger:hover {
     display: none !important; } }
 
 .text--bright, .lc-topbar, .lc-hero, .lc-footer {
-  color: #FFFFFF; }
+  color: #fff; }
   .text--bright a, .lc-topbar a, .lc-hero a, .lc-footer a {
-    color: #FFFFFF; }
+    color: #fff; }
 
 @media (min-width: 544px) {
   html {
@@ -4558,7 +4558,7 @@ h6 {
 
 .lc-icon {
   margin-bottom: -0.2em;
-  margin-right: .3em;
+  margin-right: 0.3em;
   width: 1.15em;
   height: 1.15em; }
 

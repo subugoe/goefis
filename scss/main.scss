@@ -1,7 +1,7 @@
 // $spacer: .75rem;
 $enable-rounded: false;
 $brand-primary: #064177;
-$spacer: .5rem;
+$spacer: 0.5rem;
 $label-font-weight: normal;
 $font-family-sans-serif: 'Open Sans', sans-serif;
 // $font-size-root: 18px;
@@ -56,9 +56,7 @@ $font-family-sans-serif: 'Open Sans', sans-serif;
 @import "node_modules/bootstrap/scss/utilities-background";
 @import "node_modules/bootstrap/scss/utilities-spacing";
 @import "node_modules/bootstrap/scss/utilities-responsive";
-
 @import "lc-vars";
-
 @import "lc-tools";
 @import "lc-typography";
 @import "lc-form";

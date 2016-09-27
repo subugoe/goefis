@@ -1,22 +1,23 @@
 .lc-hero__wrap {
-    background-color: $lc-color--dark;
-    @extend .m-b-2;
+  background-color: $lc-color--dark;
+
+  @extend .m-b-2;
 }
 
 .lc-hero {
-    @extend .container;
-    @extend .text--bright;
-    @extend .p-y-3;
+  @extend .container;
+  @extend .text--bright;
+  @extend .p-y-3;
 }
 
 .lc-hero__searchinput {
-    @extend .form-control;
-    @extend .lc-neutral-textinput;
-    @extend .lc-neutral-textinput--on-dark;
+  @extend .form-control;
+  @extend .lc-neutral-textinput;
+  @extend .lc-neutral-textinput--on-dark;
 }
 
 .lc-hero__searchbutton {
-    @extend .lc-neutral-button;
-    @extend .lc-neutral-button--on-dark;
-    @extend .m-l-3;
+  @extend .lc-neutral-button;
+  @extend .lc-neutral-button--on-dark;
+  @extend .m-l-3;
 }
