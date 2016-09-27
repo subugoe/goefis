@@ -1,17 +1,17 @@
 .lc-copyright {
-    @extend .container;
-    @extend .text-uppercase;
-    font-weight: 300;
-    font-size: $lc-text--smallest;
+  @extend .container;
+  @extend .text-uppercase;
+  font-weight: 300;
+  font-size: $lc-text--smallest;
 }
 
 .lc-copyright__column {
-    @extend .col-md-6;
-    @extend .text-md-left;
-    @extend .text-xs-center;
+  @extend .col-md-6;
+  @extend .text-md-left;
+  @extend .text-xs-center;
 }
 
 .lc-copyright__column--last {
-    @extend .text-md-right;
-    @extend .text-xs-center;
+  @extend .text-md-right;
+  @extend .text-xs-center;
 }
