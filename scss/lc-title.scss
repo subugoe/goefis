@@ -6,7 +6,6 @@
   // font-family: "URWClassicoRegular";
   @extend .container;
   @extend .text-uppercase;
-
   h1 { // remove default margin bottom
     @extend .m-b-0;
   }

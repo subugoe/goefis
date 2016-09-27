@@ -8,26 +8,22 @@
   background-color: $lc-color--dark;
   color: $lc-color--dark;
   font-weight: 300;
-
   &:focus {
     border-color: $lc-color--dark;
   }
-
   &::placeholder {
     color: $lc-color--dark;
   }
 }
 
 .lc-neutral-textinput--on-dark {
-  color: white;
-  border-bottom-color: white;
+  color: #fff;
+  border-bottom-color: #fff;
   background-color: transparent;
-
   &:focus {
-    border-color: white;
+    border-color: #fff;
   }
-
   &::placeholder {
-    color: white;
+    color: #fff;
   }
 }

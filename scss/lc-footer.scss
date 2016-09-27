@@ -1,7 +1,6 @@
 .lc-footer__wrap {
   background-color: $lc-color--dark;
   font-weight: 300;
-
   p {
     @extend .m-b-0;
   }
@@ -28,8 +27,7 @@
 
 .lc-footer__header {
   @extend .m-b-2;
-
-  color: white;
+  color: #fff;
 }
 
 .lc-footer__login-button-wrap {

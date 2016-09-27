@@ -4493,15 +4493,15 @@ h6 {
     color: #064177; }
 
 .lc-neutral-textinput--on-dark, .lc-hero__searchinput, .lc-footer__textinput {
-  color: white;
-  border-bottom-color: white;
+  color: #fff;
+  border-bottom-color: #fff;
   background-color: transparent; }
   .lc-neutral-textinput--on-dark:focus, .lc-hero__searchinput:focus, .lc-footer__textinput:focus {
-    border-color: white; }
+    border-color: #fff; }
   .lc-neutral-textinput--on-dark::-webkit-input-placeholder, .lc-hero__searchinput::-webkit-input-placeholder, .lc-footer__textinput::-webkit-input-placeholder {
-    color: white; }
+    color: #fff; }
   .lc-neutral-textinput--on-dark::placeholder, .lc-hero__searchinput::placeholder, .lc-footer__textinput::placeholder {
-    color: white; }
+    color: #fff; }
 
 .lc-topbar__wrap {
   background-color: #064177;
@@ -4547,7 +4547,7 @@ h6 {
   font-weight: 300; }
 
 .lc-footer__header {
-  color: white; }
+  color: #fff; }
 
 .lc-footer__login-button-wrap {
   text-align: right; }
@@ -4563,7 +4563,7 @@ h6 {
   height: 1.15em; }
 
 .lc-icon--on-dark {
-  fill: white; }
+  fill: #fff; }
 
 .input-group-btn {
   background-color: none; }
@@ -4576,11 +4576,11 @@ h6 {
     fill: #064177; }
 
 .lc-neutral-button--on-dark, .lc-hero__searchbutton, .lc-footer__login-button {
-  border-color: white;
-  color: white; }
+  border-color: #fff;
+  color: #fff; }
   .lc-neutral-button--on-dark svg, .lc-hero__searchbutton svg, .lc-footer__login-button svg {
-    fill: white; }
+    fill: #fff; }
 
 .btn-primary:hover svg {
-  fill: white; }
+  fill: #fff; }
 /*# sourceMappingURL=main.css.map */
