@@ -240,7 +240,6 @@ frontdoor:
   no_record: "Dieser Eintrag exisitert nicht oder wurde gelöscht"
   download: "Download"
   cc_license: "Creative Commons Lizenz"
-  show_all: "Alle"
   local_brand: "UniBi"
   export: "Export"
   marked: "Markierte Publikationen"
