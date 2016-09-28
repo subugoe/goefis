@@ -17,7 +17,7 @@ login:
   password_placeholder: "HRZ Password (used e.g. for Webmailer and Stud.IP)"
   login_button: "Login"
   login_help: "HRZ Username and Password (used e.g. for Webmailer and Stud.IP)"
-  contact_us: "Login failed? If you are a member of Bielefeld University but you still cannot log in to PUB, please contact us  or call 106-4058."
+  contact_us: "Login failed? If you are a member of Göttingen University but you still cannot log in to PUB, please contact us  or call 106-4058."
 header:
   title:
     goe: "Göttingen Research Online"
@@ -54,7 +54,7 @@ header:
   default_language: "Default Language"
   beta: "The new backend of PUB is in open beta phase"
 footer:
-  this_is_us: "Bielefeld University Library"
+  this_is_us: "Göttingen University Library"
   language_url: "english/"
   dini_alt: "DINI-Certificate 2010"
   dini_title: "PUB has been honoured with the DINI-Certificate 2010"
@@ -108,10 +108,10 @@ home:
     oa_publications: "Open Access Publications"
     theses: "Theses"
   logos:
-    oa: "Open Access at Bielefeld University"
+    oa: "Open Access at Göttingen University"
     rd_management: "Research Data Management"
     brand: "PUB"
-    brand_long: "PUB &ndash; Publications at Bielefeld University"
+    brand_long: "PUB &ndash; Publications at Göttingen University"
     theses: "PUB Theses"
   you_have_no_photo: "You have not uploaded a picture to the directory of staff and departments."
   they_have_no_photo: "This person has not uploaded a picture to the directory of staff and departments."
@@ -153,7 +153,7 @@ main_page:
     search_similar: "Search similar titles"
 person_profile:
   id_not_found: "Person ID not found."
-  former_researcher: "Former Bielefeld University Researcher"
+  former_researcher: "Former Göttingen University Researcher"
   view: "View "
   view_in: "View in"
   directory_of_staff: "PEVZ-ID"
@@ -474,7 +474,7 @@ forms:
         heading: "Copyright and Licenses"
         pub_license:
           label: "Copyright Disclaimer"
-          disclaimer_text: "I herewith place this document at Bielefeld University's disposal for the purpose of storing in electronic form and making it available to the public according to the PUB Deposit Policy. PUB Deposit Policy "
+          disclaimer_text: "I herewith place this document at Göttingen University's disposal for the purpose of storing in electronic form and making it available to the public according to the PUB Deposit Policy. PUB Deposit Policy "
           accept_text: "I accept"
           alert: "You need to accept the Copyright Disclaimer because you have attached files to this record."
         info:
@@ -1291,7 +1291,7 @@ forms:
       publisher:
         label: "Publisher"
         placeholder: "Publisher"
-        defaultvalue: "Bielefeld University"
+        defaultvalue: "Göttingen University"
       year_extern: *year_extern
       external_file:
         label: "External File(s)"
@@ -1549,7 +1549,7 @@ forms:
       link: *link
   workingpaper: *workingpaper
   biDissertation: &bidissertation
-    label: "Bielefeld Thesis"
+    label: "Göttingen Thesis"
     tab: *tab
     field: &field
       bi_doctype:
@@ -1619,17 +1619,17 @@ forms:
       link: *link
   bidissertation: *bidissertation
   biMasterThesis: &bimasterthesis
-    label: "Bielefeld Master Thesis"
+    label: "Göttingen Master Thesis"
     tab: *tab
     field: *field
   bimasterthesis: *bimasterthesis
   biPostdocThesis: &bipostdocthesis
-    label: "Bielefeld Post-Doctoral Habilitation"
+    label: "Göttingen Post-Doctoral Habilitation"
     tab: *tab
     field: *field
   bipostdocthesis: *bipostdocthesis
   biBachelorThesis: &bibachelorthesis
-    label: "Bielefeld Bachelor Thesis"
+    label: "Göttingen Bachelor Thesis"
     tab: *tab
     field: *field
   bibachelorthesis: *bibachelorthesis

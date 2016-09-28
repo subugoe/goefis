@@ -17,7 +17,7 @@ login:
   password_placeholder: "HRZ Passwort (wie z.B. für den Webmailer und Stud.IP)"
   login_button: "Anmelden"
   login_help: "HRZ Benutzername und Passwort (wie z.B. für den Webmailer und Stud.IP)"
-  contact_us: "Login fehlgeschlagen? Falls Sie der Universität Bielefeld angehören, sich aber trotzdem nicht in PUB einloggen können, schreiben Sie uns oder rufen Sie uns an unter 106-4058."
+  contact_us: "Login fehlgeschlagen? Falls Sie der Universität Göttingen angehören, sich aber trotzdem nicht in GRO einloggen können, schreiben Sie uns oder rufen Sie uns an unter 106-4058."
 header:
   title:
     goe: "Göttingen Research Online"
@@ -52,18 +52,18 @@ header:
   logged_in_as: "Eingeloggt als"
   default_edit_mode: "Standard Editiermodus"
   default_language: "Standardsprache"
-  beta: "Das neue Backend von PUB befindet sich noch im Beta-Stadium"
+  beta: "Das neue Backend von GRO befindet sich noch im Beta-Stadium"
 footer:
-  this_is_us: "Universitätsbibliothek Bielefeld"
+  this_is_us: "Universitätsbibliothek Göttingen"
   language_url: ""
   dini_alt: "DINI-Zertifikat 2010"
-  dini_title: "PUB ist mit dem DINI-Zertifikat 2010 ausgezeichnet"
+  dini_title: "GRO ist mit dem DINI-Zertifikat 2010 ausgezeichnet"
   openaire_alt: "OpenAIRE valide"
-  openaire_title: "PUB ist 100% OpenAIRE-valide"
+  openaire_title: "GRO ist 100% OpenAIRE-valide"
   openarchives_alt: "Open Archives Data Provider"
-  openarchives_title: "PUB ist registrierter Daten-Provider der Open Archives Initiative"
+  openarchives_title: "GRO ist registrierter Daten-Provider der Open Archives Initiative"
   datacite_alt: "DataCite"
-  datacite_title: "PUB registriert Forschungsdaten bei DataCite"
+  datacite_title: "GRO registriert Forschungsdaten bei DataCite"
   faq: "FAQ"
   contact: "Kontakt"
   policy: "Leitlinien"
@@ -79,8 +79,8 @@ tabs:
   projects: "Projekte"
   authors: "Autoren"
   authors_title: "Autorinnen und Autoren"
-  start: "Was ist PUB?"
-  about: "Über PUB"
+  start: "Was ist GRO?"
+  about: "Über GRO"
   features: "Features"
   documentation: "API Dokumentation"
   faq: "FAQ"
@@ -107,11 +107,11 @@ home:
     oa_publications: "Open-Access-Publikationen"
     theses: "Hochschulschriften"
   logos:
-    oa: "Open Access an der Universität Bielefeld"
+    oa: "Open Access an der Georg-August-Universität Göttingen"
     rd_management: "Forschungsdaten&shy;management"
     brand: "PUB"
-    brand_long: "PUB &ndash; Publikationen an der Universität Bielefeld"
-    theses: "PUB Theses"
+    brand_long: "GRO &ndash; Publikationen an der Georg-August-Universität Göttingen"
+    theses: "GRO Theses"
   you_have_no_photo: "Sie haben kein Bild im PEVZ hinterlegt."
   they_have_no_photo: "Diese Person hat kein Bild im PEVZ hinterlegt."
 main_page:
@@ -152,7 +152,7 @@ main_page:
     search_similar: "Nach ähnlichen Titeln suchen"
 person_profile:
   id_not_found: "PEVZ-ID nicht gefunden."
-  former_researcher: "Ehemaliger Bielefelder Forscher"
+  former_researcher: "Ehemaliger Göttingerer Forscher"
   view: ""
   view_in: "Eintrag im"
   directory_of_staff: "PEVZ-ID"
@@ -376,7 +376,7 @@ forms:
         placeholder: "z.B. Handbook of eBook Publishing"
       author: &author_translator
         label: "Autor"
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
         first_name:
           label: "Vorname"
           label_short: "Autor Vorn."
@@ -472,7 +472,7 @@ forms:
         heading: "Urheberrecht / Lizenzen"
         pub_license:
           label: "Hinweise zum Urheberrecht"
-          disclaimer_text: "Hiermit stelle ich der Universit&auml;t Bielefeld dieses Dokument zur elektronischen Speicherung und zur &ouml;ffentlichen Zug&auml;nglichmachung in Datennetzen gem&auml;&szlig; den Bedingungen zur Dokumentenspeicherung auf PUB, wie sie in den Rechtlichen Rahmenbedingungen f&uuml;r PUB dargestellt sind, zur Verf&uuml;gung. PUB Deposit Policy / Rechtliche Rahmenbedingungen "
+          disclaimer_text: "Hiermit stelle ich der Universit&auml;t Göttingen dieses Dokument zur elektronischen Speicherung und zur &ouml;ffentlichen Zug&auml;nglichmachung in Datennetzen gem&auml;&szlig; den Bedingungen zur Dokumentenspeicherung auf PUB, wie sie in den Rechtlichen Rahmenbedingungen f&uuml;r PUB dargestellt sind, zur Verf&uuml;gung. PUB Deposit Policy / Rechtliche Rahmenbedingungen "
           accept_text: "Ich stimme zu"
           alert: "Sie müssen den Hinweisen zum Urheberrecht zustimmen, wenn Sie eine Datei angehängt haben."
         info:
@@ -577,7 +577,7 @@ forms:
           placeholder: "z.B. Müller"
         label: "Herausgeber"
         label_short: "Hrsg."
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       corporate_editor_solo: &corporate_editor_solo
         label: "Körperschaftlicher Herausgeber"
         label_short: "Körp. Hrsg."
@@ -633,7 +633,7 @@ forms:
           placeholder: "z.B. Müller"
         label: "Herausgeber"
         label_short: "Hrsg."
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       corporate_editor: &corporate_editor
         label: "Körperschaftlicher Herausgeber"
         label_short: "Körp. Hrsg."
@@ -710,7 +710,7 @@ forms:
           placeholder: "z.B. Müller"
         label: "Herausgeber"
         label_short: "Hrsg."
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       corporate_editor: *corporate_editor
       department: *department
       project: *project
@@ -1106,7 +1106,7 @@ forms:
           label_short: "Erfinder Nachn."
           placeholder: "z.B. Müller"
         label: "Erfinder"
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       applicant:
         label: "Antragsteller"
         label_short: "Antr.steller"
@@ -1282,14 +1282,14 @@ forms:
           label_short: "Nachn."
           placeholder: "z.B. Müller"
         label: "Creator"
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       department: *department
       project: *project
       research_group: *research_group
       publisher:
         label: "Verlag"
         placeholder: "Verlag"
-        defaultvalue: "Bielefeld University"
+        defaultvalue: "Georg-August-Universität Göttingen"
       year_extern: *year_extern
       external_file:
         label: "Externe Datei(en)"
@@ -1389,7 +1389,7 @@ forms:
           label_short: "Trans. Nachn."
           placeholder: "z.B. Müller"
         label: "Übersetzer"
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       author_secondary:
         first_name:
           label: "Vorname"
@@ -1400,7 +1400,7 @@ forms:
           label_short: "Autor Nachn."
           placeholder: "z.B. Müller"
         label: "Autor (Original)"
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       edition: *edition
       department: *department
       project: *project
@@ -1455,7 +1455,7 @@ forms:
           label_short: "Trans. Nachn."
           placeholder: "z.B. Müller"
         label: "Übersetzer"
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       author_secondary:
         first_name:
           label: "Vorname"
@@ -1466,7 +1466,7 @@ forms:
           label_short: "Autor Nachn."
           placeholder: "z.B. Müller"
         label: "Autor"
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       alternative_title:
         label: "Titel (Original)"
         label_short: "Titel (Orig)"
@@ -1546,7 +1546,7 @@ forms:
       link: *link
   workingpaper: *workingpaper
   biDissertation: &bidissertation
-    label: "Bielefelder E-Dissertation"
+    label: "Göttingener E-Dissertation"
     tab: *tab
     field: &field
       bi_doctype:
@@ -1573,7 +1573,7 @@ forms:
           label_short: "Betr. Nachn."
           placeholder: "z.B. Müller"
         label: "Betreuer"
-        tooltip: "Autor arbeitet an der Uni Bielefeld."
+        tooltip: "Autor arbeitet an der Uni Göttingen."
       year:
         label: "Jahr"
         placeholder: "YYYY"
@@ -1614,17 +1614,17 @@ forms:
       link: *link
   bidissertation: *bidissertation
   biMasterThesis: &bimasterthesis
-    label: "Bielefelder Masterarbeit"
+    label: "Göttingener Masterarbeit"
     tab: *tab
     field: *field
   bimasterthesis: *bimasterthesis
   biPostdocThesis: &bipostdocthesis
-    label: "Bielefelder E-Habilitation"
+    label: "Göttingener E-Habilitation"
     tab: *tab
     field: *field
   bipostdocthesis: *bipostdocthesis
   biBachelorThesis: &bibachelorthesis
-    label: "Bielefelder Bachelorarbeit"
+    label: "Göttingener Bachelorarbeit"
     tab: *tab
     field: *field
   bibachelorthesis: *bibachelorthesis
