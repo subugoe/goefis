@@ -4565,6 +4565,48 @@ h6 {
 .lc-icon--on-dark {
   fill: #fff; }
 
+.lc-logo-librecat {
+  height: 100px; }
+
+.lc-logo-librecat .stroke-black {
+  stroke: #000; }
+
+.lc-logo-librecat .fill-blue {
+  fill: #cef1f0; }
+
+.lc-logo-librecat .fill-black {
+  fill: #000; }
+
+.lc-logo-librecat .red {
+  fill: #a63636;
+  stroke: #a63636; }
+
+.lc-logo-librecat .yellow {
+  fill: #ffe2a7;
+  stroke: #ffe2a7; }
+
+.lc-logo-librecat .green {
+  fill: #05b65c;
+  stroke: #05b65c; }
+
+.lc-logo-librecat--on-dark {
+  height: 100px; }
+  .lc-logo-librecat--on-dark .stroke-black {
+    stroke: #fff; }
+  .lc-logo-librecat--on-dark .fill-blue {
+    fill: #fff; }
+  .lc-logo-librecat--on-dark .fill-black {
+    fill: #fff; }
+  .lc-logo-librecat--on-dark .red {
+    stroke: #064177;
+    fill: #064177; }
+  .lc-logo-librecat--on-dark .yellow {
+    fill: #064177;
+    stroke: #064177; }
+  .lc-logo-librecat--on-dark .green {
+    fill: #064177;
+    stroke: #064177; }
+
 .input-group-btn {
   background-color: none; }
 
