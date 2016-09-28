@@ -25,7 +25,7 @@
 		[% IF title %]
 			[% title %]
 		[% ELSIF request.path.match("publication") %]
-			PUB &ndash; [% lf.tabs.publications %]
+			[% lf.general.acronym %] &ndash; [% lf.tabs.publications %]
 		[% ELSIF request.path.match("data") %]
 			[% lf.tabs.data_publications %] ([% lf.header.title_long %])
 		[% ELSIF request.path.match("person/") %]
@@ -41,7 +41,7 @@
 		[% ELSIF request.path.match("policy") %]
 			[% lf.tabs.policy %] ([% lf.header.title_long %])
 		[% ELSIF request.path.match("pubtheses") %]
-			PUB Theses ([% lf.header.title %])<!-- TODO: translate this -->
+			[% lf.general.acronym %] Theses ([% lf.header.title %])<!-- TODO: translate this -->
 		[% ELSE %]
 			[% lf.header.title_long %]
 		[% END %]

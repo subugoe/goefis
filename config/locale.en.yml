@@ -6,6 +6,7 @@ general:
   plural: "s"
   where: "in"
   lorem1: "Lorem ipsum dolor sit amut."
+  acronym: "GRO"
 hero:
   search_button_label: "Search"
 login:
@@ -20,9 +21,8 @@ login:
 header:
   title:
     goe: "Göttingen Research Online"
-    bi: "PUBLICATIONS AT BIELEFELD UNIVERSITY"
-  title_long: "PUB &ndash; Publications at Bielefeld University"
-  title_person: "PUB  &ndash; Publication list of"
+  title_long: "GRO &ndash; Publications at Georg-August-University Göttingen"
+  title_person: "GRO &ndash; Publication list of"
   my_author_page: "My Publication List"
   brand: "Home"
   role_label: "Role"
