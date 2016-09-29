@@ -95,7 +95,7 @@
         [% IF lf.forms.item(type.term).label %]
           [% typeName = lf.forms.item(type.term).label %]
         [% ELSE %]
-          [% typeName = "N. n." %] <!-- TODO: translate this -->
+          [% typeName = type.term %]<!-- TODO: translate this -->
         [% END %]
 	      <li>
           <a class="facet_[%tabmodus %][% menu %]" data-key="q" data-param="type" data-value="[% type.term %]" href="#" rel="nofollow">[% typeName %] ([% type.count %])</a>
