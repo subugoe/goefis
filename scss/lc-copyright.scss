@@ -6,12 +6,12 @@
 }
 
 .lc-copyright__column {
-  @extend .col-md-6;
+  @extend .col-md-12;
   @extend .text-md-left;
   @extend .text-xs-center;
 }
 
-.lc-copyright__column--last {
-  @extend .text-md-right;
-  @extend .text-xs-center;
-}
+// .lc-copyright__column--last {
+//   @extend .text-md-right;
+//   @extend .text-xs-center;
+// }

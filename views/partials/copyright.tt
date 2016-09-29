@@ -2,11 +2,11 @@
 <div class="lc-copyright">
 	<div class="row">
 		<div class="lc-copyright__column">
-			<p class="m-y-1">Lorem ipsum dolor sit amut.</p>
+			<p class="m-y-1">Except where otherwise noted, content on this site is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 		</div>
-		<div class="lc-copyright__column lc-copyright__column--last">
+		<!-- <div class="lc-copyright__column lc-copyright__column--last">
 			<p class="m-y-1">Lorem ipsum dolor sit amut.</p>
-		</div>
+		</div> -->
 	</div>
 	<!-- Debug (Start) -->
 	<div class="row">
