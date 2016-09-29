@@ -56,7 +56,7 @@
 }
 
 .lc-footer__logo {
-  vertical-align: baseline;
+  vertical-align: middle;
   text-align: center;
   img {
     max-width: 100%;
@@ -96,7 +96,7 @@
   }
   @include media-breakpoint-up(lg) {
     svg {
-      height: 2rem;
+      height: 2.5rem;
     }
   }
 }
