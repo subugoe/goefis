@@ -78,6 +78,10 @@
 					<!-- This publication list is displayed in "[% style %]" style and sorted "[% sorto %]" -->
 					[% num = total; n = 0 %]
 
+					[% UNLESS request.path.match('marked') %]
+						[% PROCESS partials/search_field.tt %]
+					[% END %]
+
 					[% IF request.path == "/marked" %]
 						<!-- IF request.path == "/marked" -->
 						<ul class="list-unstyled" id="sortable">
