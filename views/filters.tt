@@ -19,6 +19,7 @@
   </div>
 [% END %]
 
+<span class="h3">Filters</span>
 
 <!-- include facets.tt (start) -->
   [% INCLUDE facets.tt %]
@@ -47,59 +48,44 @@
   [% END %]
 [% END %]
 
-<!-- <ul class="nav nav-tabs nav-stacked ul3[% IF backend %] helpme" data-placement="left" title="[% lf.help.display_block %][% END %]"> -->
-  [% IF (!request.path.match('person') OR bag == "person") AND !request.path.match('marked') AND total > 9 %]
-  <!-- <li> -->
-    <!-- <button data-toggle="collapse" data-target="#hitsperpage_[% tabmodus %][% menu %]" class="btn-link">[% lf.facets.hits_per_page %][% IF qp.limit %]: [% limit %][% ELSE %]: [% h.config.default_page_size %][% END %]</button> -->
-    <!-- <div class="facettecollapse"> -->
-    <!-- <ul id="hitsperpage_[% tabmodus %][% menu %]" class="collapse"> -->
-    Per page:
-      <!-- <ul> -->
-      [% FOREACH lim IN h.config.pagination_options %]
-        [% IF (qp.limit AND qp.limit == lim) OR (!qp.limit AND lim == h.config.default_page_size) %]
-          <!-- <li>[% lim %]</li> -->
-          <span class="btn btn-primary">[% lim %]</span>
-        [% ELSE %]
-          <!-- <li><a href="[% h.newuri_for($path, qp,limit="$lim") %]" rel="nofollow">[% lim %]</a></li> -->
-          <a href="[% h.newuri_for($path, qp,limit="$lim") %]" rel="nofollow" title="" class="btn btn-primary lc-neutral-button">[% lim %]</a>
-        [% END %]
+[% IF (!request.path.match('person') OR bag == "person") AND !request.path.match('marked') AND total > 9 %]
+  <span class="h5">Per page:</span><!-- TODO: translate this -->
+  [% FOREACH lim IN h.config.pagination_options %]
+    [% IF (qp.limit AND qp.limit == lim) OR (!qp.limit AND lim == h.config.default_page_size) %]
+      <span class="btn btn-primary">[% lim %]</span>
+    [% ELSE %]
+      <a href="[% h.newuri_for($path, qp,limit="$lim") %]" rel="nofollow" title="" class="btn btn-primary lc-neutral-button">[% lim %]</a>
+    [% END %]
+  [% END %]
+[% END %]
+
+[% IF !request.path.match('marked') AND total > 1 %]
+  <span class="h5">[% lf.facets.item('sort') %]</span>
+  <ul class="list-unstyled">
+    [% IF bag == "person" %]
+      [% sort_options = h.config.sort_options_person %]
+    [% ELSE %]
+      [% sort_options = h.config.sort_options %]
+    [% END %]
+    [% FOREACH s IN sort_options %]
+      [% gray = "" %]
+      [% FOREACH qs IN qp.item('sort') %][% IF qs == s _ ".asc" OR qs == s _ ".desc" %]
+        [% gray = "yes" %]
       [% END %]
-    <!-- </ul> -->
-    <!-- </div> -->
-  <!-- </li> -->
-  [% END %]
-  [% IF !request.path.match('marked') AND total > 1 %]
-  <!-- <li> -->
-    <button data-toggle="collapse" data-target="#sort_[% tabmodus %][% menu %]" class="btn-link">[% lf.facets.item('sort') %]</button>
-    <div class="facettecollapse">
-      <ul id="sort_[% tabmodus %][% menu %]" class="collapse list-unstyled">
-        [% IF bag == "person" %]
-          [% sort_options = h.config.sort_options_person %]
-        [% ELSE %]
-          [% sort_options = h.config.sort_options %]
-        [% END %]
+    [% END %]
 
-        [% FOREACH s IN sort_options %]
-          [% gray = "" %]
-          [% FOREACH qs IN qp.item('sort') %][% IF qs == s _ ".asc" OR qs == s _ ".desc" %]
-            [% gray = "yes" %]
-          [% END %]
-        [% END %]
-
-        [% IF gray %]
-          [% lf.sort_options.$s %]<br />
-        [% ELSE %]
-          <li>
-            <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow">[% lf.sort_options.$s %]</a>
-            <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow">[up]</a>
-            <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].desc" rel="nofollow">[down]</a>
-          </li>
-        [% END %]
-        [% END %]
-      </ul>
-    </div>
-  <!-- </li> -->
+    [% IF gray %]
+      [% lf.sort_options.$s %]<br />
+    [% ELSE %]
+      <li>
+        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow">[% lf.sort_options.$s %]</a>
+        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow">[up]</a>
+        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].desc" rel="nofollow">[down]</a>
+      </li>
+    [% END %]
   [% END %]
+  </ul>
+[% END %]
 
 [% IF hits.0.citation %]
   <button data-toggle="collapse" data-target="#style_[% tabmodus %][% menu %]" class="btn-link">[% lf.facets.citation_style %][% IF style != "default" AND style != "" %]: [% style %][% ELSIF style == "default" %]: default[% END %]</button>
