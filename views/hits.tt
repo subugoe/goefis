@@ -24,14 +24,12 @@
 						    [%- CALL removed.import(qp.q) -%]
 						    [%- CALL removed.splice(loop.index, 1) -%]
 						    [% val |html %],
-
 						  [%- END %]
 						[%- END %]
 						[% total %]
 
 						[% IF total == 1 %]
 						<!-- IF total == 1 (Start) -->
-
 							[% IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" %]
 							<!-- IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" (Start) -->
 								[% lf.hits.data_publication %]

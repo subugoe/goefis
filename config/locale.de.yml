@@ -335,7 +335,7 @@ sort_options:
   title: "Titel"
   author: "Erstautor"
   type: "Publikationstyp"
-  publication: "Reihe/ Journal"
+  publication: "Reihe/Journal"
   fullname: "Alphabetisch"
   publcount: "Anzahl der Publikationen"
   name: "Name"

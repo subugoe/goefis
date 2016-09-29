@@ -2,7 +2,7 @@
 <!-- BEGIN facets.tt -->
 [% UNLESS request.path == "/marked" %]
   [% IF qp.q.size == 0 %]
-    <h2>Filters</h2><!-- TODO: translate this -->
+    <span class="h3">Filters</span><!-- TODO: translate this -->
   [% END %]
 [% END %]
 

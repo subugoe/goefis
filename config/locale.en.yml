@@ -330,14 +330,14 @@ mark:
   mark_unmark: "Mark/Unmark publication"
   back_general: "Back"
   back_person: "Back to person page"
-  display_export: "Display / Export"
+  display_export: "Display/Export"
 sort_options:
   year: "Publishing year"
   date_updated: Date updated
   title: "Title"
   author: "First Author"
   type: "Publication Type"
-  publication: "Publ./ Series/ Journal"
+  publication: "Publ/Series/Journal"
   fullname: "Alphabetically"
   publcount: "Number of publications"
   name: "Name"
