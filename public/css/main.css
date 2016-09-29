@@ -4248,13 +4248,13 @@ a.bg-danger:focus, a.bg-danger:hover {
 .m-a-2 {
   margin: 0.75rem 0.75rem !important; }
 
-.m-t-2, .lc-pagination {
+.m-t-2, .lc-footer__logo-wrap div, .lc-pagination {
   margin-top: 0.75rem !important; }
 
 .m-r-2 {
   margin-right: 0.75rem !important; }
 
-.m-b-2, .lc-topbar__wrap, .lc-menu, .lc-title__wrap, .lc-hero__wrap, .lc-features__wrap, .lc-feature, .lc-hit, .lc-footer__column, .lc-footer__header {
+.m-b-2, .lc-topbar__wrap, .lc-menu, .lc-title__wrap, .lc-hero__wrap, .lc-features__wrap, .lc-feature, .lc-hit, .lc-footer__column, .lc-footer__header, .lc-footer__logo-wrap div, .lc-footer__logo--sub {
   margin-bottom: 0.75rem !important; }
 
 .m-l-2 {
@@ -4552,6 +4552,36 @@ h6 {
 .lc-footer__login-button-wrap {
   text-align: right; }
 
+.lc-footer__logo {
+  vertical-align: baseline;
+  text-align: center; }
+  .lc-footer__logo img {
+    max-width: 100%; }
+  @media (min-width: 992px) {
+    .lc-footer__logo {
+      padding-right: 1rem;
+      width: 32%;
+      display: inline-block; }
+      .lc-footer__logo img {
+        height: 3rem; } }
+
+.lc-footer__logo--uni img {
+  height: 4rem; }
+
+.lc-footer__logo--sub img {
+  height: 4rem; }
+
+@media (min-width: 768px) {
+  .lc-footer__logo--sub img {
+    height: 3rem; } }
+
+.lc-footer__logo--librecat svg {
+  height: 4rem; }
+
+@media (min-width: 992px) {
+  .lc-footer__logo--librecat svg {
+    height: 2rem; } }
+
 .lc-copyright {
   font-weight: 300;
   font-size: 66.66%; }
@@ -4564,9 +4594,6 @@ h6 {
 
 .lc-icon--on-dark {
   fill: #fff; }
-
-.lc-logo-librecat {
-  height: 100px; }
 
 .lc-logo-librecat .stroke-black {
   stroke: #000; }
