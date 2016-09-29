@@ -44,3 +44,59 @@
   @extend .lc-neutral-textinput;
   @extend .lc-neutral-textinput--on-dark;
 }
+
+.lc-footer__logo-wrap {
+  div {
+    @extend .m-t-2;
+    @extend .m-b-2;
+    // &:last-child() {
+    //   @extend .m-b-0;
+    // }
+  }
+}
+
+.lc-footer__logo {
+  vertical-align: baseline;
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
+  @include media-breakpoint-up(lg) {
+    // @extend .p-r-2;
+    padding-right: ($spacer*2);
+    width: 32%;
+    display: inline-block;
+    img {
+      height: 3rem;
+    }
+  }
+}
+
+.lc-footer__logo--uni {
+  img {
+    height: 4rem;
+  }
+}
+
+.lc-footer__logo--sub {
+  @extend .m-b-2;
+  img {
+    height: 4rem;
+  }
+  @include media-breakpoint-up(md) {
+    img {
+      height: 3rem;
+    }
+  }
+}
+
+.lc-footer__logo--librecat {
+  svg {
+    height: 4rem;
+  }
+  @include media-breakpoint-up(lg) {
+    svg {
+      height: 2rem;
+    }
+  }
+}
