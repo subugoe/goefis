@@ -23,7 +23,7 @@
   [% END %]
 </form>
 [%- IF (qp.q.size > 0 AND !qp.embed) OR pd.delete_them %]
-  Current Search:<!-- TODO: translate this -->
+  Current Search/Filter:<!-- TODO: translate this -->
   [% other = {} %]
   [% CALL other.import(qp) %]
   [% CALL other.delete('q') %]
