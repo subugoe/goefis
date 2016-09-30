@@ -79,8 +79,8 @@
     [% ELSE %]
       <li>
         <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow">[% lf.sort_options.$s %]</a>
-        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow">[up]</a>
-        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].desc" rel="nofollow">[down]</a>
+        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-arrow-up"></use></svg></a>
+        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].desc" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-arrow-down"></use></svg></a>
       </li>
     [% END %]
   [% END %]
