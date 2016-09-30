@@ -31,6 +31,6 @@
     [%- removed = [] -%]
     [%- CALL removed.import(qp.q) -%]
     [%- CALL removed.splice(loop.index, 1) -%]
-    [% val |html %] <a href="[% path %]?q=[% removed.join('&q=') %][% h.hash_to_url(other) %]" rel="nofollow">[X]</a>[% UNLESS loop.last %], [% END %]
+    <a href="[% path %]?q=[% removed.join('&q=') %][% h.hash_to_url(other) %]" rel="nofollow" class="label label-default">[% val |html %] [X]</a> 
   [%- END %]
 [%- END %]
