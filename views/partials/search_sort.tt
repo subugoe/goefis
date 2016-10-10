@@ -1,0 +1,37 @@
+<div class="lc-search-sort__heading">[% lf.facets.item('sort') %]</div>
+
+[% IF qp.item('sort') %]
+  <a href="[% h.newuri_for("$path", qp, sort="") %]" rel="nofollow">[remove]</a>
+  [% lf.facets.sorted_by %]:
+  [% FOREACH setting IN qp.item('sort') %]
+    [% lf.facets.sort_text.$setting %]
+    [% UNLESS loop.last %], [% END %]
+  [% END %]
+[% END %]
+
+[% IF !request.path.match('marked') AND total > 1 %]
+  <ul class="list-unstyled">
+    [% IF bag == "person" %]
+      [% sort_options = h.config.sort_options_person %]
+    [% ELSE %]
+      [% sort_options = h.config.sort_options %]
+    [% END %]
+    [% FOREACH s IN sort_options %]
+      [% gray = "" %]
+      [% FOREACH qs IN qp.item('sort') %][% IF qs == s _ ".asc" OR qs == s _ ".desc" %]
+        [% gray = "yes" %]
+      [% END %]
+    [% END %]
+
+    [% IF gray %]
+      [% lf.sort_options.$s %]<br />
+    [% ELSE %]
+      <li>
+        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow">[% lf.sort_options.$s %]</a>
+        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].asc" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-arrow-up"></use></svg></a>
+        <a href="#" class="facet_[% tabmodus %]" data-key="sort" data-value="[% s %].desc" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-arrow-down"></use></svg></a>
+      </li>
+    [% END %]
+  [% END %]
+  </ul>
+[% END %]
