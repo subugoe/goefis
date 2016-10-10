@@ -22,9 +22,8 @@
 <span class="h3">Filters</span>
 
 <!-- include facets.tt (start) -->
-  [% INCLUDE facets.tt %]
+[% PROCESS facets.tt %]
 <!-- end include facets.tt (end) -->
-
 
 [% IF hits.0.citation OR total > 1 %]
 
@@ -170,9 +169,9 @@
 $('.rtfmodal').click(function(){
   $('#[% bag == "data" ? "myRdModal" : "myModal" %]').modal('hide');
 });
+
 var path = '[% request.path %]',
 searchParams = [% qp.json %];
-
 $('#id_button_embed_[% tabmodus %][% menu %]').click(function() {
     var embed_link = window.location.href;
     delete searchParams.fmt;
