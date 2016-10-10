@@ -128,10 +128,10 @@
     <ul class="lc-facette__list">
 	    [% FOREACH au IN facets.author.terms %]
         <!-- check if author name is avaliable. if not show author id instead (start) -->
-        [% IF authors.item(au.term).defined %]
-          [% name = authors.item(au.term) %]
-        [% ELSE %]
+        [% IF authors.item(au.term).length < 1 %]
           [% name = au.term %]
+        [% ELSE %]
+          [% name = authors.item(au.term) %]
         [% END %]
         <!-- check if author name is avaliable. if not show author id instead (end) -->
 	      <li>
