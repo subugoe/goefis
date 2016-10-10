@@ -1,7 +1,7 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "at-rule-empty-line-before": "never",
+    "at-rule-empty-line-before": ["always", { ignore: [ "after-comment", "blockless-after-same-name-blockless", "all-nested" ] }],
     "at-rule-no-vendor-prefix": true,
     "color-named": "never",
     "comment-no-empty": true,
