@@ -65,7 +65,7 @@
 [% END %]
 
 [% IF qp.timescited && entry.metrics.timesCited %]
-	<a href="[% entry.metrics.citingURL %]" target="_parent">WOS&reg; Times Cited: [% entry.metrics.timesCited %]</a>
+	<a href="[% entry.metrics.citingURL %]" target="_parent">WOS&reg; Times Cited: [% entry.metrics.timesCited %]</a><!-- TODO: translate this -->
 [% END %]
 
 
