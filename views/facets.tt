@@ -1,10 +1,10 @@
 [%- If !facets -%][% RETURN %][% END %]
 <!-- BEGIN facets.tt -->
-[% UNLESS request.path == "/marked" %]
+<!-- [% UNLESS request.path == "/marked" %]
   [% IF qp.q.size == 0 %]
-    <span class="h3">Filters</span><!-- TODO: translate this -->
+    <span class="h3">Filters</span>
   [% END %]
-[% END %]
+[% END %] -->
 
 [% UNLESS request.path == "/marked" %]
 
@@ -91,8 +91,11 @@
           [% END %]
 
   [% IF facets.type.terms.size > 1 %]
-    [% lf.facets.publication_type %]
-    <ul class="list-unstyled">
+  <!-- IF facets.type.terms.size > 1 (START) -->
+    <div class="lc-search-filter__sub-heading">
+      [% lf.facets.publication_type %]
+    </div>
+    <ul class="lc-facette__list">
 	    [% FOREACH type IN facets.type.terms %]
         [% IF lf.forms.item(type.term).label %]
           [% typeName = lf.forms.item(type.term).label %]
@@ -100,7 +103,7 @@
           [% typeName = type.term %]<!-- TODO: translate this -->
         [% END %]
 	      <li>
-          <a class="facet_[%tabmodus %][% menu %]" data-key="q" data-param="type" data-value="[% type.term %]" href="#" rel="nofollow">[% typeName %] ([% type.count %])</a>
+          <a class="facet_[%tabmodus %][% menu %]" data-key="q" data-param="type" data-value="[% type.term %]" href="#" rel="nofollow">[% typeName %]</a> <span class="label label-default">[% type.count %]</span>
         </li>
 	    [% END %]
     </ul>
@@ -108,23 +111,31 @@
   [% END %]
 
   [% IF facets.author.terms.size > 1 %]
-
-  [% query = "id=(" %]
-  [% FOREACH au IN facets.author.terms %]
-   [% query = query _ au.term %]
-   [% UNLESS loop.last %]
+    [% query = "id=(" %]
+    [% FOREACH au IN facets.author.terms %]
+      [% query = query _ au.term %]
+      [% UNLESS loop.last %]
       [% query = query _  " OR " %]
-   [% END %]
-  [% END %]
-  [% query = query _ ")" %]
-  [% p.q = []; p.q.push(query); p.get_person = 1 %]
-  [% authors = h.search_researcher(p) %]
-  [% lf.facets.current_authors %]
-    <ul class="list-unstyled">
+      [% END %]
+    [% END %]
+    [% query = query _ ")" %]
+    [% p.q = []; p.q.push(query); p.get_person = 1 %]
+    [% authors = h.search_researcher(p) %]
+    <!-- [% lf.facets.current_authors %] -->
+    <div class="lc-search-filter__sub-heading">
+      Authors<!-- TODO: translate this -->
+    </div>
+    <ul class="lc-facette__list">
 	    [% FOREACH au IN facets.author.terms %]
-        [% name = authors.item(au.term) %]
+        <!-- check if author name is avaliable. if not show author id instead (start) -->
+        [% IF authors.item(au.term).defined %]
+          [% name = authors.item(au.term) %]
+        [% ELSE %]
+          [% name = au.term %]
+        [% END %]
+        <!-- check if author name is avaliable. if not show author id instead (end) -->
 	      <li>
-          <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="author" data-value="[% au.term %]" href="#" rel="nofollow" title="">[% name %] ([% au.count %])</a>
+          <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="author" data-value="[% au.term %]" href="#" rel="nofollow" title="">[% name %]</a> <span class="label label-default">[% au.count %]</span>
         </li>
 	    [% END %]
     </ul>
@@ -141,20 +152,24 @@
     [% query = query _ ")" -%]
     [% p.q = []; p.q.push(query); p.get_person = 1 -%]
     [% editors = h.search_researcher(p) -%]
-    [% lf.facets.current_editors %]
-    <ul class="list-unstyled">
+    <div class="lc-search-filter__sub-heading">
+      [% lf.facets.current_editors %]
+    </div>
+    <ul class="lc-facette__list">
       [% FOREACH ed IN facets.editor.terms %]
         [% name = editors.item(ed.term) %]
         <li>
-          <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="editor" data-value="[% ed.term %]" href="#" rel="nofollow">[% name %] ([% ed.count %])</a>
+          <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="editor" data-value="[% ed.term %]" href="#" rel="nofollow">[% name %]</a> <span class="label label-default">[% ed.count %]</span>
         </li>
       [% END %]
     </ul>
   [% END %]
 
     [% IF facets.year.terms.size > 1 %]
-      [% lf.facets.publishing_year %]
-        <ul class="list-unstyled">
+      <div class="lc-search-filter__sub-heading">
+        [% lf.facets.publishing_year %]
+      </div>
+        <ul class="lc-facette__list">
           [% FOREACH y IN facets.year.terms %]
             [%- year = (y.term) / 1000; -%]
               [%- IF year == '0' -%]
@@ -163,7 +178,7 @@
                 [%- yf = date.format(year); -%]
               [%- END -%]
               <li>
-                <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="year" data-value="[% yf %]" href="#" title="" rel="nofollow">[% yf %] ([% y.count %])</a>
+                <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="year" data-value="[% yf %]" href="#" title="" rel="nofollow">[% yf %]</a> <span class="label label-default">[% y.count %]</span>
               </li>
             [% END %]
           </ul>
@@ -180,9 +195,9 @@
     [% END %]
 
     [% IF (facets.popular_science.terms.size || 0) > 0 OR (facets.extern.terms.size || 0) > 0 OR (facets.open_access.terms.size || 0) > 0 OR (facets.isi.terms.size || 0) > 0 OR (facets.pmid.terms.size || 0) > 0 %]
-      <ul class="nav nav-tabs nav-stacked  ul2 helpme" data-placement="left">
+      <!-- <ul> -->
         [% IF (facets.popular_science.terms.size || 0) > 0 %]
-          <li class="ul2li1">
+          <!-- <li> -->
             [% FOREACH t IN facets.popular_science.terms %]
               [% IF t.count < total %]
                 <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="popularscience" data-value="1" href="#" rel="nofollow">[% t.count %] [% lf.facets.popular_science %]</a>
@@ -219,27 +234,33 @@
 
 
         [% IF (facets.isi.terms.size || 0) > 0 OR (facets.pmid.terms.size || 0) > 0 %]
-          <li class="ul2li4">
-          [% lf.facets.indexed_in %]<br>
+          <!-- <li> -->
+          <div class="lc-search-filter__sub-heading">
+            [% lf.facets.indexed_in %]
+          </div>
+          <ul class="lc-facette__list">
           [% IF facets.isi.terms.0.count %]
             [% IF facets.isi.terms.0.count < total %]
-              <li>
-                <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="isi" data-value="1" href="#" rel="nofollow">[% facets.isi.terms.0.count %] Web of Science</a>
-              </li>
+              <!-- <li> -->
+                <li><a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="isi" data-value="1" href="#" rel="nofollow">Web of Science</a> <span class="label label-default">[% facets.isi.terms.0.count %]</span></li><!-- TODO: translate this -->
+              <!-- </li> -->
             [% ELSE %]
-              [% lf.facets.all_isi %]
+              <!-- <div>[% lf.facets.all_isi %]</div> -->
+              <li>Web of Science <span class="label label-default">ALL</span></li><!-- TODO: translate this -->
             [% END %]
           [% END %]
           [% IF facets.pmid.terms.0.count %]
             [% IF facets.pmid.terms.0.count < total %]
-              <li>
-                <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="pmid" data-value="1" href="#" rel="nofollow">[% facets.pmid.terms.0.count %] Pubmed</a>
-              </li>
+              <!-- <li> -->
+                <li><a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="pmid" data-value="1" href="#" rel="nofollow">Pubmed</a> <span class="label label-default">[% facets.pmid.terms.0.count %]</span></li><!-- TODO: translate this -->
+              <!-- </li> -->
             [% ELSE %]
-              [% lf.facets.all_pubmed %]
+              <!-- [% lf.facets.all_pubmed %] -->
+              <li>PubMed <span class="label label-default">ALL</span></li><!-- TODO: translate this -->
             [% END %]
           [% END %]
-        </li>
+          </ul>
+        <!-- </li> -->
       [% END %]
     <!-- </ul> -->
   [% END %]
