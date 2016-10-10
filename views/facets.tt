@@ -29,6 +29,7 @@
 
 
     [% IF facets.status.terms.size > 1 && backend %]
+    <!-- IF facets.status.terms.size > 1 && backend (START) -->
       <ul>
         [% FOREACH stat IN facets.status.terms %]
           <li>
@@ -36,6 +37,7 @@
           </li>
         [% END %]
       </ul>
+    <!-- IF facets.status.terms.size > 1 && backend (END) -->
     [% END %]
 
     [% IF backend AND session.role == "super_admin" OR facets.type.terms.size > 1 OR  facets.author.terms.size > 1 OR facets.editor.terms.size > 1 OR  facets.year.terms.size > 1 %]
@@ -102,6 +104,7 @@
         </li>
 	    [% END %]
     </ul>
+  <!-- IF facets.type.terms.size > 1 (END) -->
   [% END %]
 
   [% IF facets.author.terms.size > 1 %]
@@ -128,7 +131,6 @@
   [% END %]
 
   [% IF facets.editor.terms.size > 1 %]
-
     [% query = "id=(" %]
     [% FOREACH ed IN facets.editor.terms %]
       [% query = query _ ed.term %]
@@ -192,7 +194,7 @@
         [% END %]
 
         [% IF (facets.extern.terms.size || 0) > 0 %]
-          <li class="ul2li2">
+          <!-- <li> -->
             [% FOREACH t IN facets.extern.terms %]
               [% IF t.count < total %]
                 <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="extern" data-value="1" href="#" rel="nofollow">[% t.count %] [% lf.facets.external_publication %]</a>
@@ -200,11 +202,11 @@
                 <div class="text-success">[% lf.facets.all_external_publication %]</div>
               [% END %]
             [% END %]
-          </li>
+          <!-- </li> -->
         [% END %]
 
         [% IF (facets.open_access.terms.size || 0) > 0 %]
-          <li class="ul2li3">
+          <!-- <li> -->
             [% FOREACH t IN facets.open_access.terms %]
               [% IF t.count < total %]
                 <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="fulltext" data-value="1" href="#" rel="nofollow">[% t.count %] [% lf.facets.fulltext %]</a>
@@ -212,7 +214,7 @@
                 <div class="text-success  ">[% lf.facets.all_fulltext %]</div>
               [% END %]
             [% END %]
-          </li>
+          <!-- </li> -->
         [% END %]
 
 
@@ -239,7 +241,7 @@
           [% END %]
         </li>
       [% END %]
-    </ul>
+    <!-- </ul> -->
   [% END %]
 
 [% END %] <!-- marked -->
