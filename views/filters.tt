@@ -58,25 +58,8 @@
 </div>
 
 <script>
-  // var path = '[% request.path %]',
-  // searchParams = [% qp.json %];
-  //
-  // var embed_link = window.location.href;
-  // delete searchParams.fmt;
-  // var regex = /\/person\/(\d{1,})/;
-  // var match = regex.exec(embed_link);
-  // if (match) {
-  //   embed_link = embed_link.replace(/\/person\/\d{1,}\/data\.*/, '/data?');
-  //   embed_link = embed_link.replace(/\/person\/\d{1,}.*/, '/publication?');
-  //   embed_link = embed_link + $.param($.extend({}, searchParams), true);
-  // }
-  // if ( !embed_link.match(/\?/) ) { embed_link += '?';}
-  // var emb_js = '<script type="text/javascript" charset="UTF-8" src="'+ embed_link +'&ftyp=js"><\/script><noscript><a href="'+ embed_link +'">[% lf.facets.embed_linktext %]</a></noscript>';
-  // var emb_iframe = '<iframe frameborder="0" width="726" height="300" src="' + embed_link + '&ftyp=iframe"></iframe>';
-  // var emb_link = '<a href="'+ window.location.href +'">[% lf.facets.embed_linktext %]</a>';
-  // $('#id_jstext_[% tabmodus %][% menu %]').val(emb_js);
-  // $('#id_iframetext_[% tabmodus %][% menu %]').val(emb_iframe);
-  // $('#id_linktext_[% tabmodus %][% menu %]').val(emb_link);
+  var path = '[% request.path %]',
+  searchParams = [% qp.json %];
 
   $('a.facet_[% tabmodus %]').click(function() {
     var par_key = $(this).data('key');
