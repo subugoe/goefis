@@ -25,9 +25,9 @@
   <ul class="lc-search-display__list">
     [% FOREACH dstyle IN h.config.citation.csl.styles %]
       [% IF dstyle == style %]
-        <li class="lc-search-display__item--inline"><a class="btn btn-primary btn-sm" href="[% h.newuri_for("$path", qp, style="") %]" rel="nofollow">[X] [% dstyle %]</a></li>
+        <li class="lc-search-display__item--inline lc-search-citation__button"><a class="btn btn-primary lc-neutral-button btn-sm" href="[% h.newuri_for("$path", qp, style="") %]" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-x"></use></svg> [% dstyle %]</a></li>
       [% ELSE %]
-        <li class="lc-search-display__item--inline"><a class="btn btn-primary lc-neutral-button btn-sm" href="[% h.newuri_for("$path", qp, style="$dstyle") %]" rel="nofollow" title="">[% dstyle %]</a></li>
+        <li class="lc-search-display__item--inline lc-search-citation__button"><a class="btn btn-primary lc-neutral-button btn-sm" href="[% h.newuri_for("$path", qp, style="$dstyle") %]" rel="nofollow" title="">[% dstyle %]</a></li>
       [% END %]
     [% END %]
   </ul>

@@ -25,3 +25,8 @@
   @extend .btn-sm;
   @extend .lc-neutral-button;
 }
+
+.lc-search-citation__button {
+  @extend .m-b-1;
+  @extend .m-r-1;
+}

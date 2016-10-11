@@ -4261,10 +4261,10 @@ a.bg-danger:focus, a.bg-danger:hover {
 .m-t-1 {
   margin-top: 0.5rem !important; }
 
-.m-r-1, .lc-topbar__linklist li:not(:last-child) ::after {
+.m-r-1, .lc-topbar__linklist li:not(:last-child) ::after, .lc-search-citation__button {
   margin-right: 0.5rem !important; }
 
-.m-b-1, .lc-facette__heading, .lc-results__wrap {
+.m-b-1, .lc-facette__heading, .lc-search-citation__button, .lc-results__wrap {
   margin-bottom: 0.5rem !important; }
 
 .m-l-1, .lc-topbar__linklist li:not(:last-child) ::after {
