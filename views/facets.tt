@@ -165,105 +165,32 @@
     </ul>
   [% END %]
 
-    [% IF facets.year.terms.size > 1 %]
-      <div class="lc-search-filter__sub-heading">
-        [% lf.facets.publishing_year %]
-      </div>
-        <ul class="lc-facette__list">
-          [% FOREACH y IN facets.year.terms %]
-            [%- year = (y.term) / 1000; -%]
-              [%- IF year == '0' -%]
-                [%- yf = '1970' -%]
-              [%- ELSE -%]
-                [%- yf = date.format(year); -%]
-              [%- END -%]
-              <li>
-                <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="year" data-value="[% yf %]" href="#" title="" rel="nofollow">[% yf %]</a> <span class="label label-default">[% y.count %]</span>
-              </li>
-            [% END %]
-          </ul>
-        [% END %]
-      [% END %]
-    [% END %]
-
-    [% IF session.role == "super_admin" AND backend %]
-      <ul class="nav nav-tabs nav-stacked  ul2">
+  <!-- IF facets.year.terms.size > 1 (start) -->
+  [% IF facets.year.terms.size > 1 %]
+    <div class="lc-search-filter__sub-heading">
+      [% lf.facets.publishing_year %]
+    </div>
+    <ul class="lc-facette__list">
+      [% FOREACH y IN facets.year.terms %]
+        [%- year = (y.term) / 1000; -%]
+        [%- IF year == '0' -%]
+          [%- yf = '1970' -%]
+        [%- ELSE -%]
+          [%- yf = date.format(year); -%]
+        [%- END -%]
         <li>
-          <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="foda" data-value="1" href="#" rel="nofollow">[% facets.foda.terms.0.count %] FoDa Records</a>
+          <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="year" data-value="[% yf %]" href="#" title="" rel="nofollow">[% yf %]</a> <span class="label label-default">[% y.count %]</span>
         </li>
-      </ul>
-    [% END %]
-
-    [% IF (facets.popular_science.terms.size || 0) > 0 OR (facets.extern.terms.size || 0) > 0 OR (facets.open_access.terms.size || 0) > 0 OR (facets.isi.terms.size || 0) > 0 OR (facets.pmid.terms.size || 0) > 0 %]
-      <!-- <ul> -->
-        [% IF (facets.popular_science.terms.size || 0) > 0 %]
-          <!-- <li> -->
-            [% FOREACH t IN facets.popular_science.terms %]
-              [% IF t.count < total %]
-                <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="popularscience" data-value="1" href="#" rel="nofollow">[% t.count %] [% lf.facets.popular_science %]</a>
-              [% ELSE %]
-                <div class="text-success">[% lf.facets.all_popular_science %]</div>
-              [% END %]
-            [% END %]
-          </li>
-        [% END %]
-
-        [% IF (facets.extern.terms.size || 0) > 0 %]
-          <!-- <li> -->
-            [% FOREACH t IN facets.extern.terms %]
-              [% IF t.count < total %]
-                <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="extern" data-value="1" href="#" rel="nofollow">[% t.count %] [% lf.facets.external_publication %]</a>
-              [% ELSE %]
-                <div class="text-success">[% lf.facets.all_external_publication %]</div>
-              [% END %]
-            [% END %]
-          <!-- </li> -->
-        [% END %]
-
-        [% IF (facets.open_access.terms.size || 0) > 0 %]
-          <!-- <li> -->
-            [% FOREACH t IN facets.open_access.terms %]
-              [% IF t.count < total %]
-                <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="fulltext" data-value="1" href="#" rel="nofollow">[% t.count %] [% lf.facets.fulltext %]</a>
-              [% ELSE %]
-                <div class="text-success  ">[% lf.facets.all_fulltext %]</div>
-              [% END %]
-            [% END %]
-          <!-- </li> -->
-        [% END %]
-
-
-        [% IF (facets.isi.terms.size || 0) > 0 OR (facets.pmid.terms.size || 0) > 0 %]
-          <!-- <li> -->
-          <div class="lc-search-filter__sub-heading">
-            [% lf.facets.indexed_in %]
-          </div>
-          <ul class="lc-facette__list">
-          [% IF facets.isi.terms.0.count %]
-            [% IF facets.isi.terms.0.count < total %]
-              <!-- <li> -->
-                <li><a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="isi" data-value="1" href="#" rel="nofollow">Web of Science</a> <span class="label label-default">[% facets.isi.terms.0.count %]</span></li><!-- TODO: translate this -->
-              <!-- </li> -->
-            [% ELSE %]
-              <!-- <div>[% lf.facets.all_isi %]</div> -->
-              <li>Web of Science <span class="label label-default">ALL</span></li><!-- TODO: translate this -->
-            [% END %]
-          [% END %]
-          [% IF facets.pmid.terms.0.count %]
-            [% IF facets.pmid.terms.0.count < total %]
-              <!-- <li> -->
-                <li><a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="pmid" data-value="1" href="#" rel="nofollow">Pubmed</a> <span class="label label-default">[% facets.pmid.terms.0.count %]</span></li><!-- TODO: translate this -->
-              <!-- </li> -->
-            [% ELSE %]
-              <!-- [% lf.facets.all_pubmed %] -->
-              <li>PubMed <span class="label label-default">ALL</span></li><!-- TODO: translate this -->
-            [% END %]
-          [% END %]
-          </ul>
-        <!-- </li> -->
       [% END %]
-    <!-- </ul> -->
+    </ul>
+    [% END %]
   [% END %]
+  <!-- IF facets.year.terms.size > 1 (end) -->
+
+[% END %]
+
+[% PROCESS partials/search_publicationcategory.tt %]
+[% PROCESS partials/search_indexedin.tt%]
 
 [% END %] <!-- marked -->
 
