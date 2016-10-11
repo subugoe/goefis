@@ -39,14 +39,6 @@
   [% PROCESS partials/search_export.tt %]
   [% PROCESS partials/search_embed.tt %]
 
-[% UNLESS backend OR request.path.match('marked') OR request.path.match('embed') OR qp.ftyp %]
-  <h4>[% lf.facets.embed %]</h4>
-  [% FOREACH emb IN ['js', 'iframe', 'link'] %]
-    [% emb %]
-    <textarea class="form-control embed-facet_[% tabmodus %]" name="[% emb %]text" rows="2" id="id_[% emb %]text_[% tabmodus %][% menu %]" onclick="this.focus();this.select()" readonly="readonly" style="cursor:pointer;"></textarea>
-  [% END %]
-[% END %]
-
 [% END %] <!-- unless bag person -->
 
 <!-- Modal -->
@@ -66,53 +58,49 @@
 </div>
 
 <script>
+  // var path = '[% request.path %]',
+  // searchParams = [% qp.json %];
+  //
+  // var embed_link = window.location.href;
+  // delete searchParams.fmt;
+  // var regex = /\/person\/(\d{1,})/;
+  // var match = regex.exec(embed_link);
+  // if (match) {
+  //   embed_link = embed_link.replace(/\/person\/\d{1,}\/data\.*/, '/data?');
+  //   embed_link = embed_link.replace(/\/person\/\d{1,}.*/, '/publication?');
+  //   embed_link = embed_link + $.param($.extend({}, searchParams), true);
+  // }
+  // if ( !embed_link.match(/\?/) ) { embed_link += '?';}
+  // var emb_js = '<script type="text/javascript" charset="UTF-8" src="'+ embed_link +'&ftyp=js"><\/script><noscript><a href="'+ embed_link +'">[% lf.facets.embed_linktext %]</a></noscript>';
+  // var emb_iframe = '<iframe frameborder="0" width="726" height="300" src="' + embed_link + '&ftyp=iframe"></iframe>';
+  // var emb_link = '<a href="'+ window.location.href +'">[% lf.facets.embed_linktext %]</a>';
+  // $('#id_jstext_[% tabmodus %][% menu %]').val(emb_js);
+  // $('#id_iframetext_[% tabmodus %][% menu %]').val(emb_iframe);
+  // $('#id_linktext_[% tabmodus %][% menu %]').val(emb_link);
 
-var path = '[% request.path %]',
-searchParams = [% qp.json %];
-$('#id_button_embed_[% tabmodus %][% menu %]').click(function() {
-    var embed_link = window.location.href;
-    delete searchParams.fmt;
-    var regex = /\/person\/(\d{1,})/;
-    var match = regex.exec(embed_link);
-    if(match){
-      embed_link = embed_link.replace(/\/person\/\d{1,}\/data\.*/,"/data?");
-      embed_link = embed_link.replace(/\/person\/\d{1,}.*/,"/publication?");
-      embed_link = embed_link + $.param($.extend({}, searchParams), true);
+  $('a.facet_[% tabmodus %]').click(function() {
+    var par_key = $(this).data('key');
+    if(par_key == "sort"){
+      if(!searchParams[par_key]){
+        searchParams[par_key] = [];
+      }
+      searchParams[par_key].push($(this).data('value'));
+    } else if(par_key == "q"){
+      searchParams[par_key].push($(this).data('param') + "=" + $(this).data('value'));
+    } else {
+      searchParams[par_key] = $(this).data('value');
     }
-    if ( !embed_link.match(/\?/) ) { embed_link += '?';}
-    var emb_js = '<div class="publ"><script type="text/javascript" charset="UTF-8" src="'+ embed_link +'&ftyp=js"><\/script><noscript><a href="'+ embed_link +'" target="_blank">[% lf.facets.embed_linktext %]</a></noscript></div>';
-    var emb_iframe = '<iframe id="pubIFrame" name="pubIFrame" frameborder="0" width="726" height="300" src="' + embed_link + '&ftyp=iframe"></iframe>';
-    var emb_link = '<a href="'+ window.location.href +'">[% lf.facets.embed_linktext %]</a>';
-    $('#id_jstext_[% tabmodus %][% menu %]').val(emb_js);
-    $('#id_iframetext_[% tabmodus %][% menu %]').val(emb_iframe);
-    $('#id_linktext_[% tabmodus %][% menu %]').val(emb_link);
-});
-
-$('a.facet_[% tabmodus %]').click(function() {
-  var par_key = $(this).data('key');
-  if(par_key == "sort"){
-    if(!searchParams[par_key]){
-      searchParams[par_key] = [];
+    if (par_key == "q") {
+      delete searchParams.start;
+      delete searchParams.fmt;
     }
-    searchParams[par_key].push($(this).data('value'));
-  }
-  else if(par_key == "q"){
-    searchParams[par_key].push($(this).data('param') + "=" + $(this).data('value'));
-  }
-  else {
-    searchParams[par_key] = $(this).data('value');
-  }
-  if(par_key == "q"){
-    delete searchParams.start;
-    delete searchParams.fmt;
-  }
-  var url = path+'?'+ $.param($.extend({}, searchParams), true);
-  window.location.replace(url);
-});
+    var url = path+'?'+ $.param($.extend({}, searchParams), true);
+    window.location.replace(url);
+  });
 
-$('button.collapse').click(function(e){
-  e.preventDefault();
-});
+  $('button.collapse').click(function(e){
+    e.preventDefault();
+  });
 </script>
 
 <!-- END filters.tt -->
