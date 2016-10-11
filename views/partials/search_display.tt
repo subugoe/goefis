@@ -2,13 +2,17 @@
 
 [% IF (!request.path.match('person') OR bag == "person") AND !request.path.match('marked') AND total > 9 %]
   <div class="lc-search-display__sub-heading">Per page</div><!-- TODO: translate this -->
+  <ul class="lc-search-display__list">
   [% FOREACH lim IN h.config.pagination_options %]
     [% IF (qp.limit AND qp.limit == lim) OR (!qp.limit AND lim == h.config.default_page_size) %]
-      [% lim %]
+      <li class="lc-search-display__item lc-search-display__item--inline"><span class="btn btn-default btn-sm">[% lim %]</span></li>
     [% ELSE %]
-      <a href="[% h.newuri_for($path, qp,limit="$lim") %]" rel="nofollow" title="">[% lim %]</a>
+      <li class="lc-search-display__item lc-search-display__item--inline">
+        <a class="btn btn-primary lc-neutral-button btn-sm" href="[% h.newuri_for($path, qp,limit="$lim") %]" rel="nofollow" title="">[% lim %]</a>
+      </li>
     [% END %]
   [% END %]
+</ul>
 [% END %]
 
 [% IF qp.style AND !user_settings.style_eq_userstyle %]

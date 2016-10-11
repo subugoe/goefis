@@ -7,12 +7,14 @@
 }
 
 .lc-search-filter__sub-heading,
-.lc-search-display__sub-heading {
+.lc-search-display__sub-heading,
+.lc-search-sort__sub-heading {
   @extend .h5;
 }
 
 .lc-search-display__list {
   @extend .list-unstyled;
+  @extend .m-b-2;
 }
 
 .lc-search-display__item--inline {

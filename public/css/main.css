@@ -392,7 +392,8 @@ h1, h2, h3, h4, h5, h6,
 .lc-search-export__heading,
 .lc-search-display__heading,
 .lc-search-sort__heading, .h5, .lc-facette__heading, .lc-search-filter__sub-heading,
-.lc-search-display__sub-heading, .h6 {
+.lc-search-display__sub-heading,
+.lc-search-sort__sub-heading, .h6 {
   margin-bottom: 0.25rem;
   font-family: inherit;
   font-weight: 500;
@@ -433,7 +434,8 @@ h6 {
   font-size: 1.5rem; }
 
 .h5, .lc-facette__heading, .lc-search-filter__sub-heading,
-.lc-search-display__sub-heading {
+.lc-search-display__sub-heading,
+.lc-search-sort__sub-heading {
   font-size: 1.25rem; }
 
 .h6 {
@@ -4290,7 +4292,7 @@ a.bg-danger:focus, a.bg-danger:hover {
 .m-b-2, .lc-topbar__wrap, .lc-menu, .lc-title__wrap, .lc-hero__wrap, .lc-features__wrap, .lc-feature, .lc-hit, .lc-hits__header, .lc-hits__search-display, .lc-facette__list, .lc-search-filter__heading,
 .lc-search-export__heading,
 .lc-search-display__heading,
-.lc-search-sort__heading, .lc-footer__column, .lc-footer__header, .lc-footer__logo-wrap div, .lc-footer__logo--sub {
+.lc-search-sort__heading, .lc-search-display__list, .lc-footer__column, .lc-footer__header, .lc-footer__logo-wrap div, .lc-footer__logo--sub {
   margin-bottom: 0.75rem !important; }
 
 .m-l-2 {
@@ -4630,6 +4632,9 @@ h6 {
   margin-right: 0.3em;
   width: 1.15em;
   height: 1.15em; }
+
+.lc-icon--sans-right-margin {
+  margin-right: 0; }
 
 .lc-icon--on-dark {
   fill: #fff; }

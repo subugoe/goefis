@@ -6,17 +6,41 @@
       </title>
       <path d="M1675 832q0 53-37 90l-651 652q-39 37-91 37-53 0-90-37l-651-652q-38-36-38-90 0-53 38-91l74-75q39-37 91-37 53 0 90 37l294 294v-704q0-52 38-90t90-38h128q52 0 90 38t38 90v704l294-294q37-37 90-37 52 0 91 37l75 75q37 39 37 91z"/>
     </symbol>
+    <symbol id="lc-icon-arrow-long-down" viewBox="0 0 1792 1792">
+      <title>
+        Arrow Long Down
+      </title>
+      <path d="M1277 1299q8 19-5 35l-350 384q-10 10-23 10-14 0-24-10l-355-384q-13-16-5-35 9-19 29-19h224v-1248q0-14 9-23t23-9h192q14 0 23 9t9 23v1248h224q21 0 29 19z"/>
+    </symbol>
     <symbol id="lc-icon-arrow-up" viewBox="0 0 1792 1792">
       <title>
         Arrow Up
       </title>
       <path d="M1675 971q0 51-37 90l-75 75q-38 38-91 38-54 0-90-38l-294-293v704q0 52-37.5 84.5t-90.5 32.5h-128q-53 0-90.5-32.5t-37.5-84.5v-704l-294 293q-36 38-90 38t-90-38l-75-75q-38-38-38-90 0-53 38-91l651-651q35-37 90-37 54 0 91 37l651 651q37 39 37 91z"/>
     </symbol>
+    <symbol id="lc-icon-arrow-long-up" viewBox="0 0 1792 1792">
+      <title>
+        Arrow Long Up
+      </title>
+      <path d="M1277 493q-9 19-29 19h-224v1248q0 14-9 23t-23 9h-192q-14 0-23-9t-9-23v-1248h-224q-21 0-29-19t5-35l350-384q10-10 23-10 14 0 24 10l355 384q13 16 5 35z"/>
+    </symbol>
     <symbol id="lc-icon-bars" viewBox="0 0 1792 1792">
       <title>
         Bars
       </title>
       <path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"/>
+    </symbol>
+    <symbol id="lc-icon-caret-down" viewBox="0 0 1792 1792">
+      <title>
+        Caret Down
+      </title>
+      <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"/>
+    </symbol>
+    <symbol id="lc-icon-caret-up" viewBox="0 0 1792 1792">
+      <title>
+        Caret Up
+      </title>
+      <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z"/>
     </symbol>
     <symbol id="lc-icon-download" viewBox="0 0 1792 1792">
       <title>

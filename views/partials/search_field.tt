@@ -4,7 +4,7 @@
     <input type="text" value='' class="form-control" name="cql_query" placeholder="[% lf.facets.search %]">
     <span class="input-group-btn">
       <button type="submit" class="btn btn-primary">
-        <svg class="lc-icon lc-icon--on-dark">
+        <svg class="lc-icon lc-icon--on-dark lc-icon--sans-right-margin">
           <use xlink:href="/images/icon.svg#lc-icon-search"></use>
         </svg>
         <span class="sr-only">[% lf.facets.go_button %]</span>
@@ -23,6 +23,7 @@
   [% END %]
 </form>
 [%- IF (qp.q.size > 0 AND !qp.embed) OR pd.delete_them %]
+  <div class="m-t-1">
   Current Search/Filter:<!-- TODO: translate this -->
   [% other = {} %]
   [% CALL other.import(qp) %]
@@ -31,6 +32,17 @@
     [%- removed = [] -%]
     [%- CALL removed.import(qp.q) -%]
     [%- CALL removed.splice(loop.index, 1) -%]
-    <a href="[% path %]?q=[% removed.join('&q=') %][% h.hash_to_url(other) %]" rel="nofollow" class="label label-primary">[% val |html %] [X]</a> 
+    <a href="[% path %]?q=[% removed.join('&q=') %][% h.hash_to_url(other) %]" rel="nofollow" class="label label-primary">[% val |html %] <svg class="lc-icon lc-icon--on-dark lc-icon--sans-right-margin"><use xlink:href="/images/icon.svg#lc-icon-x"></use></svg></a>
   [%- END %]
+
+  [% IF qp.item('sort') %]
+    <div>
+      Sorted by
+      [% FOREACH setting IN qp.item('sort') %]
+        <span class="label label-default"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-caret-[% setting.search('asc') ? 'up' : 'down' %]"></use></svg>[% lf.facets.sort_text.$setting %]</span>
+        [% END %]
+      <a class="label label-primary" href="[% h.newuri_for("$path", qp, sort="") %]" rel="nofollow">Remove sorting <svg class="lc-icon lc-icon--on-dark lc-icon--sans-right-margin"><use xlink:href="/images/icon.svg#lc-icon-x"></use></svg></a>
+    </div>
+  [% END %]
+  </div>
 [%- END %]
