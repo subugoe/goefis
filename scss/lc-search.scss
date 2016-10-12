@@ -32,3 +32,9 @@
   @extend .m-b-1;
   @extend .m-r-1;
 }
+
+.lc-search-embed__textarea {
+  cursor: pointer;
+  font-size: 60%;
+  padding: 0.25em;
+}

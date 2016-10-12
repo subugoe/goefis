@@ -4583,6 +4583,11 @@ h6 {
 .lc-search-display__item--inline {
   display: inline-block; }
 
+.lc-search-embed__textarea {
+  cursor: pointer;
+  font-size: 60%;
+  padding: 0.25em; }
+
 .lc-footer__wrap {
   background-color: #064177;
   font-weight: 300; }

@@ -2,7 +2,7 @@
   <h4>[% lf.facets.embed %]</h4>
   [% FOREACH emb IN ['js', 'iframe', 'link'] %]
     [% emb %]
-    <textarea class="form-control embed-facet_[% tabmodus %]" name="[% emb %]text" rows="2" id="id_[% emb %]text_[% tabmodus %][% menu %]" onclick="this.focus();this.select()" readonly="readonly" style="cursor:pointer;"></textarea>
+    <textarea class="lc-search-embed__textarea form-control embed-facet_[% tabmodus %]" name="[% emb %]text" rows="2" id="id_[% emb %]text_[% tabmodus %][% menu %]" onclick="this.focus();this.select()" readonly="readonly"></textarea>
   [% END %]
 [% END %]
 
