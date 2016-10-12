@@ -1,7 +1,8 @@
 [% UNLESS backend OR request.path.match('marked') OR request.path.match('embed') OR qp.ftyp %]
-  <h4>[% lf.facets.embed %]</h4>
+  <div class="lc-search-display__heading">[% lf.facets.embed %]</div>
   [% FOREACH emb IN ['js', 'iframe', 'link'] %]
-    [% emb %]
+    <!-- [% emb %] -->
+    <div class="lc-search-display__sub-heading">[% lf.embed.$emb %]</div>
     <textarea class="lc-search-embed__textarea form-control embed-facet_[% tabmodus %]" name="[% emb %]text" rows="2" id="id_[% emb %]text_[% tabmodus %][% menu %]" onclick="this.focus();this.select()" readonly="readonly"></textarea>
   [% END %]
 [% END %]

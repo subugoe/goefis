@@ -4292,7 +4292,7 @@ a.bg-danger:focus, a.bg-danger:hover {
 .m-b-2, .lc-topbar__wrap, .lc-menu, .lc-title__wrap, .lc-hero__wrap, .lc-features__wrap, .lc-feature, .lc-hit, .lc-hits__header, .lc-hits__search-display, .lc-facette__list, .lc-search-filter__heading,
 .lc-search-export__heading,
 .lc-search-display__heading,
-.lc-search-sort__heading, .lc-search-display__list, .lc-footer__column, .lc-footer__header, .lc-footer__logo-wrap div, .lc-footer__logo--sub {
+.lc-search-sort__heading, .lc-search-display__list, .lc-search-embed__textarea, .lc-footer__column, .lc-footer__header, .lc-footer__logo-wrap div, .lc-footer__logo--sub {
   margin-bottom: 0.75rem !important; }
 
 .m-l-2 {
