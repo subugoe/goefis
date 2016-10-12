@@ -40,7 +40,7 @@
 [% END %]
 
 [% IF entry.external_id.isi %]
-<a href="http://ws.isiknowledge.com/cps/openurl/service?url_ver=Z39.88-2004&amp;rft_id=info:ut/[% entry.external_id.isi %]" class="label label-default">WoS</a><!-- TODO: translate this -->
+<a href="http://ws.isiknowledge.com/cps/openurl/service?url_ver=Z39.88-2004&amp;rft_id=info:ut/[% entry.external_id.isi %]" class="label label-primary">WoS</a><!-- TODO: translate this -->
 [% END %]
 
 [% IF entry.external_id.pmid %]

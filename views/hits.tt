@@ -143,9 +143,7 @@
 				    			[% END %]
 								[% END %]
 							[% END %]
-							PUB-ID: <span class="pubid">[% entry._id %]</span> | [% lf.forms.item(entry.type).label %] |[% IF entry.year %]
-								[% entry.year %]
-							[% ELSE %]
+							PUB-ID: <span class="pubid">[% entry._id %]</span>[% IF lf.forms.item(entry.type).label %] | [% END %][% lf.forms.item(entry.type).label %] [% IF entry.year %] | [% entry.year %][% ELSE %]
 								[n.d.]<!-- TODO: translate this -->
 							[% END %]
 						</div>
