@@ -106,7 +106,7 @@
 
 						[% IF !backend %]
 						<!-- IF !backend (Start) -->
-							<a [% IF request.path == "/marked" %]id="clickme_[% n %]" [% END %]class="mark btn btn-xs padding0" data-marked="[% h.is_marked(entry._id) %]" data-id="[% entry._id %]">[% IF h.is_marked(entry._id) %][check][% ELSE %][square][% END %]</a>
+							<a [% IF request.path == "/marked" %]id="clickme_[% n %]" [% END %]class="mark btn btn-xs" data-marked="[% h.is_marked(entry._id) %]" data-id="[% entry._id %]">[% IF h.is_marked(entry._id) %][check][% ELSE %][square][% END %]</a>
 						<!-- IF !backend (End) -->
 						[% END %]
 
