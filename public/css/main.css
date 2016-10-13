@@ -4583,6 +4583,9 @@ h6 {
 .lc-search-display__item--inline {
   display: inline-block; }
 
+.lc-search-export__button {
+  display: block; }
+
 .lc-search-embed__textarea {
   cursor: pointer;
   font-size: 60%;

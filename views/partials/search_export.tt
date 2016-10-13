@@ -3,19 +3,19 @@
 </div>
 <div class="row">
   <div class="col-xs-12 m-b-1">
-    <a href="#modal_[% tabmodus %]" data-key="fmt" data-value="rtf" data-toggle="modal" rel="nofollow" class="lc-search-export__button" style="display: block;"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>RTF</a>
+    <a href="#modal_[% tabmodus %]" data-key="fmt" data-value="rtf" data-toggle="modal" rel="nofollow" class="lc-search-export__button"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>RTF</a>
   </div>
   <div class="col-xs-12 m-b-1">
-    <a href="#" class="facet_[% tabmodus %] lc-search-export__button" data-key="fmt" data-value="bibtex" rel="nofollow" style="display: block;"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>[% lf.facets.exports.bibtex %]</a>
+    <a href="#" class="facet_[% tabmodus %] lc-search-export__button" data-key="fmt" data-value="bibtex" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>[% lf.facets.exports.bibtex %]</a>
   </div>
   <div class="col-xs-12 m-b-1">
-    <a href="#" class="facet_[% tabmodus %] lc-search-export__button" data-key="fmt" data-value="ris" rel="nofollow" style="display: block;"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>[% lf.facets.exports.ris %]</a>
+    <a href="#" class="facet_[% tabmodus %] lc-search-export__button" data-key="fmt" data-value="ris" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>[% lf.facets.exports.ris %]</a>
   </div>
   <div class="col-xs-12 m-b-1">
-    <a href="#" class="facet_[% tabmodus %] lc-search-export__button" data-key="fmt" data-value="json" rel="nofollow" style="display: block;"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>[% lf.facets.exports.json %]</a>
+    <a href="#" class="facet_[% tabmodus %] lc-search-export__button" data-key="fmt" data-value="json" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>[% lf.facets.exports.json %]</a>
   </div>
   <div class="col-xs-12  m-b-1">
-    <a href="#" class="facet_[% tabmodus %] lc-search-export__button" data-key="fmt" data-value="yaml" rel="nofollow" style="display: block;"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>[% lf.facets.exports.yaml %]</a>
+    <a href="#" class="facet_[% tabmodus %] lc-search-export__button" data-key="fmt" data-value="yaml" rel="nofollow"><svg class="lc-icon"><use xlink:href="/images/icon.svg#lc-icon-download"></use></svg>[% lf.facets.exports.yaml %]</a>
   </div>
 </div>
 
