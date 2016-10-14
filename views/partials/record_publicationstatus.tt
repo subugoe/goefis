@@ -1,0 +1,5 @@
+[% IF publication_status %]
+  <div class="lc-record__publication-status">
+    [% lf.forms.publication_status.$publication_status %]
+  </div>
+[% END %]

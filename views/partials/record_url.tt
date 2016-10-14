@@ -1,0 +1,5 @@
+[% IF link.0 %]
+  <div class="lc-record__url">
+    URL: <a href="[% link.0 %]">[% link.0.substr(0,80) %][% IF link.0.length > 80%][...][% END %]</a><!-- TODO: translate this -->
+  </div>
+[% END %]

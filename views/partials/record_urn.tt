@@ -1,0 +1,6 @@
+[% IF urn %]
+  <div class="lc-record__urn">
+    [% lf.forms.$type.field.urn.label %]
+    <a href="http://nbn-resolving.de/[% urn %]">[% urn %]</a>
+  </div>
+[% END %]

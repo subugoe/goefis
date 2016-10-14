@@ -1,0 +1,9 @@
+[% IF type %]
+  [% name = type %]
+  [% IF lf.forms.$type.label.defined %]
+    [% name = lf.forms.$type.label %]
+  [% END %]
+  <div class="lc-record__type">
+    [% name %]
+  </div>
+[% END %]

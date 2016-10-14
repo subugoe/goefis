@@ -1,0 +1,13 @@
+[% IF confLetter.size %]
+  <div class="lc-record__conformation-letter">
+    [% IF confLetter.size %]
+      [% lf.frontdoor.tabs.confirmation_letter.confirmation %]
+      [% FOREACH conf IN confLetter %]
+        <a href="/download/[% _id %]/[% conf.file_id %]" class="description" data-html="true" data-placement="right" rel="tooltip" title="[% IF conf.description %]<i>Description:</i><br />[% conf.description %]<br /><br />[% END %]<i>Filename:</i><br />[% conf.file_name %]">[% lf.frontdoor.tabs.confirmation_letter.label %]</a><br />
+        <script>
+          $('a.description').tooltip();
+        </script>
+      [% END %]
+    [% END %]
+  </div>
+[% END %]

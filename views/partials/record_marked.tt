@@ -1,0 +1,5 @@
+[% IF status == "public" %]
+  <div class="lc-record__marked">
+    <a class="mark btn btn-primary" data-marked="[% h.is_marked(_id) %]" data-id="[% _id %]">[% IF h.is_marked(_id) %][square][% ELSE %][square][% END %] [% lf.mark.mark_unmark %]</a>
+  </div>
+[% END %]

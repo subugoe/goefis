@@ -1,0 +1,8 @@
+<div class="lc-record__language">
+  [% FOREACH lang IN language %]
+    [% IF lang.iso AND bag != "data" %]
+      [%- IF loop.first %]|[% ELSE %],[% END -%]
+      <meta itemprop="inLanguage" content="[% lang.iso %]">[% lf.forms.language.${lang.iso} %]
+    [% END %]
+  [% END %]
+</div>
