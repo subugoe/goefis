@@ -317,13 +317,9 @@
       <a class="label label-default total-marked" href="[% h.newuri_for("/marked", qp2, $bag="$_id") %]&amp;style=[% qp.style %]">[% marked %]</a> <a href="[% h.newuri_for("/marked", qp2, $bag="$_id") %]&amp;style=[% qp.style %]" rel="nofollow">[% lf.frontdoor.marked %]</a>
 
       [% PROCESS partials/record_opendata.tt %]
-
       [% PROCESS partials/record_sources.tt %]
-
       [% PROCESS partials/record_supplements.tt %]
-
       [% PROCESS partials/record_searchin.tt %]
-
 
       [% END %]
 
