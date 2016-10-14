@@ -1,0 +1,61 @@
+<!-- Sources -->
+[% IF external_id %]
+
+  [% IF external_id.isi %]
+    <h3 id="wos">Web of Science</h3><!-- TODO: translate this -->
+    <a href="http://ws.isiknowledge.com/cps/openurl/service?url_ver=Z39.88-2004&amp;rft_id=info:ut/[% external_id.isi %]">[% lf.frontdoor.view_wos %]&reg;</a>
+  [% END %]
+
+  [% IF external_id.pmid OR  external_id.arxiv OR external_id.inspire OR external_id.scoap3 OR external_id.ahf OR external_id.opac OR external_id.phillister %]
+    <h3>[% lf.frontdoor.sources %]</h3>
+
+    [% IF external_id.pmid %]
+      <p>
+        PMID: [% external_id.pmid %]<!-- TODO: translate this -->
+        <a href="http://www.ncbi.nlm.nih.gov/pubmed/[% external_id.pmid %]">PubMed</a> | <a href="http://europepmc.org/abstract/MED/[% external_id.pmid %]">Europe PMC</a><!-- TODO: translate this -->
+      </p>
+    [% END %]
+
+    [% IF external_id.arxiv %]
+      <p>
+        arXiv<!-- TODO: translate this -->
+        <a href="http://arxiv.org/abs/[% external_id.arxiv %]">[% external_id.arxiv %]</a>
+      </p>
+    [% END %]
+
+    [% IF external_id.inspire %]
+      <p>
+        Inspire<!-- TODO: translate this -->
+        <a href="https://inspirehep.net/record/[% external_id.inspire %]">[% external_id.inspire %]</a>
+      </p>
+    [% END %]
+
+    [% IF external_id.scoap3 %]
+      <p>
+        SCOAP3<!-- TODO: translate this -->
+        <a href="http://repo.scoap3.org/record/[% external_id.scoap3 %]">[% external_id.scoap3 %]</a>
+      </p>
+    [% END %]
+
+    [% IF external_id.ahf %]
+      <p>
+        AHF<!-- TODO: translate this -->
+        <a href="http://www.oldenbourg.de/verlag/ahf/hbo.php?F=titel&amp;T=HB&amp;ID=[% external_id.ahf %]">[% external_id.ahf %]</a>
+      </p>
+    [% END %]
+
+    [% IF external_id.opac %]
+      <p>
+        <a href="http://katalogplus.ub.uni-bielefeld.de/title/[% external_id.opac %]">[% lf.frontdoor.catalogue %]</a>
+      </p>
+    [% END %]
+
+    [% IF external_id.phillister %]
+      <p>
+        PhilLister<!-- TODO: translate this -->
+        <a href="http://phillister.ub.uni-bielefeld.de/publication/[% external_id.phillister %]">[% external_id.phillister %]</a>
+      </p>
+    [% END %]
+
+  [% END %]
+[% END %]
