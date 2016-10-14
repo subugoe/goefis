@@ -15,90 +15,99 @@
   [% PROCESS frontdoor/javascriptShowHide.tt %]
 </script>
 
+[% mainFile = [] %]
+[% relMat = [] %]
+[% relPubl = [] %]
+[% relResData = [] %]
+[% confLetter = [] %]
+[% relLink = [] %]
+[% relLinkRd = [] %]
+[% relLinkSw = [] %]
+[% relFile = [] %]
+[% relToc = [] %]
+
+[% IF external_id.pmid %]
+  [% epmc_cit = h.get_metrics('epmc_citations',external_id.pmid) %]
+  [% epmc_ref = h.get_metrics('epmc_references',external_id.pmid) %]
+  [% ebi_data = h.get_metrics('epmc_dblinks',external_id.pmid) %]
+[% END %]
+
+[% toolkit = h.get_metrics('toolkit', _id) %]
+
+[% FOREACH key IN related_material.keys %]
+  [% IF key == "record" %]
+    [% FOREACH rel_rec IN related_material.$key %]
+      [% IF rel_rec.relation == "is_cited_by" %]
+        [% relPubl.push(rel_rec) %]
+      [% ELSIF rel_rec.relation == "cites" %]
+        [% relResData.push(rel_rec) %]
+      [% ELSE %]
+        [% IF rel_rec.status == "public" %]
+          [% relMat.push(rel_rec) %]
+        [% END %]
+      [% END %]
+    [% END %]
+  [% ELSIF key == "link" %]
+    [% FOREACH linkentry IN related_material.$key %]
+      [% IF linkentry.relation == "research_data" %]
+        [% relLinkRd.push(linkentry) %]
+      [% ELSIF linkentry.relation == "software" %]
+        [% relLinkSw.push(linkentry) %]
+      [% ELSE %]
+        [% relLink.push(linkentry) %]
+      [% END %]
+    [% END %]
+  [% END %]
+[% END %]
+[% FOREACH fi IN file %]
+  [% SWITCH fi.relation %]
+    [% CASE "confirmation" %]
+    [% confLetter.push(fi) %]
+    [% CASE "table_of_contents" %]
+    [% relToc.push(fi) %]
+    [% CASE "main_file" %]
+    [% mainFile.push(fi) %]
+    [% CASE "hidden" %]
+    [% CASE %]
+    [% relFile.push(fi) %]
+  [% END %]
+[% END %]
+
+[% qp = request.params.hash %]
+[% style = style || qp.style || 'default' %]
+
 <div class="lc-record__wrap">
   <div class="lc-record">
-    <div class="col-xs-12">
 
-      [% IF status != "public" AND _id %]
-        <div id="preview">[% lf.frontdoor.preview %]</div>
-      [% END %]
+    [% IF status != "public" AND _id %]
+      <div class="col-xs-12">
+        <div id="preview">
+          [% lf.frontdoor.preview %]
+        </div>
+      </div>
+    [% END %]
 
-      [% mainFile = [] %]
-      [% relMat = [] %]
-      [% relPubl = [] %]
-      [% relResData = [] %]
-      [% confLetter = [] %]
-      [% relLink = [] %]
-      [% relLinkRd = [] %]
-      [% relLinkSw = [] %]
-      [% relFile = [] %]
-      [% relToc = [] %]
-
-      [% IF external_id.pmid %]
-        [% epmc_cit = h.get_metrics('epmc_citations',external_id.pmid) %]
-        [% epmc_ref = h.get_metrics('epmc_references',external_id.pmid) %]
-        [% ebi_data = h.get_metrics('epmc_dblinks',external_id.pmid) %]
-      [% END %]
-
-      [% toolkit = h.get_metrics('toolkit', _id) %]
-
-      [% FOREACH key IN related_material.keys %]
-        [% IF key == "record" %]
-          [% FOREACH rel_rec IN related_material.$key %]
-            [% IF rel_rec.relation == "is_cited_by" %]
-              [% relPubl.push(rel_rec) %]
-            [% ELSIF rel_rec.relation == "cites" %]
-              [% relResData.push(rel_rec) %]
-            [% ELSE %]
-              [% IF rel_rec.status == "public" %]
-                [% relMat.push(rel_rec) %]
-              [% END %]
-            [% END %]
-          [% END %]
-        [% ELSIF key == "link" %]
-          [% FOREACH linkentry IN related_material.$key %]
-            [% IF linkentry.relation == "research_data" %]
-              [% relLinkRd.push(linkentry) %]
-            [% ELSIF linkentry.relation == "software" %]
-              [% relLinkSw.push(linkentry) %]
-            [% ELSE %]
-              [% relLink.push(linkentry) %]
-            [% END %]
-          [% END %]
-        [% END %]
-      [% END %]
-      [% FOREACH fi IN file %]
-        [% SWITCH fi.relation %]
-          [% CASE "confirmation" %]
-          [% confLetter.push(fi) %]
-          [% CASE "table_of_contents" %]
-          [% relToc.push(fi) %]
-          [% CASE "main_file" %]
-          [% mainFile.push(fi) %]
-          [% CASE "hidden" %]
-          [% CASE %]
-          [% relFile.push(fi) %]
-        [% END %]
-      [% END %]
-
-      [% qp = request.params.hash %]
-      [% style = style || qp.style || 'default' %]
-
+    <div>
       [% UNLESS _id %]
         <h1>[% lf.frontdoor.no_record %]</h1>
       [% END %]
+    </div>
 
-      [% IF _id %]
-        <!-- IF _id (start) -->
-        <!-- title (start) -->
+    [% IF _id %]
+
+      <div class="lc-record__title">
         [% title %]
-        <!-- title (end) -->
-        [% IF citation %]
+      </div>
+
+      <div class="col-xs-12">
+
         <!-- IF citation (start) -->
-          <!-- This citation is displayed in "[% style %]" style. -->
-          <p>[% citation.$style %]</p>
-        <!-- IF citation (end) -->
+        [% IF citation %]
+          <div class="lc-record__citation">
+            [% citation.$style %]
+          </div>
         [% END %]
+        <!-- IF citation (end) -->
 
         <!-- fulltext -->
         [% FOREACH fi IN mainFile.nsort('file_order') %]
@@ -125,45 +134,12 @@
         [% END %]
       [% END %]
 
-      [% IF doi %]
-        [% lf.forms.$type.field.doi.label %]
-        <a href="http://doi.org/[% doi %]" title="[% doi %]">[% doi %]</a>
-      [% END %]
-
-      [% IF urn %]
-        [% lf.forms.$type.field.urn.label %]
-        <a href="http://nbn-resolving.de/[% urn %]">[% urn %]</a>
-      [% END %]
-
-      [% IF link.0 %]
-        URL<!-- TODO: translate this -->
-        <a href="[% link.0 %]">[% link.0.substr(0,80) %][% IF link.0.length > 80%][...][% END %]</a>
-      [% END %]
-
-      <!-- Pubtyp, -status und -quali -->
-
-      [% IF type %]
-        <!-- IF type (start) -->
-        [% lf.forms.$type.label %]
-        <!-- IF type (end) -->
-      [% END %]
-
-      [% IF publication_status %]
-        <!-- IF publication_status (start) -->
-        [% lf.forms.publication_status.$publication_status %]
-        <!-- IF publication_status (end) -->
-      [% END %]
-
-      <!-- languages (start) -->
-      <div>
-      [% FOREACH lang IN language %]
-        [% IF lang.iso AND bag != "data" %]
-          [%- IF loop.first %]|[% ELSE %],[% END -%]
-          <meta itemprop="inLanguage" content="[% lang.iso %]">[% lf.forms.language.${lang.iso} %]
-        [% END %]
-      [% END %]
-      </div>
-      <!-- languages (end) -->
+      [% PROCESS partials/record_type.tt %]
+      [% PROCESS partials/record_urn.tt %]
+      [% PROCESS partials/record_url.tt %]
+      [% PROCESS partials/record_type.tt %]
+      [% PROCESS partials/record_publicationstatus.tt %]
+      [% PROCESS partials/record_language.tt %]
 
 	    [% IF fi %]
         <!-- fulltext available -->
@@ -245,9 +221,7 @@
 
       </ul> -->
 
-      [% IF status == "public" %]
-        <a class="mark btn btn-primary" data-marked="[% h.is_marked(_id) %]" data-id="[% _id %]">[% IF h.is_marked(_id) %][square][% ELSE %][square][% END %] [% lf.mark.mark_unmark %]</a>
-      [% END %]
+      [% PROCESS partials/tab_details.tt %]
 
       <!-- PROCESS frontdoor/tab_details.tt (Start) -->
       [% PROCESS frontdoor/tab_details.tt %]
@@ -295,27 +269,10 @@
         [% PROCESS frontdoor/tab_relmat.tt %]
       [% END %]
 
-      [% IF relLinkRd.size OR relLinkSw.size %]
-        [% PROCESS frontdoor/tab_extrd.tt %]
-      [% END %]
-
-      [% IF confLetter.size %]
-        [% PROCESS frontdoor/tab_confletter.tt %]
-      [% END %]
-
-      <!-- Edit -->
-      [% IF session.user AND session.role AND p.can_edit(_id, session.user, session.role) %]
-        <h3 id="edit">Editing Options</h3><!-- TODO: translate this -->
-        <a href="/librecat/record/edit/[% _id %]">Edit this record</a><!-- TODO: translate this -->
-        [% IF status != "public" AND _id AND (!type.match("^bi") OR session.role == "super_admin") AND (type != "researchData" OR session.role == "super_admin") %]
-          <a href="/librecat/record/publish/[% _id %]">Make this record public</a><!-- TODO: translate this -->
-        [% END %]
-      [% END %]
-
-      <!-- Export -->
-      <h3 id="export">[% lf.frontdoor.export %]</h3>
-      <a class="label label-default total-marked" href="[% h.newuri_for("/marked", qp2, $bag="$_id") %]&amp;style=[% qp.style %]">[% marked %]</a> <a href="[% h.newuri_for("/marked", qp2, $bag="$_id") %]&amp;style=[% qp.style %]" rel="nofollow">[% lf.frontdoor.marked %]</a>
-
+      [% PROCESS partials/record_researchdata.tt %]
+      [% PROCESS partials/record_software.tt %]
+      [% PROCESS partials/record_confirmationletter.tt %]
+      [% PROCESS partials/record_edit.tt %]
       [% PROCESS partials/record_opendata.tt %]
       [% PROCESS partials/record_sources.tt %]
       [% PROCESS partials/record_supplements.tt %]
