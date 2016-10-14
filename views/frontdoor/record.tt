@@ -89,10 +89,15 @@
       [% END %]
 
       [% IF _id %]
-        <h1>[% title %]</h1>
+        <!-- IF _id (start) -->
+        <!-- title (start) -->
+        [% title %]
+        <!-- title (end) -->
         [% IF citation %]
+        <!-- IF citation (start) -->
           <!-- This citation is displayed in "[% style %]" style. -->
           <p>[% citation.$style %]</p>
+        <!-- IF citation (end) -->
         [% END %]
 
         <!-- fulltext -->
@@ -136,27 +141,35 @@
       [% END %]
 
       <!-- Pubtyp, -status und -quali -->
+
       [% IF type %]
+        <!-- IF type (start) -->
         [% lf.forms.$type.label %]
+        <!-- IF type (end) -->
       [% END %]
 
       [% IF publication_status %]
+        <!-- IF publication_status (start) -->
         [% lf.forms.publication_status.$publication_status %]
+        <!-- IF publication_status (end) -->
       [% END %]
 
+      <!-- languages (start) -->
+      <div>
       [% FOREACH lang IN language %]
         [% IF lang.iso AND bag != "data" %]
           [%- IF loop.first %]|[% ELSE %],[% END -%]
           <meta itemprop="inLanguage" content="[% lang.iso %]">[% lf.forms.language.${lang.iso} %]
         [% END %]
       [% END %]
+      </div>
+      <!-- languages (end) -->
 
 	    [% IF fi %]
+        <!-- fulltext available -->
 	      <a href="/download/[% _id %]/[% fi.file_id %]" title="[% fi.file_name %]" itemprop="thumbnailUrl" class="fulltext">
 	        <img src="/thumbnail/[% _id %]" alt="[% lf.frontdoor.fulltext.view %]" title="[% lf.frontdoor.fulltext.view %]">
 	      </a>
-	    [% ELSE %]
-	      <p class="nofile">[% lf.frontdoor.fulltext.not_available %]</p>
 	    [% END %]
 
       <!--
