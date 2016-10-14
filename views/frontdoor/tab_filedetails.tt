@@ -1,12 +1,10 @@
 <!-- BEGIN frontdoor/tab_filedetails.tt -->
 
-<div class="tab-pane" id="fileDetails">
-  <div class="row">
+<div>
     [% IF data_reuse_license OR other_data_license %]
-    [% lf.frontdoor.license_heading %]<br />
+    [% lf.frontdoor.license_heading %]
     [% END %]
     [% IF data_reuse_license OR cc_license OR other_data_license %]
-    <div class="alert alert-green">
     [% IF data_reuse_license %]
       [% lf.forms.$type.field.license.data_reuse_license.label %]
       [% SWITCH data_reuse_license %]
@@ -16,45 +14,29 @@
       [% END %]
     [% END %]
     [% IF cc_license %]
-      [% lf.forms.$type.field.license.cc_license.label %]:<br />
-	  <a href="http://creativecommons.org/[% SWITCH cc_license %][% CASE 'cc_by' %]licenses/by/4.0/"><img src="/images/cc_by.png" alt="CC-BY"[% CASE 'cc_by_sa' %]licenses/by-sa/4.0/"><img src="/images/cc_by_sa.png" alt="CC-BY-SA"[% CASE 'cc_0' %]publicdomain/zero/1.0/"><img src="/images/cc0.png" alt="CC0"[% END %] class="img-thumbnail pull-left" /></a>[% lf.forms.$type.field.license.cc_license.$cc_license.name %]
+      [% lf.forms.$type.field.license.cc_license.label %]:
+	  <a href="http://creativecommons.org/[% SWITCH cc_license %][% CASE 'cc_by' %]licenses/by/4.0/"><img src="/images/cc_by.png" alt="CC-BY"[% CASE 'cc_by_sa' %]licenses/by-sa/4.0/"><img src="/images/cc_by_sa.png" alt="CC-BY-SA"[% CASE 'cc_0' %]publicdomain/zero/1.0/"><img src="/images/cc0.png" alt="CC0"[% END %] /></a>[% lf.forms.$type.field.license.cc_license.$cc_license.name %]
     [% END %]
     [% IF other_data_license %]
       [% other_data_license %]
     [% END %]
-    </div>
     [% END %]
-    </div>
 
   [% FOREACH fi IN file.nsort('file_order') %]
   [% NEXT IF fi.relation != "main_file" %]
-  <div class="row[% UNLESS loop.first %] [% END %]">
-    <div class="col-md-3 text-muted">[% lf.frontdoor.tabs.file_details.name %]</div>
-    <div class="col-md-9">
-      <a href="/download/[% _id %]/[% fi.file_id %]">
+    [% lf.frontdoor.tabs.file_details.name %]
+      <a href="/download/[% _id %]/[% fi.file_id %]" title="">
         [% fi.file_name %]
-      </a><span class="text-muted"> [% h.pretty_byte_size(fi.file_size) %]</span>
-    </div>
-  </div>
+      </a>[% h.pretty_byte_size(fi.file_size) %]
     [% IF fi.title %]
-    <div class="row">
-      <div class="col-md-3 text-muted">[% lf.frontdoor.tabs.file_details.title %]</div>
-      <div class="col-md-9">
+      [% lf.frontdoor.tabs.file_details.title %]
         [% fi.title %]
-      </div>
-    </div>
     [% END %]
     [% IF fi.description %]
-    <div class="row">
-      <div class="col-md-3 text-muted">[% lf.frontdoor.tabs.file_details.description %]</div>
-      <div class="col-md-9">
+      [% lf.frontdoor.tabs.file_details.description %]
         [% fi.description %]
-      </div>
-    </div>
     [% END %]
-    <div class="row">
-    <div class="col-md-3 text-muted">[% lf.frontdoor.tabs.file_details.access_level.label %]</div>
-    <div class="col-md-9">
+    [% lf.frontdoor.tabs.file_details.access_level.label %]
       [% SWITCH fi.access_level %]
         [% CASE 'open_access' %]
         [% INCLUDE frontdoor/oa_lock.tt %] [% lf.frontdoor.tabs.file_details.access_level.open_access %]
@@ -65,23 +47,13 @@
         [% CASE 'closed' %]
         [% INCLUDE frontdoor/oa_lock.tt %][% IF fi.request_a_copy %] [% lf.frontdoor.tabs.file_details.access_level.request_a_copy %][% ELSE %] [% lf.frontdoor.tabs.file_details.access_level.closed %][% END %]
       [% END %]
-    </div>
-    </div>
     [% IF fi.date_updated %]
-    <div class="row">
-      <div class="col-md-3 text-muted">[% lf.frontdoor.tabs.file_details.last_uploaded %]</div>
-      <div class="col-md-9">
+      [% lf.frontdoor.tabs.file_details.last_uploaded %]
         [% fi.date_updated %]
-      </div>
-    </div>
     [% END %]
     [% IF fi.checksum %]
-    <div class="row">
-      <div class="col-md-3 text-muted">[% lf.frontdoor.tabs.file_details.md5 %]</div>
-      <div class="col-md-9">
+      [% lf.frontdoor.tabs.file_details.md5 %]
         [% fi.checksum %]
-      </div>
-    </div>
     [% END %]
   [% END %]
 </div><!-- tab-pane fileDetails -->

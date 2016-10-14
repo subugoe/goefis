@@ -1,12 +1,9 @@
 <!-- BEGIN frontdoor/tab_toolkit.tt -->
-
-<div class="tab-pane" id="toolkit">
-[% lf.frontdoor.tabs.toolkit.data_by %]<br><br>
-  <div class="row">
-    <div class="col-md-2 text-muted">Systems</div> 
-    <div class="col-md-10">
-    [% FOREACH d IN toolkit.Systems %]<a href="[% d %]">[% d %]</a><br>[% END %]
-    </div>
-  </div>
+<div>
+  [% lf.frontdoor.tabs.toolkit.data_by %]
+  Systems<!-- TODO: translate this -->
+  [% FOREACH d IN toolkit.Systems %]
+    <a href="[% d %]" title="">[% d %]</a>
+  [% END %]
 </div>
 <!-- END frontdoor/tab toolkit.tt -->
