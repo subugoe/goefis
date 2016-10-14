@@ -11,52 +11,42 @@
 			<!-- Hits (Start) -->
 			<div class="col-xl-9">
 				<div class="lc-hits">
-					<h2>
-						[% qp = {} -%]
-						[% qp = h.extract_params -%]
 
-						[%- IF (qp.q.size > 0 AND !qp.embed) OR pd.delete_them %]
-						  [% other = {} %]
-						  [% CALL other.import(qp) %]
-						  [% CALL other.delete('q') %]
-						  [%- FOREACH val IN qp.q %]
-						    [%- removed = [] -%]
-						    [%- CALL removed.import(qp.q) -%]
-						    [%- CALL removed.splice(loop.index, 1) -%]
-						    [% val |html %],
-						  [%- END %]
-						[%- END %]
-						[% total %]
-
-						[% IF total == 1 %]
-						<!-- IF total == 1 (Start) -->
-							[% IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" %]
-							<!-- IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" (Start) -->
-								[% lf.hits.data_publication %]
-							[% ELSE %]
-								[% lf.hits.publication %]
-							[% END %]
-						<!-- IF total == 1 (End) -->
-						[% ELSE %]
-							[% IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" %]
+					<div class="lc-hits__header">
+						<h2>
+							[% qp = {} -%]
+							[% qp = h.extract_params -%]
+							[% total %]
+							[% IF total == 1 %]
+							<!-- IF total == 1 (Start) -->
+								[% IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" %]
 								<!-- IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" (Start) -->
-								[% lf.tabs.data_publications %]
+									[% lf.hits.data_publication %]
+								[% ELSE %]
+									[% lf.hits.publication %]
+								[% END %]
+							<!-- IF total == 1 (End) -->
 							[% ELSE %]
-								[% lf.hits.publications %]
+								[% IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" %]
+									<!-- IF bag == 'data' OR tabmodus == "data" OR tabmodus == "data_manager" (Start) -->
+									[% lf.tabs.data_publications %]
+								[% ELSE %]
+									[% lf.hits.publications %]
+								[% END %]
+
 							[% END %]
 
+							[% IF backend AND session.role == "delegate" %]
+								<!-- IF backend AND session.role == "delegate" (Start) -->
+								[% lf.main_page.by %] [% delegate_name %]
+								<!-- IF backend AND session.role == "delegate" (End) -->
+							[% END %]
+						</h2>
+						<!-- [% UNLESS request.path.match("/person") OR total == 0 %]
+							<a href="#facets">[% lf.facets.search_filter %]</a>
+						[% END %] -->
 						[% END %]
-
-						[% IF backend AND session.role == "delegate" %]
-							<!-- IF backend AND session.role == "delegate" (Start) -->
-							[% lf.main_page.by %] [% delegate_name %]
-							<!-- IF backend AND session.role == "delegate" (End) -->
-						[% END %]
-					</h2>
-					<!-- [% UNLESS request.path.match("/person") OR total == 0 %]
-						<a href="#facets">[% lf.facets.search_filter %]</a>
-					[% END %] -->
-					[% END %]
+					</div>
 
 					[% IF !backend AND total > 1 %]
 						[% IF request.path.match("/person") %]
@@ -78,9 +68,14 @@
 					<!-- This publication list is displayed in "[% style %]" style and sorted "[% sorto %]" -->
 					[% num = total; n = 0 %]
 
+
+
 					[% UNLESS request.path.match('marked') %]
-						[% PROCESS partials/search_field.tt %]
+						<div class="lc-hits__search-display">
+							[% PROCESS partials/search_field.tt %]
+						</div>
 					[% END %]
+
 
 					[% IF request.path == "/marked" %]
 						<!-- IF request.path == "/marked" -->
@@ -111,7 +106,7 @@
 
 						[% IF !backend %]
 						<!-- IF !backend (Start) -->
-							<a [% IF request.path == "/marked" %]id="clickme_[% n %]" [% END %]class="mark btn btn-xs padding0" data-marked="[% h.is_marked(entry._id) %]" data-id="[% entry._id %]">[% IF h.is_marked(entry._id) %][check][% ELSE %][square][% END %]</a>
+							<a [% IF request.path == "/marked" %]id="clickme_[% n %]" [% END %]class="mark btn btn-xs" data-marked="[% h.is_marked(entry._id) %]" data-id="[% entry._id %]">[% IF h.is_marked(entry._id) %][check][% ELSE %][square][% END %]</a>
 						<!-- IF !backend (End) -->
 						[% END %]
 
@@ -148,9 +143,7 @@
 				    			[% END %]
 								[% END %]
 							[% END %]
-							PUB-ID: <span class="pubid">[% entry._id %]</span> | [% lf.forms.item(entry.type).label %] |[% IF entry.year %]
-								[% entry.year %]
-							[% ELSE %]
+							PUB-ID: <span class="pubid">[% entry._id %]</span>[% IF lf.forms.item(entry.type).label %] | [% END %][% lf.forms.item(entry.type).label %] [% IF entry.year %] | [% entry.year %][% ELSE %]
 								[n.d.]<!-- TODO: translate this -->
 							[% END %]
 						</div>

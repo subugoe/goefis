@@ -1,0 +1,11 @@
+// .lc-facette {}
+
+.lc-facette__heading {
+  @extend .m-b-1;
+  @extend .h5;
+}
+
+.lc-facette__list {
+  @extend .list-unstyled;
+  @extend .m-b-2;
+}

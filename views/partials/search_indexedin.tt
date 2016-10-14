@@ -1,0 +1,29 @@
+[% IF (facets.isi.terms.size || 0) > 0 OR (facets.pmid.terms.size || 0) > 0 %]
+  <div class="lc-search-filter__sub-heading">
+    [% lf.facets.indexed_in %]
+  </div>
+  <ul class="lc-facette__list">
+    [% IF facets.isi.terms.0.count %]
+      [% IF facets.isi.terms.0.count < total %]
+        <li>
+          <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="isi" data-value="1" href="#" rel="nofollow">Web of Science</a> <span class="label label-default">[% facets.isi.terms.0.count %]</span><!-- TODO: translate this -->
+        </li>
+      [% ELSE %]
+        <li>
+          Web of Science <span class="label label-default">ALL</span><!-- TODO: translate this -->
+        </li>
+      [% END %]
+    [% END %]
+    [% IF facets.pmid.terms.0.count %]
+      [% IF facets.pmid.terms.0.count < total %]
+        <li>
+          <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="pmid" data-value="1" href="#" rel="nofollow">Pubmed</a> <span class="label label-default">[% facets.pmid.terms.0.count %]</span><!-- TODO: translate this -->
+        </li>
+      [% ELSE %]
+        <li>
+          PubMed <span class="label label-default">ALL</span><!-- TODO: translate this -->
+        </li>
+      [% END %]
+    [% END %]
+  </ul>
+[% END %]

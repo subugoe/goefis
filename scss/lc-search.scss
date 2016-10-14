@@ -1,0 +1,42 @@
+.lc-search-filter__heading,
+.lc-search-export__heading,
+.lc-search-display__heading,
+.lc-search-sort__heading {
+  @extend .m-b-2;
+  @extend .h4;
+}
+
+.lc-search-filter__sub-heading,
+.lc-search-display__sub-heading,
+.lc-search-sort__sub-heading {
+  @extend .h5;
+}
+
+.lc-search-display__list {
+  @extend .list-unstyled;
+  @extend .m-b-2;
+}
+
+.lc-search-display__item--inline {
+  display: inline-block;
+}
+
+.lc-search-export__button {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-sm;
+  @extend .lc-neutral-button;
+  display: block;
+}
+
+.lc-search-citation__button {
+  @extend .m-b-1;
+  @extend .m-r-1;
+}
+
+.lc-search-embed__textarea {
+  cursor: pointer;
+  font-size: 60%;
+  padding: 0.25em;
+  @extend .m-b-2;
+}
