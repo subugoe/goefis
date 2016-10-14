@@ -1,11 +1,12 @@
-<span>Open Data PUB</span><!-- TODO: translate this -->
-
-[% FOREACH f IN h.config.exporter.publication.keys %]
-  [% NEXT IF f == "datacite" %]
-    <a href="/[% bag %]/[% _id %]?fmt=[% f %]" title="[% h.config.exporter.publication.$f.content_type %]" class="btn btn-sm">[% h.config.exporter.publication.$f.label %]</a>
-[% END %]
-[% uri = request.path %]
-[% IF bag == "data" %]
-  [% h.config.exporter.publication.datacite.label %]:
-  <a href="/data/[% _id %]?fmt=datacite">[% h.config.exporter.publication.datacite.content_type %]</a>
-[% END %]
+<div class="lc-record__opendata">
+  <span>Open Data PUB</span><!-- TODO: translate this -->
+  [% FOREACH f IN h.config.exporter.publication.keys %]
+    [% NEXT IF f == "datacite" %]
+      <a href="/[% bag %]/[% _id %]?fmt=[% f %]" title="[% h.config.exporter.publication.$f.content_type %]" class="btn btn-sm btn-primary lc-neutral-button">[% h.config.exporter.publication.$f.label %]</a>
+  [% END %]
+  [% uri = request.path %]
+  [% IF bag == "data" %]
+    [% h.config.exporter.publication.datacite.label %]:
+    <a href="/data/[% _id %]?fmt=datacite">[% h.config.exporter.publication.datacite.content_type %]</a>
+  [% END %]
+</div>
