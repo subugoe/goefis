@@ -1,4 +1,3 @@
-
 <!-- BEGIN frontdoor/tab_toolkit.tt -->
 
 <div class="tab-pane" id="toolkit">
@@ -10,5 +9,4 @@
     </div>
   </div>
 </div>
-
 <!-- END frontdoor/tab toolkit.tt -->

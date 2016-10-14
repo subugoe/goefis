@@ -1,4 +1,3 @@
-
 <!-- BEGIN frontdoor/tab_details.tt -->
 
 <div class="tab-pane active" id="details">
@@ -13,16 +12,16 @@
     [% lf.forms.$type.field.translator.label || lf.forms.$type.field.translator_secondary.label %]
   [% ELSE %];[% END %]
   [% IF tr.id %]
-    <a href="/person/[% tr.id %]">[% tr.full_name %][% lf.frontdoor.local_brand %]</a>
+    <a href="/person/[% tr.id %]" title="">[% tr.full_name %][% lf.frontdoor.local_brand %]</a>
   [% ELSE %]
     [% tr.full_name %]
   [% END %]
   [% IF tr.orcid %]
-    <a href="http://orcid.org/[% tr.orcid %]"><img src="/images/orcid_icon_16x16.png" /></a>
+    <a href="http://orcid.org/[% tr.orcid %]" title="">[ORCID]</a>
   [% END %]
   [% IF loop.count > 11 %]
     <span id="showAut">
-      <a href="#details" onclick="ShowAuthors();"><span class="fw"></span>[% lf.frontdoor.show_all %]</a>
+      <a href="#details" onclick="ShowAuthors();" title="">[% lf.frontdoor.show_all %]</a>
     </span>
   [% LAST %]
   [% END %]
@@ -55,7 +54,7 @@
     [% lf.forms.$type.field.supervisor.label %]
   [% ELSE %];[% END %]
   [% IF sup.id %]
-  <a href="/person/[% sup.id %]">[% sup.full_name %][% lf.frontdoor.local_brand %]</a>
+    <a href="/person/[% sup.id %]" title="">[% sup.full_name %][% lf.frontdoor.local_brand %]</a>
   [% ELSE %]
   [% sup.full_name %]
   [% END %]
@@ -85,7 +84,7 @@
   [% ELSE %];[% END %]
   [% ed %]
   [% IF loop.last %]
-  
+
   [% END %]
 [% END %]
 
@@ -93,7 +92,7 @@
   [% IF loop.first %]
   [% lf.forms.$type.field.department.label %]
   [% ELSE %][% END %]
-  <a href="/[% bag %]?q=department=[% dep._id %]" class="long">[% h.get_department(dep._id).display %]</a>
+  <a href="/[% bag %]?q=department=[% dep._id %]" title="">[% h.get_department(dep._id).display %]</a>
   [% IF loop.last %][% END %]
 [% END %]
 
@@ -101,7 +100,7 @@
   [%- IF loop.first -%]
     [% lf.forms.$type.field.project.label %]
   [%- ELSE -%][% END %]
-  <a href="/project/[% proj._id %]">[% proj.name %]</a>
+  <a href="/project/[% proj._id %]" title="">[% proj.name %]</a>
   [%- IF loop.last %][% END -%]
 [%- END -%]
 
@@ -137,21 +136,21 @@
 [% IF keyword %]
   [% lf.forms.$type.field.keyword.label %]
     [% FOREACH kw IN keyword %]
-      <a href='/[% bag %]?q=keyword="[% kw %]"'>[% kw %]</a>
+      <a href='/[% bag %]?q=keyword="[% kw %]"' title="">[% kw %]</a>
     [% UNLESS loop.last %];
     [% END %]
   [% END %]
 [% END %]
 
   [% lf.forms.$type.field.year.label || lf.forms.$type.field.year_extern.label %]
-  <a href="/[% bag %]?q=year=[% year %]">[% year %]</a>
+  <a href="/[% bag %]?q=year=[% year %]" title="">[% year %]</a>
 
 [% IF data_reuse_license %]
   [% lf.forms.$type.field.license.data_reuse_license.label %]
   [% SWITCH data_reuse_license %]
   [% CASE 'PDDL' %] This [% title %] is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href="http://opendatacommons.org/licenses/pddl/1.0">http://opendatacommons.org/licenses/pddl/1.0</a><!-- TODO: translate this -->
   [% CASE 'ODC-By' %] This [% title %] is made available under the Open Data Commons Attribution License: <a href="http://opendatacommons.org/licenses/by/1.0">http://opendatacommons.org/licenses/by/1.0</a><!-- TODO: translate this -->
-  [% CASE 'ODbL' %] This [% title %] is made available under the Open Database License: <a href="http://opendatacommons.org/licenses/odbl/1.0">http://opendatacommons.org/licenses/odbl/1.0</a>. Any rights in individual contents of the database are licensed under the Database Contents License: <a href="http://opendatacommons.org/licenses/dbcl/1.0/" target="_blank">http://opendatacommons.org/licenses/dbcl/1.0/</a><!-- TODO: translate this -->
+  [% CASE 'ODbL' %] This [% title %] is made available under the Open Database License: <a href="http://opendatacommons.org/licenses/odbl/1.0">http://opendatacommons.org/licenses/odbl/1.0</a>. Any rights in individual contents of the database are licensed under the Database Contents License: <a href="http://opendatacommons.org/licenses/dbcl/1.0/">http://opendatacommons.org/licenses/dbcl/1.0/</a><!-- TODO: translate this -->
   [% END %]
 [% END %]
 
@@ -175,7 +174,7 @@
 [% IF publication_identifier.isbn %]
   [% lf.frontdoor.tabs.details.isbn %]
     [% FOREACH ib IN publication_identifier.isbn %]
-      <a href='/publication?q=isbn=[% ib %]'>[% ib %]</a>
+      <a href='/publication?q=isbn=[% ib %]' title="">[% ib %]</a>
     [% UNLESS loop.last %],
     [% END %]
   [% END %]
@@ -184,7 +183,7 @@
 [% IF publication_identifier.issn %]
   [% lf.frontdoor.tabs.details.issn %]
   [% FOREACH is IN publication_identifier.issn %]
-    <a href="/publication?q=issn=[% is %]">[% is %]</a>
+    <a href="/publication?q=issn=[% is %]" title="">[% is %]</a>
     [% UNLESS loop.last %], [% END %]
   [% END %]
 [% END %]
@@ -252,5 +251,4 @@
   </div><!-- citethis -->
 
 </div>
-
 <!-- END frontdoor/tab_details.tt -->

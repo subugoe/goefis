@@ -1,4 +1,3 @@
-
 <!-- BEGIN frontdoor/tab_relmat.tt -->
 
 <div class="tab-pane" id="relLinkRd">
@@ -18,7 +17,7 @@
       </div>
       <div>&nbsp;</div>
     [% END %]
-    
+
     [% IF relLinkSw.size %]
       <div class="col-md-2 text-muted">
         Software
