@@ -1,0 +1,14 @@
+<div class="lc-record__department">
+  <div class="lc-record__heading">
+    Department:<!-- TODO: translate this -->
+  </div>
+  <div class="lc-record__data">
+    [% FOREACH dep IN department %]
+      [% IF loop.first %]
+        [% lf.forms.$type.field.department.label %]
+      [% ELSE %][% END %]
+        <a href="/[% bag %]?q=department=[% dep._id %]" title="">[% h.get_department(dep._id).display %]</a>
+      [% IF loop.last %][% END %]
+    [% END %]
+  </div>
+</div>

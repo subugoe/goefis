@@ -1,0 +1,30 @@
+<div class="lc-record__citation-copy">
+  <div class="lc-record__heading">
+    [% lf.frontdoor.cite_this %]
+  </div>
+  <div class="lc-record__data">
+    <ul class="nav nav-tabs nav-tabs--borderless">
+      <li><a href="#ama" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">AMA</a></li><!-- TODO: translate this -->
+      <li><a href="#apa" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">APA</a></li><!-- TODO: translate this -->
+      <li><a href="#frontiers" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">Frontiers</a></li><!-- TODO: translate this -->
+      <li><a href="#harvard1" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">Harvard</a></li><!-- TODO: translate this -->
+      <li><a href="#ieee" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">IEEE</a></li><!-- TODO: translate this -->
+      <li><a href="#lncs" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">LNCS</a></li><!-- TODO: translate this -->
+      <li><a href="#mla" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">MLA</a></li><!-- TODO: translate this -->
+      <li><a href="#bibtex" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">BibTeX</a></li><!-- TODO: translate this -->
+      <li class="active"><a href="#ris" data-toggle="tab" class="btn btn-sm btn-primary lc-neutral-button lc-record__citation-copy__button">RIS</a></li><!-- TODO: translate this -->
+    </ul>
+
+    <div class="tab-content">
+      <div id="ama" class="tab-pane active cmark">[% citation.ama %]</div>
+      <div id="apa" class="tab-pane cmark">[% citation.apa %]</div>
+      <div id="frontiers" class="tab-pane cmark">[% citation.frontiers %]</div>
+      <div id="harvard1" class="tab-pane cmark">[% citation.harvard1 %]</div>
+      <div id="ieee" class="tab-pane cmark">[% citation.ieee %]</div>
+      <div id="lncs" class="tab-pane cmark">[% citation.lncs %]</div>
+      <div id="mla" class="tab-pane cmark">[% citation.mla %]</div>
+      <div id="bibtex" class="tab-pane"></div>
+      <div id="ris" class="tab-pane"></div>
+    </div>
+  </div>
+</div>

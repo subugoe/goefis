@@ -1,0 +1,10 @@
+<div class="lc-record__project">
+  <span>Project:</span>
+[%- FOREACH proj IN project -%]
+  [%- IF loop.first -%]
+    [% lf.forms.$type.field.project.label %]
+  [%- ELSE -%][% END %]
+  <a href="/project/[% proj._id %]" title="">[% proj.name %]</a>
+  [%- IF loop.last %][% END -%]
+[%- END -%]
+</div>

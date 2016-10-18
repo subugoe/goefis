@@ -1,0 +1,27 @@
+<div class="lc-record__translators">
+  <div class="lc-record__heading">
+    Translators
+  </div>
+  <div class="lc-record__data">
+    [% FOREACH tr IN translator %]
+      [% IF loop.first %]
+        [% lf.forms.$type.field.translator.label || lf.forms.$type.field.translator_secondary.label %]
+      [% ELSE %];[% END %]
+      [% IF tr.id %]
+        <a href="/person/[% tr.id %]" title="">[% tr.full_name %][% lf.frontdoor.local_brand %]</a>
+      [% ELSE %]
+        [% tr.full_name %]
+      [% END %]
+      [% IF tr.orcid %]
+        <a href="http://orcid.org/[% tr.orcid %]" title="">[ORCID]</a>
+      [% END %]
+      [% IF loop.count > 11 %]
+        <span id="showAut">
+          <a href="#details" onclick="ShowAuthors();" title="">[% lf.frontdoor.show_all %]</a>
+        </span>
+      [% LAST %]
+      [% END %]
+      [% IF loop.last %][% END %]
+    [% END %]
+  </div>
+</div>

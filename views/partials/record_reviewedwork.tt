@@ -1,0 +1,4 @@
+<div class="lc-record__reviewed-work">
+  [% lf.frontdoor.tabs.details.reviewed_work %]
+  [% reviewedwork %]
+</div>

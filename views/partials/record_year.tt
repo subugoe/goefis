@@ -1,0 +1,9 @@
+<div class="lc-record__year">
+  <div class="lc-record__heading">
+    [% lf.forms.$type.field.year.label || lf.forms.$type.field.year_extern.label %]
+    Year:
+  </div>
+  <div class="lc-record__data">
+    <a href="/[% bag %]?q=year=[% year %]" title="">[% year %]</a>
+  </div>
+</div>

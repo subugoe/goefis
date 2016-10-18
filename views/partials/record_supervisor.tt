@@ -1,0 +1,18 @@
+<div class="lc-record__supervisor">
+  <span>Supervisors:</span>
+[% FOREACH sup IN supervisor %]
+  [% IF loop.first %]
+    [% lf.forms.$type.field.supervisor.label %]
+  [% ELSE %];[% END %]
+  [% IF sup.id %]
+    <a href="/person/[% sup.id %]" title="">[% sup.full_name %][% lf.frontdoor.local_brand %]</a>
+  [% ELSE %]
+  [% sup.full_name %]
+  [% END %]
+  [% IF sup.orcid %]
+    <a href="http://orcid.org/[% sup.orcid %]" title="">[ORCID]</a>
+  [% END %]
+  [% IF loop.last %]
+[% END %]
+[% END %]
+</div>
