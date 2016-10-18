@@ -59,11 +59,6 @@ $(document).ready(function () {
 </script>
 <script async src="/javascripts/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 
-<script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:5002/browser-sync/browser-sync-client.2.13.0.js'><\/script>".replace("HOST", location.hostname));
-//]]></script>
-
-
 <!-- open/close the menu (Start) -->
 <!-- TODO: add usage tracking -->
 <script>
