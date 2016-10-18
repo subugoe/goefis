@@ -18,3 +18,7 @@
     fill: #fff;
   }
 }
+
+.lc-button--spaced {
+  @extend .m-b-1;
+}

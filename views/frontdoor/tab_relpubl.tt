@@ -1,7 +1,7 @@
-<!-- BEGIN frontdoor/tab_relpubl.tt -->
 <div class="lc-record__cites-publications">
   [% lf.frontdoor.tabs.publication.cited_by %]
   [% FOREACH resDat IN relPubl %]
+  ||
     [% rec = h.get_publication(resDat.id) %]
     [% NEXT IF rec.status != "public" %]
       [% resDat.id %]
@@ -9,4 +9,3 @@
 	  [% rec.citation.default %]
   [% END %]
 </div><!-- tab-pane relPubl -->
-<!-- END frontdoor/tab_relpubl.tt -->

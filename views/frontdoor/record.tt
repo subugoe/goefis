@@ -76,14 +76,29 @@
 [% qp = request.params.hash %]
 [% style = style || qp.style || 'default' %]
 
+[% IF _id %]
+  <div class="lc-record-header__wrap">
+    <div class="lc-record-header">
+      <div class="row">
+        <div class="lc-record__title">
+          [% title %]
+        </div>
+        [% IF citation %]
+          <div class="lc-record__citation lead">
+            [% citation.$style %]
+          </div>
+        [% END %]
+      </div>
+    </div>
+  </div>
+[% END %]
+
 <div class="lc-record__wrap">
   <div class="lc-record">
 
     [% IF status != "public" AND _id %]
-      <div class="col-xs-12">
-        <div id="preview">
-          [% lf.frontdoor.preview %]
-        </div>
+      <div id="preview">
+        [% lf.frontdoor.preview %]
       </div>
     [% END %]
 
@@ -94,167 +109,142 @@
     </div>
 
     [% IF _id %]
-
-      <div class="lc-record__title">
-        [% title %]
-      </div>
-
-      <div class="col-xs-12">
-
-        <!-- IF citation (start) -->
-        [% IF citation %]
-          <div class="lc-record__citation">
-            [% citation.$style %]
-          </div>
-        [% END %]
-        <!-- IF citation (end) -->
-
-        <!-- fulltext -->
-        [% FOREACH fi IN mainFile.nsort('file_order') %]
-          [% IF fi.file_name %]
-            [% IF loop.first %]
-              [% lf.frontdoor.download %]
-              [% PROCESS frontdoor/oa_lock.tt %] <a itemprop="url" href="/download/[% _id %]/[% fi.file_id %]" title="[% fi.file_name %]"[% IF fi.access_level != "open_access" %] target="_blank"[% END %]>[% fi.title || fi.file_name %]</a>
-              [% h.pretty_byte_size(fi.file_size) %]
-              [% PROCESS frontdoor/modal_requestcopy.tt %]
-            [% END %]
-          [% IF loop.count > 1 %]
-            [% PROCESS frontdoor/oa_lock.tt %] <a href="/download/[% _id %]/[% fi.file_id %]" title="[% fi.file_name %]"[% IF fi.access_level != "open_access" %] target="_blank"[% END %]>[% fi.title || fi.file_name %]</a>
+      <!-- fulltext -->
+      [% FOREACH fi IN mainFile.nsort('file_order') %]
+        [% IF fi.file_name %]
+          [% IF loop.first %]
+            [% lf.frontdoor.download %]
+            [% PROCESS frontdoor/oa_lock.tt %] <a itemprop="url" href="/download/[% _id %]/[% fi.file_id %]" title="[% fi.file_name %]"[% IF fi.access_level != "open_access" %] target="_blank"[% END %]>[% fi.title || fi.file_name %]</a>
             [% h.pretty_byte_size(fi.file_size) %]
             [% PROCESS frontdoor/modal_requestcopy.tt %]
           [% END %]
-          [% IF loop.count > 2 && loop.size > 3 %]
-            <span id="showFiles">
-              <a href="#" onclick="ShowFiles();"><span class="fw"></span>[% lf.frontdoor.show_all %]</a>
-            </span>
-          [% LAST %]
-          [% END %]
-          [% IF loop.last %]
-          [% END %]
+        [% IF loop.count > 1 %]
+          [% PROCESS frontdoor/oa_lock.tt %] <a href="/download/[% _id %]/[% fi.file_id %]" title="[% fi.file_name %]"[% IF fi.access_level != "open_access" %] target="_blank"[% END %]>[% fi.title || fi.file_name %]</a>
+          [% h.pretty_byte_size(fi.file_size) %]
+          [% PROCESS frontdoor/modal_requestcopy.tt %]
+        [% END %]
+        [% IF loop.count > 2 && loop.size > 3 %]
+          <span id="showFiles">
+            <a href="#" onclick="ShowFiles();"><span class="fw"></span>[% lf.frontdoor.show_all %]</a>
+          </span>
+        [% LAST %]
+        [% END %]
+        [% IF loop.last %]
         [% END %]
       [% END %]
+      [% END %]
 
-      [% PROCESS partials/record_type.tt %]
-      [% PROCESS partials/record_urn.tt %]
-      [% PROCESS partials/record_url.tt %]
-      [% PROCESS partials/record_type.tt %]
-      [% PROCESS partials/record_publicationstatus.tt %]
+      [% IF type %]
+        [% PROCESS partials/record_type.tt %]
+      [% END %]
+
+      [% IF urn %]
+        [% PROCESS partials/record_urn.tt %]
+      [% END %]
+
+      [% IF link.0 %]
+        [% PROCESS partials/record_url.tt %]
+      [% END %]
+
+      [% IF publication_status %]
+        [% PROCESS partials/record_publicationstatus.tt %]
+      [% END %]
+
       [% PROCESS partials/record_language.tt %]
 
-	    [% IF fi %]
+      [% IF fi %]
         <!-- fulltext available -->
-	      <a href="/download/[% _id %]/[% fi.file_id %]" title="[% fi.file_name %]" itemprop="thumbnailUrl" class="fulltext">
-	        <img src="/thumbnail/[% _id %]" alt="[% lf.frontdoor.fulltext.view %]" title="[% lf.frontdoor.fulltext.view %]">
-	      </a>
-	    [% END %]
+        <a href="/download/[% _id %]/[% fi.file_id %]" title="[% fi.file_name %]" itemprop="thumbnailUrl" class="fulltext">
+          <img src="/thumbnail/[% _id %]" alt="[% lf.frontdoor.fulltext.view %]" title="[% lf.frontdoor.fulltext.view %]">
+        </a>
+      [% END %]
 
-      <!--
-      <ul class="nav nav-tabs">
-        <li class="active">
-          <a href="#details" data-toggle="tab">[% lf.frontdoor.tabs.details.label %]</a>
-        </li>
-        [% IF mainFile AND mainFile.0.file_name %]
-          <li>
-            <a href="#fileDetails" data-toggle="tab">[% lf.frontdoor.tabs.file_details.label %]</a>
-        </li>
-        [% END %]
+      [% IF reviewedwork %]
+        [% PROCESS partials/record_reviewedwork.tt %]
+      [% END %]
 
-        [% IF relPubl.size %]
-          <li>
-            <a href="#relPubl" data-toggle="tab">[% lf.frontdoor.tabs.publication.label %]</a>
-          </li>
-        [% END %]
+      [% IF translator.size %]
+        [% PROCESS partials/record_translators.tt %]
+      [% END %]
 
-        [% IF relResData.size %]
-          <li>
-            <a href="#relResData" data-toggle="tab">[% lf.frontdoor.tabs.data_publication.label %]</a>
-          </li>
-        [% END %]
+      [% IF author.size %]
+        [% PROCESS partials/record_author.tt %]
+      [% END %]
 
-        [% IF toolkit %]
-          <li>
-            <a href="#toolkit" data-toggle="tab">[% lf.frontdoor.tabs.toolkit.label %]</a>
-          </li>
-        [% END %]
+      [% IF supervisor.size %]
+        [% PROCESS partials/record_supervisor.tt %]
+      [% END %]
 
-        [% IF ebi_data %]
-          <li>
-            <a href="#ebi_dblinks" data-toggle="tab">[% lf.frontdoor.tabs.ebi_links.label %]</a>
-          </li>
-        [% END %]
+      [% IF editor.size %]
+        [% PROCESS partials/record_editor.tt %]
+      [% END %]
 
-        [% IF epmc_cit %]
-          <li>
-            <a href="#ebi_citations" data-toggle="tab">[% lf.frontdoor.tabs.epmc_citation.label %]</a>
-          </li>
-        [% END %]
+      [% IF corporate_editor.size %]
+        [% PROCESS partials/record_corporateeditor.tt %]
+      [% END %]
 
-        [% IF epmc_ref %]
-          <li>
-            <a href="#ebi_references" data-toggle="tab">[% lf.frontdoor.tabs.epmc_references.label %]</a>
-          </li>
-        [% END %]
+      [% IF department.size %]
+        [% PROCESS partials/record_department.tt %]
+      [% END %]
 
-        [% IF confLetter.size %]
-          <li>
-            <a href="#confletter" data-toggle="tab">[% lf.frontdoor.tabs.confirmation_letter.label %]</a>
-          </li>
-        [% END %]
+      [% IF project.size %]
+        [% PROCESS partials/record_project.tt %]
+      [% END %]
 
-        [% IF relMat.size OR relLink.size OR relFile.size OR relToc.size %]
-          <li>
-            <a href="#relMat" data-toggle="tab">[% lf.frontdoor.tabs.related_material %]</a>
-          </li>
-        [% END %]
+      [% IF research_group.size %]
+        [% PROCESS partials/record_researchgroup.tt %]
+      [% END %]
 
-        [% IF relLinkRd.size OR relLinkSw.size %]
-          <li>
-            <a href="#relLinkRd" data-toggle="tab">[% lf.frontdoor.tabs.external_data %]</a>
-          </li>
-        [% END %]
+      [% IF alternative_title.size %]
+        [% PROCESS partials/record_alttitle.tt %]
+      [% END %]
 
-        [% IF status == "public" %]
-          <li class="navbar-right">
-            <a class="mark btn btn-xs" data-marked="[% h.is_marked(_id) %]" data-id="[% _id %]">[% IF h.is_marked(_id) %][square][% ELSE %][square][% END %] [% lf.mark.mark_unmark %]</a>
-          </li>
-        [% END %]
+      [% IF abstract %]
+        [% PROCESS partials/record_abstract.tt %]
+      [% END %]
 
-      </ul> -->
+      [% IF keyword %]
+        [% PROCESS partials/record_keyword.tt %]
+      [% END %]
 
-      [% PROCESS partials/tab_details.tt %]
+      [% IF year %]
+        [% PROCESS partials/record_year.tt %]
+      [% END %]
+
+      [% IF data_reuse_license %]
+        [% PROCESS partials/record_license.tt %]
+      [% END %]
+
+      [% IF conference %]
+        [% PROCESS partials/record_conference.tt %]
+      [% END %]
 
       <!-- PROCESS frontdoor/tab_details.tt (Start) -->
       [% PROCESS frontdoor/tab_details.tt %]
       <!-- PROCESS frontdoor/tab_details.tt (End) -->
 
+      [% PROCESS partials/record_pubid.tt %]
+
+      [% PROCESS partials/record_citationcopy.tt %]
+
       [% IF mainFile AND mainFile.0.file_name %]
-        <!-- IF mainFile AND mainFile.0.file_name (Start) -->
         [% PROCESS frontdoor/tab_filedetails.tt %]
-        <!-- IF mainFile AND mainFile.0.file_name (End) -->
       [% END %]
 
-      [% IF relPubl %]
-        <!-- IF relPubl (Start) -->
+      [% IF relPubl.size %]
         [% PROCESS frontdoor/tab_relpubl.tt %]
-        <!-- IF relPubl (End) -->
       [% END %]
 
-      [% IF relResData %]
-        <!-- IF relResData (Start) -->
+      [% IF relResData.size %]
         [% PROCESS frontdoor/tab_relresdata.tt %]
-        <!-- IF relResData (End) -->
       [% END %]
 
       [% IF toolkit %]
-        <!-- IF toolkit (Start) -->
         [% PROCESS frontdoor/tab_toolkit.tt %]
-        <!-- IF toolkit (End) -->
       [% END %]
 
       [% IF ebi_data %]
-        <!-- IF ebi_data (Start) -->
         [% PROCESS frontdoor/tab_ebi_links.tt %]
-        <!-- IF ebi_data (End) -->
       [% END %]
 
       [% IF epmc_cit %]
@@ -269,19 +259,36 @@
         [% PROCESS frontdoor/tab_relmat.tt %]
       [% END %]
 
-      [% PROCESS partials/record_researchdata.tt %]
-      [% PROCESS partials/record_software.tt %]
-      [% PROCESS partials/record_confirmationletter.tt %]
-      [% PROCESS partials/record_edit.tt %]
-      [% PROCESS partials/record_opendata.tt %]
-      [% PROCESS partials/record_sources.tt %]
-      [% PROCESS partials/record_supplements.tt %]
-      [% PROCESS partials/record_searchin.tt %]
-
+      [% IF relLinkRd.size %]
+        [% PROCESS partials/record_researchdata.tt %]
       [% END %]
 
-    </div>
+      [% IF relLinkSw.size %]
+        [% PROCESS partials/record_software.tt %]
+      [% END %]
+
+      [% IF confLetter.size %]
+        [% PROCESS partials/record_confirmationletter.tt %]
+      [% END %]
+
+      [% PROCESS partials/record_edit.tt %]
+
+      [% PROCESS partials/record_opendata.tt %]
+
+      [% IF external_id %]
+        [% PROCESS partials/record_sources.tt %]
+      [% END %]
+
+      [% IF genbank OR nasc %]
+        [% PROCESS partials/record_supplements.tt %]
+      [% END %]
+
+      [% PROCESS partials/record_searchin.tt %]
+
+    [% END %]
+
   </div>
+
 </div>
 
 [% IF _id %]

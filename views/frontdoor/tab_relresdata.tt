@@ -1,4 +1,3 @@
-<!-- BEGIN frontdoor/tab_relresdata.tt -->
 <div class="lc-record__cites-data-publications">
   [% lf.frontdoor.tabs.data_publication.cites %]
   [% FOREACH resDat IN relResData %]
@@ -9,4 +8,3 @@
 	    [% rec.citation.default %]
   [% END %]
 </div>
-<!-- END frontdoor/tab_relresdata.tt -->

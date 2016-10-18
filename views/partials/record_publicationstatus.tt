@@ -1,5 +1,8 @@
-[% IF publication_status %]
-  <div class="lc-record__publication-status">
+<div class="lc-record__publication-status">
+  <div class="lc-record__heading">
+    Publication Status:<!-- TODO: translate this -->
+  </div>
+  <div class="lc-record__data">
     [% lf.forms.publication_status.$publication_status %]
   </div>
-[% END %]
+</div>
