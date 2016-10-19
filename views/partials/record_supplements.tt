@@ -1,0 +1,33 @@
+<!-- Supplements (Start) -->
+[% IF genbank OR nasc %]
+  <div class="lc-record__supplements">
+    <h3 id="supplements">[% lf.frontdoor.supplements %]</h3>
+    [% IF genbank %]
+      <p>
+        [% FOREACH id_entry IN genbank %]
+          [% IF loop.first %]
+            GenBank<!-- TODO: translate this -->
+          [% END %]
+          <a href="http://www.ncbi.nlm.nih.gov/nuccore/[% id_entry %]">[% id_entry %]</a>
+          [% IF loop.count > 14 %]
+            <span id="showGen">
+              <br><a href="#supplements" onclick="ShowGenBankIDs();"><span class="fw"></span>[% lf.frontdoor.show_all %]</a>
+            </span>
+          [% LAST %]
+          [% END %]
+        [% END %]
+      </p>
+    [% END %]
+    [% IF nasc %]
+      <p>
+        [% FOREACH id_entry IN nasc %]
+          [% IF loop.first %]
+            NASC<br>
+          [% END %]
+          <a href="http://arabidopsis.info/StockInfo?NASC_id=[% id_entry %]">[% id_entry %]</a>
+        [% END %]
+      </p>
+    [% END %]
+  </div>
+[% END %]
+<!-- Supplements (End) -->

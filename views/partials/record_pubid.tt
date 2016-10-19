@@ -1,0 +1,8 @@
+<div class="lc-record__pub-id">
+  <div class="lc-record__heading">
+    PUB-ID
+  </div>
+  <div class="lc-record__data">
+    <a href="[% request.uri %]" title="[% lf.frontdoor.id_title %]">[% _id %]</a><!-- TODO: translate this -->
+  </div>
+</div>

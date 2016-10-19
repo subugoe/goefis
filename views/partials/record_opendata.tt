@@ -1,0 +1,16 @@
+<div class="lc-record__opendata lc-block">
+  <div class="lc-record__heading">
+    Open Data PUB<!-- TODO: translate this -->
+  </div>
+  <div class="lc-record__data">
+    [% FOREACH f IN h.config.exporter.publication.keys %]
+      [% NEXT IF f == "datacite" %]
+        <a href="/[% bag %]/[% _id %]?fmt=[% f %]" title="[% h.config.exporter.publication.$f.content_type %]" class="btn btn-sm btn-primary lc-neutral-button lc-button--spaced"><svg class="lc-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/icon.svg#lc-icon-download"></use></svg> [% h.config.exporter.publication.$f.label %]</a>
+    [% END %]
+    [% uri = request.path %]
+    [% IF bag == "data" %]
+      [% h.config.exporter.publication.datacite.label %]:
+      <a href="/data/[% _id %]?fmt=datacite">[% h.config.exporter.publication.datacite.content_type %]</a>
+    [% END %]
+  </div>
+</div>

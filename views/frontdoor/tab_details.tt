@@ -1,256 +1,64 @@
-
 <!-- BEGIN frontdoor/tab_details.tt -->
-
-<div class="tab-pane active" id="details">
-
-[% IF reviewedwork  %]
-  [% lf.frontdoor.tabs.details.reviewed_work %]
-  [% reviewedwork %]
-[% END %]
-
-[% FOREACH tr IN translator %]
-  [% IF loop.first %]
-    [% lf.forms.$type.field.translator.label || lf.forms.$type.field.translator_secondary.label %]
-  [% ELSE %];[% END %]
-  [% IF tr.id %]
-    <a href="/person/[% tr.id %]">[% tr.full_name %][% lf.frontdoor.local_brand %]</a>
-  [% ELSE %]
-    [% tr.full_name %]
-  [% END %]
-  [% IF tr.orcid %]
-    <a href="http://orcid.org/[% tr.orcid %]"><img src="/images/orcid_icon_16x16.png" /></a>
-  [% END %]
-  [% IF loop.count > 11 %]
-    <span id="showAut">
-      <a href="#details" onclick="ShowAuthors();"><span class="fw"></span>[% lf.frontdoor.show_all %]</a>
-    </span>
-  [% LAST %]
-  [% END %]
-  [% IF loop.last %][% END %]
-[% END %]
-
-[% first_author = '' %]
-[% FOREACH au IN author %]
-  [% IF loop.first %]
-    [% lf.forms.$type.field.author.label || lf.forms.$type.field.author_secondary.label %]
-  [% ELSE %];[% END %]
-  [% IF au.id %]
-  <a itemprop="author" href="/person/[% au.id %]">[% au.full_name %]<sup class="text-muted">[% lf.frontdoor.local_brand %]</sup></a>
-  [% ELSE %]
-  <span itemprop="author">[% au.full_name %]</span>
-  [% END %]
-  [% IF au.orcid %]<a href="http://orcid.org/[% au.orcid %]"><sup><img src="/images/orcid_icon_16x16.png" /></sup></a>[% END %]
-  [% IF loop.count > 11 %]
-    <span id="showAut">
-      <br><a href="#details" onclick="ShowAuthors();"><span class="fw"></span>[% lf.frontdoor.show_all %]</a>
-    </span>
-  [% LAST %]
-  [% END %]
-  [% IF loop.last %][% END %]
-[% END %]
-
-
-[% FOREACH sup IN supervisor %]
-  [% IF loop.first %]
-    [% lf.forms.$type.field.supervisor.label %]
-  [% ELSE %];[% END %]
-  [% IF sup.id %]
-  <a href="/person/[% sup.id %]">[% sup.full_name %][% lf.frontdoor.local_brand %]</a>
-  [% ELSE %]
-  [% sup.full_name %]
-  [% END %]
-  [% IF sup.orcid %]<a href="http://orcid.org/[% sup.orcid %]"><img src="/images/orcid_icon_16x16.png" /></a>[% END %]
-  [% IF loop.last %]
-[% END %]
-[% END %]
-
-[% FOREACH ed IN editor %]
-  [% IF loop.first %]
-
-    [% lf.forms.$type.field.editor.label || lf.forms.$type.field.editor_solo.label %]</div>
-
-  [% ELSE %];[% END %]
-  [% IF ed.id %]
-  <a itemprop="editor" href="/person/[% ed.id %]">[% ed.full_name %]<sup class="text-muted">[% lf.frontdoor.local_brand %]</sup></a>
-  [% ELSE %]
-  <span itemprop="editor">[% ed.full_name %]</span>
-  [% END %]
-  [% IF ed.orcid %]<a href="http://orcid.org/[% ed.orcid %]"><sup><img src="/images/orcid_icon_16x16.png" /></sup></a>[% END %]
-  [% IF loop.last %][% END %]
-[% END %]
-
-[% FOREACH ed IN corporate_editor %]
-  [% IF loop.first %]
-    [% lf.forms.$type.field.corporate_editor.label || lf.forms.$type.field.corporate_editor_solo.label %]</div>
-  [% ELSE %];[% END %]
-  [% ed %]
-  [% IF loop.last %]
-  
-  [% END %]
-[% END %]
-
-[% FOREACH dep IN department %]
-  [% IF loop.first %]
-  [% lf.forms.$type.field.department.label %]
-  [% ELSE %][% END %]
-  <a href="/[% bag %]?q=department=[% dep._id %]" class="long">[% h.get_department(dep._id).display %]</a>
-  [% IF loop.last %][% END %]
-[% END %]
-
-[%- FOREACH proj IN project -%]
-  [%- IF loop.first -%]
-    [% lf.forms.$type.field.project.label %]
-  [%- ELSE -%][% END %]
-  <a href="/project/[% proj._id %]">[% proj.name %]</a>
-  [%- IF loop.last %][% END -%]
-[%- END -%]
-
-[%- FOREACH rg IN research_group -%]
-  [%- IF loop.first -%]
-    [% lf.forms.$type.field.research_group.label %]
-  [%- ELSE -%]
-  [% END %]
-  [% rg.name %]
-  [% IF loop.last %]
-  [% END %]
-[%- END -%]
-
-[%- FOREACH at IN alternative_title -%]
-[%- IF loop.first -%]
-  [% lf.forms.$type.field.alternative_title.label %]
-    [%- ELSE  -%]
-    [% END %]
-    [% at %]
-  [%- IF loop.last -%]
-  [% END %]
-[%- END -%]
-
-[% IF abstract %]
-  [% lf.forms.$type.field.abstract.label %]
-  [% FOREACH ab IN abstract %]
-    [% UNLESS loop.first %]
-    [% END %]
-    [% ab.text %]
-  [% END %]
-[% END %]
-
-[% IF keyword %]
-  [% lf.forms.$type.field.keyword.label %]
-    [% FOREACH kw IN keyword %]
-      <a href='/[% bag %]?q=keyword="[% kw %]"'>[% kw %]</a>
-    [% UNLESS loop.last %];
-    [% END %]
-  [% END %]
-[% END %]
-
-  [% lf.forms.$type.field.year.label || lf.forms.$type.field.year_extern.label %]
-  <a href="/[% bag %]?q=year=[% year %]">[% year %]</a>
-
-[% IF data_reuse_license %]
-  [% lf.forms.$type.field.license.data_reuse_license.label %]
-  [% SWITCH data_reuse_license %]
-  [% CASE 'PDDL' %] This [% title %] is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href="http://opendatacommons.org/licenses/pddl/1.0">http://opendatacommons.org/licenses/pddl/1.0</a><!-- TODO: translate this -->
-  [% CASE 'ODC-By' %] This [% title %] is made available under the Open Data Commons Attribution License: <a href="http://opendatacommons.org/licenses/by/1.0">http://opendatacommons.org/licenses/by/1.0</a><!-- TODO: translate this -->
-  [% CASE 'ODbL' %] This [% title %] is made available under the Open Database License: <a href="http://opendatacommons.org/licenses/odbl/1.0">http://opendatacommons.org/licenses/odbl/1.0</a>. Any rights in individual contents of the database are licensed under the Database Contents License: <a href="http://opendatacommons.org/licenses/dbcl/1.0/" target="_blank">http://opendatacommons.org/licenses/dbcl/1.0/</a><!-- TODO: translate this -->
-  [% END %]
-[% END %]
-
-[% IF conference.name %]
-  <!-- IF conference.name (Start) -->
-  [% lf.forms.$type.field.item('conference.name').label %]
-  [% conference.name %]
-  <!-- IF conference.name (End) -->
-[% END %]
-
-[% IF conference.location %]
-  [% lf.forms.$type.field.item('conference.location').label_short %]
-  [% conference.location %]
-[% END %]
-
-[% IF conference.start_date %]
-  [% lf.forms.$type.field.item('conference.date').label %]
-  [% conference.start_date %][% IF conference.end_date %] &ndash; [% conference.end_date %][% END %]
-[% END %]
-
 [% IF publication_identifier.isbn %]
-  [% lf.frontdoor.tabs.details.isbn %]
-    [% FOREACH ib IN publication_identifier.isbn %]
-      <a href='/publication?q=isbn=[% ib %]'>[% ib %]</a>
-    [% UNLESS loop.last %],
+  <div class="lc-record__identifier-isbn">
+    [% lf.frontdoor.tabs.details.isbn %]
+      [% FOREACH ib IN publication_identifier.isbn %]
+        <a href='/publication?q=isbn=[% ib %]' title="">[% ib %]</a>
+      [% UNLESS loop.last %],
+      [% END %]
     [% END %]
-  [% END %]
+  </div>
 [% END %]
+
+
 
 [% IF publication_identifier.issn %]
-  [% lf.frontdoor.tabs.details.issn %]
-  [% FOREACH is IN publication_identifier.issn %]
-    <a href="/publication?q=issn=[% is %]">[% is %]</a>
-    [% UNLESS loop.last %], [% END %]
-  [% END %]
+  <div class="lc-record__identifier-issn">
+    [% lf.frontdoor.tabs.details.issn %]
+    [% FOREACH is IN publication_identifier.issn %]
+      <a href="/publication?q=issn=[% is %]" title="">[% is %]</a>
+      [% UNLESS loop.last %], [% END %]
+    [% END %]
+  </div>
 [% END %]
+
+
 
 [% IF publication_identifier.eissn %]
-  [% lf.frontdoor.tabs.details.eissn %]
-  [% FOREACH es IN publication_identifier.eissn %]<a href="/publication?q=eissn=[% es %]">[% es %]</a>[% UNLESS loop.last %], [% END %][% END %]
+  <div class="lc-record__identifier-eissn">
+    [% lf.frontdoor.tabs.details.eissn %]
+    [% FOREACH es IN publication_identifier.eissn %]
+      <a href="/publication?q=eissn=[% es %]" title="">[% es %]</a>
+      [% UNLESS loop.last %], [% END %]
+    [% END %]
+  </div>
 [% END %]
 
+
 [% IF ipn %]
-  [% lf.frontdoor.tabs.details.ipn %]
-  [% ipn %]
+  <div class="lc-record__ipn">
+    [% lf.frontdoor.tabs.details.ipn %]
+    [% ipn %]
+  </div>
 [% END %]
 
 [% IF ipc %]
-  [% lf.frontdoor.tabs.details.ipc %]
-  [% ipc %]
+  <div class="lc-record__ipc">
+    [% lf.frontdoor.tabs.details.ipc %]
+    [% ipc %]
+  </div>
 [% END %]
 
 [% IF ubi_funded OR external_id.scoap3 %]
-
   [% lf.frontdoor.tabs.details.financial_disclosure %]
   [% IF ubi_funded %]
     [% lf.frontdoor.tabs.details.ubi_funded %]
   [% ELSIF external_id.scoap3 %]
     [% lf.frontdoor.tabs.details.scoap3 %]
   [% END %]
-
 [% END %]
 
+  
 
-    PUB-ID <a itemprop="url" href="[% request.uri %]" title="[% lf.frontdoor.id_title %]">[% _id %]</a>
-
-
-
-  <!-- Citations -->
-  <div id="citethis">
-
-  <h3 id="cite">[% lf.frontdoor.cite_this %]</h3>
-
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#ama" data-toggle="tab">AMA</a></li>
-    <li><a href="#apa" data-toggle="tab">APA</a></li>
-    <li><a href="#frontiers" data-toggle="tab">Frontiers</a></li>
-    <li><a href="#harvard1" data-toggle="tab">Harvard</a></li>
-    <li><a href="#ieee" data-toggle="tab">IEEE</a></li>
-    <li><a href="#lncs" data-toggle="tab">LNCS</a></li>
-    <li><a href="#mla" data-toggle="tab">MLA</a></li>
-    <li><a href="#bibtex" data-toggle="tab">BibTeX</a></li>
-    <li><a href="#ris" data-toggle="tab">RIS</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="ama" class="tab-pane active cmark">[% citation.ama %]</div>
-    <div id="apa" class="tab-pane cmark">[% citation.apa %]</div>
-    <div id="frontiers" class="tab-pane cmark">[% citation.frontiers %]</div>
-    <div id="harvard1" class="tab-pane cmark">[% citation.harvard1 %]</div>
-    <div id="ieee" class="tab-pane cmark">[% citation.ieee %]</div>
-    <div id="lncs" class="tab-pane cmark">[% citation.lncs %]</div>
-    <div id="mla" class="tab-pane cmark">[% citation.mla %]</div>
-    <div id="bibtex" class="tab-pane"></div>
-    <div id="ris" class="tab-pane"></div>
-  </div>
-
-  </div><!-- citethis -->
-
-</div>
 
 <!-- END frontdoor/tab_details.tt -->

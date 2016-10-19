@@ -37,15 +37,15 @@
 	<div class="row">
 	  <div class="col-xs-10">
 	  [% IF active %]
-	    <em>Active</em>
+	    Active
 	    [% IF sc39 OR funded %]|[% END %]
 	  [% END %]
 	  [% IF sc39 %]
-	    <em>SC39</em>
+	    SC39
 	    [% IF funded %]|[% END %]
 	  [% END %]
 	  [% IF funded %]
-	    <em>[% lf.project.funded_ext %]</em>
+	    [% lf.project.funded_ext %]
 	  [% END %]
 	  </div>
 	</div>

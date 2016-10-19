@@ -1,0 +1,12 @@
+<div class="lc-record__abstract">
+  <div class="lc-record__heading">
+    [% lf.forms.$type.field.abstract.label %]:
+  </div>
+  <div class="lc-record__data">
+    [% FOREACH ab IN abstract %]
+      [% UNLESS loop.first %]
+      [% END %]
+      [% ab.text %]
+    [% END %]
+  </div>
+</div>

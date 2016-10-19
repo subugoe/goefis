@@ -1,0 +1,13 @@
+<div class="lc-record__language">
+  <div class="lc-record__heading">
+    Language:<!-- TODO: translate this -->
+  </div>
+  <div class="lc-record__data">
+    [% FOREACH lang IN language %]
+      [% IF lang.iso AND bag != "data" %]
+        <!-- [%- IF loop.first %]|[% ELSE %],[% END -%] -->
+        <meta content="[% lang.iso %]">[% lf.forms.language.${lang.iso} %]
+      [% END %]
+    [% END %]
+  </div>
+</div>

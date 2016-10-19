@@ -1,19 +1,10 @@
-
-<!-- BEGIN frontdoor/tab_relresdata.tt -->
-
-<div class="tab-pane" id="relResData">
-  [% lf.frontdoor.tabs.data_publication.cites %]<br />
+<div class="lc-record__cites-data-publications">
+  [% lf.frontdoor.tabs.data_publication.cites %]
   [% FOREACH resDat IN relResData %]
     [% rec = h.get_publication(resDat.id) %]
     [% NEXT IF rec.status != "public" %]
-    <div class="row">
-      <div class="col-md-2 text-muted">[% resDat.id %]</div>
-      <div class="col-md-10">
-	<a href="/data/[% resDat.id %]">[% rec.title %]</a><br />
-	[% rec.citation.default %]<br />
-      </div>
-    </div>
+      [% resDat.id %]
+	    <a href="/data/[% resDat.id %]" title="">[% rec.title %]</a>
+	    [% rec.citation.default %]
   [% END %]
-</div><!-- tab-pane relPubl -->
-
-<!-- END frontdoor/tab_relresdata.tt -->
+</div>

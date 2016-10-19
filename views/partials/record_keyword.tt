@@ -1,0 +1,10 @@
+<div class="lc-record__keyword">
+  <div class="lc-record__heading">
+    Keywords:<!-- TODO: translate this -->
+  </div>
+  <div class="lc-record__data">
+    [% FOREACH kw IN keyword %]
+      <a href='/[% bag %]?q=keyword="[% kw %]"' title="">[% kw %]</a>[% UNLESS loop.last %];[% END %]
+    [% END %]
+  </div>
+</div>
