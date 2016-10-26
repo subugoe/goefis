@@ -127,13 +127,7 @@
     </div>
     <ul class="lc-facette__list">
 	    [% FOREACH au IN facets.author.terms %]
-        <!-- check if author name is avaliable. if not show author id instead (start) -->
-        [% IF authors.item(au.term).length < 1 %]
-          [% name = au.term %]
-        [% ELSE %]
-          [% name = authors.item(au.term) %]
-        [% END %]
-        <!-- check if author name is avaliable. if not show author id instead (end) -->
+        [% name = authors.item(au.term) %]
 	      <li>
           <a class="facet_[% tabmodus %][% menu %]" data-key="q" data-param="author" data-value="[% au.term %]" href="#" rel="nofollow" title="">[% name %]</a> <span class="label label-default">[% au.count %]</span>
         </li>
