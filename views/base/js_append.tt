@@ -3,7 +3,7 @@
 	var path = '[% request.path %]',
 	searchParams = [% h.extract_params.json %];
 	[% IF !backend %]
-		// searchParams.q.push('person=[% id %]');<!-- TODO: dirty fix to get the search running again without having to /unclick/ the "person=" parameter
+		searchParams.q.push('person=[% id %]');<!-- TODO: dirty fix to get the search running again without having to /unclick/ the "person=" parameter
 	[% END %]
 	var url = '/marked?'+ $.param($.extend({}, searchParams), true);
 	$(function () {

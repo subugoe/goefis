@@ -5,3 +5,32 @@
 .lc-account {
   @extend .row;
 }
+
+.lc-account-header__wrap {
+  @extend .p-t-2;
+  @extend .m-b-2;
+  background-color: $lc-color--dark;
+  color: $lc-color--brightest;
+}
+
+.lc-account-header {
+  @extend .container;
+}
+
+.lc-account__title {
+  @extend .h2;
+  @extend .col-xs-12;
+  @extend .m-b-2;
+}
+
+.lc-account__form {
+  @extend .m-b-2;
+}
+
+.lc-account__new {
+  @extend .m-b-2;
+}
+
+.lc-account__results {
+  @extend .m-b-2;
+}
