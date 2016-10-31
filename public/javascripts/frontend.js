@@ -31,8 +31,30 @@ $(function () {
     });
 });
 
-$( document ).ready(function() {
-    $.post('/marked_total', function(res) {
-        $('.total-marked').text(res.total);
-    });
+/**
+ * tho following bit seems to be outdated an replaced
+ * originally from librecat pre layer age
+ */
+// $( document ).ready(function() {
+//     $.post('/marked_total', function(res) {
+//         $('.total-marked').text(res.total);
+//     });
+// });
+
+/**
+ * the following bit replaces the line above
+ * originally from librecat post layer age
+ */
+$(document).ready(function() {
+    var totalMarked = $('.total-marked');
+    if (totalMarked.length) {
+        $.ajax({
+            type: 'GET',
+            url: '/marked_total',
+            dataType: 'json',
+            success: function(res) {
+               totalMarked.text(res.total);
+            }
+        });
+    }
 });
