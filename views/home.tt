@@ -215,4 +215,5 @@
 [% INCLUDE partials/footer.tt %]
 [% INCLUDE partials/copyright.tt %]
 [% INCLUDE base/js_append.tt %]
+[% PROCESS base/js_marked_append.tt %]
 [% INCLUDE base/html_end.tt %]

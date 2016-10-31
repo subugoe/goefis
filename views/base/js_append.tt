@@ -1,42 +1,4 @@
 [% path = request.path -%]
-<script>
-	var path = '[% request.path %]',
-	searchParams = [% h.extract_params.json %];
-	[% IF !backend %]
-		searchParams.q.push('person=[% id %]');<!-- TODO: dirty fix to get the search running again without having to /unclick/ the "person=" parameter
-	[% END %]
-	var url = '/marked?'+ $.param($.extend({}, searchParams), true);
-	$(function () {
-		$('.mark_all').click(function(evt){
-			evt.preventDefault();
-			var a = $(this);
-			var marked_all = a.data('marked');
-			if(marked_all == 0){
-				$.post(url, function(res) {
-					$('.total-marked').text(res.total);
-					$('.mark').html('[square]');
-					$('.mark').data('marked', 1);
-					a.html('Unmark all');
-					a.data('marked', 1);
-				}, 'json');
-			}
-			else {
-				prev = "[% IF qp.person AND qp.person != "" %][% h.newuri_for("/person/$qp.person", qp, person="") %][% ELSIF qp.department AND qp.department != "" %][% h.newuri_for("/department/$qp.department", qp, department="") %][% ELSIF qp.publication AND qp.publication != "" %][% h.newuri_for("/publication/$qp.publication", qp, publication="") %][% END %]";
-				$.post('/marked?x-tunneled-method=DELETE', function(res) {
-				if(prev){
-					window.location.replace(prev);
-				} else {
-					$('.total-marked').text(res.total);
-					$('.mark').html('[square]');
-					$('.mark').data('marked', 0);
-					a.html('Mark all');
-					a.data('marked', 0);
-				}
-			}, 'json');
-		}
-	});
-});
-</script>
 
 <!-- <script src="/javascripts/commonmarkjs/dist/commonmark.min.js"></script>
 <script>
