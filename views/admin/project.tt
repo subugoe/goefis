@@ -35,11 +35,9 @@
     		</form>
 			</div>
 		</div>
-		<!-- <div class="row"> -->
-			<div class="col-xs-12 m-b-2">
-				<a href="/librecat/admin/project/new" class="btn btn-primary">Add new project</a><!-- TODO: translate this -->
-			</div>
-		<!-- </div> -->
+		<div class="col-xs-12 m-b-2">
+			<a href="/librecat/admin/project/new" class="btn btn-primary">Add new project</a><!-- TODO: translate this -->
+		</div>
 		[% IF hits %]
 				<div class="col-xs-12">
 					<h3>[% total ? total : "0" %] Results</h3><!-- TODO: translate this -->
