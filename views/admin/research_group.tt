@@ -4,74 +4,68 @@
 [% lang = session.lang ? session.lang : h.config.default_lang -%]
 [% lf = h.config.language.$lang -%]
 [% backend = path.match('librecat') ? 1 : 0 %]
-[% INCLUDE base/html_start.tt %]
-[% INCLUDE partials/header.tt %]
-
+[% PROCESS partials/header.tt %]
+[% PROCESS partials/topbar.tt %]
+[% PROCESS partials/menu.tt %]
+[% PROCESS partials/title.tt %]
 <!-- BEGIN admin/research_group.tt -->
 
-<div class="row">
-
-  <div class="col-md-11 col-sm-12"> <!-- main content (left) -->
-
-    <div class="page-header">
-      <h1>
-	Manage Research Groups
-      </h1>
-    </div>
-
-    <form role="form" action="/librecat/admin/research_group/search" method="GET">
-      <div class="row">
-	<div class="col-md-5">
-	  <label for="id_q">Search Research Groups</label>
-	  <div class="input-group">
-	    <input type="text" class="form-control" name="cql_query" id="id_q" value="[% qp.cql_query || qp.q %]">
-	    <span class="input-group-btn">
-	      <button type="submit" class="btn btn-default">Search</button>
-	    </span>
-	  </div><!-- /input-group -->
+<div class="lc-page-header__wrap">
+	<div class="lc-page-header">
+		<div class="row">
+			<div class="lc-page__title">
+				Manage Research Groups<!-- TODO: translate this -->
+			</div>
+		</div>
 	</div>
+</div>
+<div class="lc-page__wrap">
+	<div class="lc-page">
+		<div class="col-xs-12">
+			<div class="lc-page__form">
+        <form role="form" action="/librecat/admin/research_group/search" method="GET">
+	        <label for="id_q">Search Research Groups</label><!-- TODO: translate this -->
+	        <div class="input-group">
+	          <input type="text" class="form-control" name="cql_query" id="id_q" value="[% qp.cql_query || qp.q %]">
+	          <span class="input-group-btn">
+	            <button type="submit" class="btn btn-primary"><svg class="lc-icon lc-icon--on-dark"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/icon.svg#lc-icon-search"></use></svg>Search</button><!-- TODO: translate this -->
+	          </span>
+          </div>
+        </form>
       </div>
-    </form>
-
-    <div class="row col-md-12  margin-bottom2">
-      <a href="/librecat/admin/research_group/new" class="btn btn-primary">Add new research group</a>
     </div>
-
+    <div class="col-xs-12 m-b-2">
+      <a href="/librecat/admin/research_group/new" class="btn btn-primary">Add new research group</a><!-- TODO: translate this -->
+    </div>
     [% IF hits %]
-    <div class="row ">
-      <div class="col-md-12">
-	<h3>[% total ? total : "0" %] Results</h3>
+      <div class="col-xs-12">
+	      <h3>[% total ? total : "0" %] Results</h3><!-- TODO: translate this -->
       </div>
-    </div>
-
-    <div class="row">
-      [% INCLUDE pagination.tt %]
-    </div>
-
-    [% FOREACH p IN hits %]
-    <div class="row innerrow">
-      <div class="col-md-1">
-	<a href="/research_group/[% p._id %]"><span class="label label-success">[% p._id %]</span></a>
+      <div class="col-xs-12">
+        [% INCLUDE pagination.tt %]
       </div>
-      <div class="col-md-9">
-	<a href="/librecat/admin/research_group/edit/[% p._id %]"><span class="fw"></span>[% IF p.acronym %][% p.acronym %] | [% END %][% p.name %]</a>
-	<br />
-	<span class="text-muted">[% FOREACH dep IN p.department %][% dep.name %][% UNLESS loop.last %] | [% END %][% END %]</span>
+      [% FOREACH p IN hits %]
+        <div class="row innerrow">
+          <div class="col-md-1">
+  	        <a href="/research_group/[% p._id %]"><span class="label label-success">[% p._id %]</span></a>
+          </div>
+          <div class="col-md-9">
+  	        <a href="/librecat/admin/research_group/edit/[% p._id %]"><span class="fw"></span>[% IF p.acronym %][% p.acronym %] | [% END %][% p.name %]</a>
+  	        <br />
+  	        <span class="text-muted">[% FOREACH dep IN p.department %][% dep.name %][% UNLESS loop.last %] | [% END %][% END %]</span>
+          </div>
+        </div>
+      [% END %]
+      <div class="col-xs-12">
+        [% INCLUDE pagination.tt %]
       </div>
-    </div>
     [% END %]
-
-    <div class="row">
-      [% INCLUDE pagination.tt %]
-    </div>
-
-    [% END %]
-
   </div>
-
 </div>
 
 <!-- END admin/research_group.tt -->
 
 [% INCLUDE partials/footer.tt %]
+[% INCLUDE partials/copyright.tt %]
+[% INCLUDE base/js_append.tt %]
 [% INCLUDE base/html_end.tt %]
