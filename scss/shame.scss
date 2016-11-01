@@ -13,3 +13,32 @@
     display: inline;
   }
 }
+
+.lc-page__wrap {
+  @extend .container;
+}
+
+.lc-page-header__wrap {
+  @extend .p-t-2;
+  @extend .m-b-2;
+  background-color: $lc-color--dark;
+  color: $lc-color--brightest;
+}
+
+.lc-page-header {
+  @extend .container;
+}
+
+.lc-page__title {
+  @extend .h2;
+  @extend .col-xs-12;
+  @extend .m-b-2;
+}
+
+.lc-page__form {
+  @extend .m-b-2;
+}
+
+.lc-page {
+  @extend .row;
+}

@@ -11,10 +11,10 @@
 [% PROCESS partials/title.tt %]
 
 <!-- BEGIN admin/account.tt -->
-<div class="lc-account-header__wrap">
-	<div class="lc-account-header">
+<div class="lc-page-header__wrap">
+	<div class="lc-page-header">
 		<div class="row">
-			<div class="lc-account__title">
+			<div class="lc-page__title">
 				Manage Account Information<!-- TODO: translate this -->
 			</div>
 		</div>
