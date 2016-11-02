@@ -28,10 +28,6 @@
 
 				<h2 class="lc-footer__header"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-user"></use></svg>[% session.user %]</h2>
 				<p><a href="/person/[% session.personNumber %]">[% lf.header.my_author_page %]</a></p>
-				<a href="#" class="dropdown-toggle helpme helpme-md" data-placement="bottom" title="[% lf.help.user_settings %]" data-toggle="dropdown">[% lf.header.settings %]</a>
-				<div class="dropdown-menu">
-					[% INCLUDE backend/user_settings.tt %]
-				</div>
 				<div>
 					<a href="/logout" class="btn btn-danger" role="button"><svg class="lc-icon lc-icon--on-dark"><use xlink:href="/images/icon.svg#lc-icon-sign-out"></use></svg>[% lf.main_page.logout %]</a>
 				</div>
