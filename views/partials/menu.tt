@@ -23,14 +23,22 @@
 				</ul>
 			</div>
 		</div>
+    [% IF backend OR (session.user) %]
+    <div class="row">
+      <div class="lc-menu-column">
+        User Settings
+        [% INCLUDE backend/user_settings.tt %]
+      </div>
+    </div>
+    [% END %]
 		[% IF session.role == 'super_admin' %]
 		<div class="row">
 			<div class="lc-menu-column">
 				Super Admin
 				<ul class="lc-menu__list">
-					<li><a href="/librecat/admin/account">Admin Accounts</a></li><!-- TODO: translate this -->
-					<li><a href="/librecat/admin/project">Admin Projects</a></li><!-- TODO: translate this -->
-					<li><a href="/librecat/admin/research_group">Admin Research Groups</a></li><!-- TODO: translate this -->
+					<li><a href="/librecat/admin/account">Manage Accounts</a></li><!-- TODO: translate this -->
+					<li><a href="/librecat/admin/project">Manage Projects</a></li><!-- TODO: translate this -->
+					<li><a href="/librecat/admin/research_group">Manage Research Groups</a></li><!-- TODO: translate this -->
 				</ul>
 			</div>
 		</div>
