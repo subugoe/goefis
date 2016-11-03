@@ -1,6 +1,6 @@
 [% department = thisPerson.department %]
-
 <!-- BEGIN backend/user_settings.tt -->
+[% thisPerson = h.get_person(session.personNumber) -%]
 [% IF thisPerson.super_admin OR thisPerson.reviewer OR thisPerson.project_reviewer OR thisPerson.data_manager OR thisPerson.delegate %]
   [% h.loc("header.role_label") %]: [% lf.header.role.item(session.role) %]
   ([% h.loc("header.role_change") %]

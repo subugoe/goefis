@@ -27,7 +27,7 @@
     <div class="row">
       <div class="lc-menu-column">
         User Settings
-        [% INCLUDE backend/user_settings.tt %]
+        [% PROCESS backend/user_settings.tt %]
       </div>
     </div>
     [% END %]
