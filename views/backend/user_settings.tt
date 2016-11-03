@@ -2,7 +2,9 @@
 <!-- BEGIN backend/user_settings.tt -->
 [% thisPerson = h.get_person(session.personNumber) -%]
 [% IF thisPerson.super_admin OR thisPerson.reviewer OR thisPerson.project_reviewer OR thisPerson.data_manager OR thisPerson.delegate %]
+<div>
   [% h.loc("header.role_label") %]: [% lf.header.role.item(session.role) %]
+  <br>
   ([% h.loc("header.role_change") %]
   [% IF session.role != "user" %]
     <a href="[% IF session.role != "user" %]/librecat/change_role/user[% END %]">[% h.loc("header.role.user") %]</a>
@@ -22,9 +24,9 @@
 	[% IF thisPerson.super_admin AND session.role != "super_admin" %]
 	  | <a href="/librecat/change_role/admin">[% h.loc("header.role.super_admin") %]</a>
 	[% END %]
-	)
+  )
 [% END %]
-
+</div>
 <form id="id_save_aff" action="/librecat/person/affiliation" method="POST">
   [% h.loc("header.department_affiliation") %]
   <div id="person_affiliation">
