@@ -47,7 +47,8 @@
 .lc-record__abstract,
 .lc-record__keyword,
 .lc-record__url,
-.lc-record__translators {
+.lc-record__translators,
+.lc-record__edit {
   @extend .row;
   @extend .m-b-1;
   @include media-breakpoint-up(sm) {
