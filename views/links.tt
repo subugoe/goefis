@@ -74,15 +74,15 @@
 <!-- IF backend (Start) -->
 
 	<div>
-		<div>
+		<div class="text-right" style="line-height: 150%">
 			[% IF (!entry.locked AND !entry.type.match("^bi")) OR session.role == "super_admin" %]
-				<a href="/librecat/record/edit/[% entry._id %]" class="btn btn-primary btn-sm">[% lf.main_page.links.edit %]</a>
+				<a href="/librecat/record/edit/[% entry._id %]" class="btn btn-primary btn-sm m-b-1">[% lf.main_page.links.edit %]</a>
 			[% ELSE %]
 				[% lf.main_page.links.edit %]
 			[% END %]
 
 			[% IF session.role == "super_admin" %]
-				<a href="/librecat/record/internal_view/[% entry._id %]" target="_blank" class="btn btn-primary btn-sm">[% lf.main_page.links.internal_view %]</a>
+				<a href="/librecat/record/internal_view/[% entry._id %]" target="_blank" class="btn btn-primary btn-sm m-b-1">[% lf.main_page.links.internal_view %]</a>
 			[% END %]
 
 			[% FOREACH fi IN entry.file %]
@@ -93,17 +93,16 @@
 			[% END %]
 
 			[% IF (entry.status != "public" AND entry.status != "submitted" AND entry.status != "new" AND entry.type != "researchData") OR ((entry.status == "submitted" OR entry.status == "new") AND session.role == "super_admin") %]
-				<a href="/librecat/record/publish/[% entry._id %]" class="btn btn-primary btn-sm">[% lf.main_page.links.publish %]</a>
+				<a href="/librecat/record/publish/[% entry._id %]" class="btn btn-primary btn-sm m-b-1">[% lf.main_page.links.publish %]</a>
 			[% ELSIF entry.status == "public" AND entry.type != "researchData" %]
-				<a href="/librecat/record/return/[% entry._id %]" class="btn btn-primary btn-sm">[% lf.main_page.links.return %]</a>
+				<a href="/librecat/record/return/[% entry._id %]" class="btn btn-primary btn-sm m-b-1">[% lf.main_page.links.return %]</a>
 			[% END %]
 			[% IF session.role == "super_admin" %]
-				<a href='/librecat/search/admin/similar_search?q="[% entry.title.replace("[\'\"\,\;\:\.]+","") %]"' class="btn btn-primary btn-sm">[% lf.main_page.links.search_similar %]</a>
+				<a href='/librecat/search/admin/similar_search?q="[% entry.title.replace("[\'\"\,\;\:\.]+","") %]"' class="btn btn-primary btn-sm m-b-1">[% lf.main_page.links.search_similar %]</a>
 			[% END %]
 		</div>
 
-		<div>
-
+		<div class="lc-text--small text-right">
 			[% entry.date_updated.replace('(T|Z)',' ') %] (GMT)
 		</div>
 	</div>

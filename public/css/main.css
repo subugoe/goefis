@@ -4566,6 +4566,12 @@ h5,
 h6 {
   color: #064177; }
 
+.lc-text--small {
+  font-size: 66.66%; }
+
+.text-right {
+  text-align: right; }
+
 .lc-neutral-textinput, .lc-hero__searchinput, .lc-footer__textinput {
   border-top: none;
   border-right: none;

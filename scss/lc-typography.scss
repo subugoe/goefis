@@ -24,3 +24,11 @@ h5,
 h6 {
   color: $brand-primary;
 }
+
+.lc-text--small {
+  font-size: $lc-text--smallest;
+}
+
+.text-right {
+  text-align: right;
+}
