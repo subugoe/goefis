@@ -11,6 +11,16 @@
 
 
 <!-- BEGIN marked/marked.tt -->
+<div class="lc-page-header__wrap">
+	<div class="lc-page-header">
+		<div class="row">
+			<div class="lc-page__title">
+				Marked Publications<!-- TODO: translate this -->
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="lc-marked__wrap">
 	<div class="lc-marked">
 		<div class="row">

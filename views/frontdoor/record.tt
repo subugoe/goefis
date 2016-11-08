@@ -225,6 +225,17 @@
 
       [% PROCESS partials/record_pubid.tt %]
 
+      [% IF status == "public" %]
+        <div class="lc-record__author">
+          <div class="lc-record__heading">
+            Mark/Unmark
+          </div>
+          <div class="lc-record__data">
+            <a class="mark btn btn-sm btn-primary" data-marked="[% h.is_marked(_id) %]" data-id="[% _id %]">[% IF h.is_marked(_id) %]Marked[% ELSE %]Not marked[% END %]</a>
+          </div>
+        </div>
+      [% END %]
+
       [% PROCESS partials/record_citationcopy.tt %]
 
       [% IF mainFile AND mainFile.0.file_name %]
