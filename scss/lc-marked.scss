@@ -11,3 +11,9 @@
 .lc-marked__wrap {
   @extend .container;
 }
+
+.lc-marked__inline-button {
+  @include media-breakpoint-up(sm) {
+    text-align: right;
+  }
+}

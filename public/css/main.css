@@ -4688,6 +4688,10 @@ h6 {
   font-size: 66.66%;
   margin-bottom: 0; }
 
+@media (min-width: 544px) {
+  .lc-marked__inline-button {
+    text-align: right; } }
+
 .lc-footer__wrap {
   background-color: #064177;
   font-weight: 300; }
