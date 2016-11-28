@@ -13,15 +13,15 @@
 	<div class="lc-page-header">
 		<div class="row">
 			<div class="lc-page__title">
-        [% IF total %]
-          [% IF total > 1 %]
-				    [% total %] Publications
-          [% ELSE %]
-            1 Publication
-          [% END %]
-        [% ELSE %]
-          Marked Publications<!-- TODO: translate this -->
-        [% END %]
+				[% IF total %]
+					[% IF total > 1 %]
+						[% total %] Marked Publications<!-- TODO: translate this -->
+					[% ELSE %]
+						1 Marked Publication<!-- TODO: translate this -->
+					[% END %]
+				[% ELSE %]
+					Marked Publications<!-- TODO: translate this -->
+				[% END %]
 			</div>
 		</div>
 	</div>
@@ -31,32 +31,14 @@
 	<div class="lc-marked">
 		<div class="row">
 			[% IF total %]
-				<!-- <div class="col-xs-12">
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#"><span class="total-marked">[% total %]</span> [% lf.mark.marked_publication %]</a></li>
-						<li><a href="#export">[% lf.mark.display_export %]</a></li>
-					</ul>
-				</div> -->
-				<div class="tab-content">
-					<div class="tab-pane active">
-						<div class="col-sm-8">
-							[% INCLUDE hits.tt %]
-						</div>
-						<div class="col-md-3 col-md-offset-1 col-sm-4">
-							[% PROCESS filters.tt %]
-						</div>
-					</div>
-				</div>
+				[% PROCESS hits.tt %]
 			[% ELSE %]
-				<div class="lc-marked__no-marks">
 					<p>[% lf.mark.no_marked_publication %]</p>
-				</div>
 			[% END %]
 		</div>
 	</div>
 </div>
 
-<script src="/javascripts/jquery-sortable.js"></script>
 <script>
 	$(function() {
 		$( "#sortable" ).sortable({
@@ -68,10 +50,10 @@
 		});
 	});
 </script>
-
 <!-- END marked/marked.tt -->
-[% INCLUDE partials/footer.tt %]
-[% INCLUDE partials/copyright.tt %]
-[% INCLUDE base/js_append.tt %]
+
+[% PROCESS partials/footer.tt %]
+[% PROCESS partials/copyright.tt %]
+[% PROCESS base/js_append.tt %]
 [% PROCESS partials/js_marked_append.tt %]
-[% INCLUDE base/html_end.tt %]
+[% PROCESS base/html_end.tt %]

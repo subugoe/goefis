@@ -1,9 +1,13 @@
 // .lc-marked__wrap {}
 
 .lc-marked {
-  @extend .container;
+  @extend .row;
 }
 
 .lc-marked__no-marks {
   @extend .col-xs-12;
+}
+
+.lc-marked__wrap {
+  @extend .container;
 }

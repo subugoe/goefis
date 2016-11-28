@@ -609,26 +609,26 @@ pre {
   max-height: 340px;
   overflow-y: scroll; }
 
-.container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
+.container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked__wrap, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
   margin-left: auto;
   margin-right: auto;
   padding-left: 0.375rem;
   padding-right: 0.375rem; }
-  .container::after, .lc-topbar::after, .lc-menu::after, .lc-title::after, .lc-hero::after, .lc-features::after, .lc-results::after, .lc-account__wrap::after, .lc-account-header::after, .lc-record-header::after, .lc-record::after, .lc-marked::after, .lc-footer::after, .lc-copyright::after, .lc-page__wrap::after, .lc-page-header::after {
+  .container::after, .lc-topbar::after, .lc-menu::after, .lc-title::after, .lc-hero::after, .lc-features::after, .lc-results::after, .lc-account__wrap::after, .lc-account-header::after, .lc-record-header::after, .lc-record::after, .lc-marked__wrap::after, .lc-footer::after, .lc-copyright::after, .lc-page__wrap::after, .lc-page-header::after {
     content: "";
     display: table;
     clear: both; }
   @media (min-width: 544px) {
-    .container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
+    .container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked__wrap, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
       max-width: 576px; } }
   @media (min-width: 768px) {
-    .container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
+    .container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked__wrap, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
+    .container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked__wrap, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
       max-width: 940px; } }
   @media (min-width: 1200px) {
-    .container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
+    .container, .lc-topbar, .lc-menu, .lc-title, .lc-hero, .lc-features, .lc-results, .lc-account__wrap, .lc-account-header, .lc-record-header, .lc-record, .lc-marked__wrap, .lc-footer, .lc-copyright, .lc-page__wrap, .lc-page-header {
       max-width: 1140px; } }
 
 .container-fluid {
@@ -656,7 +656,7 @@ pre {
 .lc-record__keyword,
 .lc-record__url,
 .lc-record__translators,
-.lc-record__edit, .lc-page {
+.lc-record__edit, .lc-marked, .lc-page {
   margin-left: -0.375rem;
   margin-right: -0.375rem; }
   .row::after, .lc-feature::after, .lc-account::after, .lc-record__type::after,
@@ -674,7 +674,7 @@ pre {
   .lc-record__keyword::after,
   .lc-record__url::after,
   .lc-record__translators::after,
-  .lc-record__edit::after, .lc-page::after {
+  .lc-record__edit::after, .lc-marked::after, .lc-page::after {
     content: "";
     display: table;
     clear: both; }
