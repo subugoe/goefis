@@ -1,14 +1,12 @@
 [% qp = request.params.hash %]
 [% qp.delete('splat') %]
-
 [% lang = session.lang ? session.lang : h.config.default_lang %]
 [% lf = h.config.language.$lang %]
-[% INCLUDE base/html_start.tt %]
-[% INCLUDE partials/header.tt %]
-[% INCLUDE partials/topbar.tt %]
-[% INCLUDE partials/menu.tt %]
-[% INCLUDE partials/title.tt %]
 
+[% PROCESS partials/header.tt %]
+[% PROCESS partials/topbar.tt %]
+[% PROCESS partials/menu.tt %]
+[% PROCESS partials/title.tt %]
 
 <!-- BEGIN marked/marked.tt -->
 <div class="lc-page-header__wrap">
