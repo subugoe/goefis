@@ -1,12 +1,6 @@
-<!-- index_publication.tt (Start) -->
-<!-- Templating Parameters from index_publication.tt (Start) -->
-	<!-- path = request.path -->
 [% path = request.path %]
-<!-- qp = request.params.hash -->
 [% qp = request.params.hash %]
-<!-- qp.delete('splat') -->
 [% qp.delete('splat') %]
-<!-- Templating Parameters from index_publication.tt (End) -->
 [% PROCESS partials/header.tt %]
 [% PROCESS partials/topbar.tt %]
 [% PROCESS partials/menu.tt %]
