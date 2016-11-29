@@ -1,8 +1,7 @@
 <!-- BEGIN websites/index_publication_js.tt -->
 [% qp = request.params.hash %]
 document.write ('<!-- Citations in this list are displayed in "[% style %]" style. -->');
-document.write ('
-<ul[% IF qp.listyle %] style="[% qp.listyle %]"[% END %]>');
+document.write ('<ul[% IF qp.listyle %] style="[% qp.listyle %]"[% END %]>');
 [% FOREACH entry IN hits %]
 
 	[% string = entry.citation.$style %]
