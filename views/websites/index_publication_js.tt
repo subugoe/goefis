@@ -16,7 +16,7 @@ document.write ('<ul[% IF qp.listyle %] style="[% qp.listyle %]"[% END %]>');
 	[% IF style == "default" %]
 		document.write('<a href="[% h.host %]/[% bag %]/[% entry._id %]">[% title %]</a><br />');
 	[% END %]
-	document.write('[%- string2 -%][% IF style != "apa_indent" AND style != "dgps" %]<br />[% END %] [% INCLUDE links_js.tt %]</li>');
+	document.write('[%- string2 -%][% IF style != "apa_indent" AND style != "dgps" %]<br />[% END %][% INCLUDE links_js.tt %]</li>');
 [% END %]
 
 document.write ('</ul>') ;
