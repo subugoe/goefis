@@ -975,6 +975,12 @@ researcher:
       type: string
       format: date-time
       description: "The user last modification date"
+    factScinceId:
+      type: string
+      description: "FACTScience Identifier"
+    contactPage
+      type: string
+      description: "Link to a contact page"
 
   required: ["_id","account_status","account_type","first_name","last_name","full_name"]
   additionalProperties: true
