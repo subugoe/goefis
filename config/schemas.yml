@@ -978,7 +978,7 @@ researcher:
     factScinceId:
       type: string
       description: "FACTScience Identifier"
-    contactPage
+    contactPage:
       type: string
       description: "Link to a contact page"
 
