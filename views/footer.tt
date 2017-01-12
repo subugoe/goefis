@@ -1,0 +1,24 @@
+<!-- BEGIN footer.tt -->
+
+</div><!-- container -->
+
+<div id="push"></div><!-- for sticky footer -->
+
+</main>
+
+<footer class="panel-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-md-4 col-sm-5">
+          <p>[% h.loc("footer.powered_by") %]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+<!-- END footer.tt -->
+
+</html>
