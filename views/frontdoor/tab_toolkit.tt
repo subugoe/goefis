@@ -1,9 +1,0 @@
-<!-- BEGIN frontdoor/tab_toolkit.tt -->
-<div>
-  [% lf.frontdoor.tabs.toolkit.data_by %]
-  Systems<!-- TODO: translate this -->
-  [% FOREACH d IN toolkit.Systems %]
-    <a href="[% d %]" title="">[% d %]</a>
-  [% END %]
-</div>
-<!-- END frontdoor/tab toolkit.tt -->

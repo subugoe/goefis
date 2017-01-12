@@ -1,7 +1,0 @@
-Software<!-- TODO: translate this -->
-[% FOREACH fi IN relLinkSw %]
-  [% INCLUDE frontdoor/oa_lock.tt %] <a href="[% fi.url %]" class="description" data-html="true" data-placement="right" rel="tooltip" title="[% IF fi.description %]Description:<br>[% fi.description %]<br><br>[% END %]Location:<br>[% fi.url %]">[% fi.title ? fi.title : fi.url %]</a><br>
-  <script>
-    $('a.description').tooltip();
-  </script>
-[% END %]

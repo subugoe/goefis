@@ -1,8 +1,0 @@
-<div class="lc-record__url">
-  <div class="lc-record__heading">
-    URL:
-  </div>
-  <div class="lc-record__data">
-    <a href="[% link.0 %]">[% link.0.substr(0,80) %][% IF link.0.length > 80%][...][% END %]</a><!-- TODO: translate this -->
-  </div>
-</div>

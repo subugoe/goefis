@@ -1,3 +1,0 @@
-<!-- simple example for a citation template -->
-[% author.0.full_name || editor.0.full_name %], [% title %]. [% publication %] [% volume %] ([% issue %]).
-[% place %], [% year %]

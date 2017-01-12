@@ -1,6 +1,0 @@
-[% IF doi %]
-  <div class="lc-record__doi">
-    [% lf.forms.$type.field.doi.label %]
-    <a href="http://doi.org/[% doi %]" title="[% doi %]">[% doi %]</a>
-  </div>
-[% END %]

@@ -1,3 +1,0 @@
-[% INCLUDE base/html_start.tt %]
-
-[% INCLUDE navbar.tt %]
