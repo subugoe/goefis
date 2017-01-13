@@ -1,0 +1,11 @@
+The publication <<[% title %]>> has been requested by [% user_email %].
+[% IF mesg %]
+Message: [% mesg %]
+[% END %]
+To approve this request click on the link below:
+[% host %]/rc/approve/[% key %]
+
+If you want to deny this request click on the following link:
+[% host %]/rc/deny/[% key %]
+
+Your GRO system
