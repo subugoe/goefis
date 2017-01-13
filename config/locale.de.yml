@@ -1,0 +1,1695 @@
+_prefix:
+  locale:
+    de:
+
+general:
+  plural: "en"
+  where: "in"
+login:
+  login_heading: "Anmelden"
+  username: "Benutzername"
+  password: "Passwort"
+  login_button: "Anmelden"
+header:
+  title: "Publikationen an der Georg-August-Universit&auml;t Göttingen"
+  my_author_page: "Meine Publikationsliste"
+  brand: "Start"
+  role_label: "Rolle"
+  role_change: "Rolle wechseln:"
+  settings: "Einstellungen"
+  role:
+    user: "User"
+    delegate: "Delegate"
+    reviewer: "Reviewer"
+    project_reviewer: "Projekt Reviewer"
+    data_manager: "Data Manager"
+    super_admin: "Admin"
+  admin_menu:
+    admin: "Admin"
+    manage_accounts: "Accounts verwalten"
+    import: "Import"
+    manage_projects: "Projekte verwalten"
+    manage_research_groups: "Forschungsgruppen verwalten"
+  lang: "English"
+  lang_short: "EN"
+  lang_select:
+    eng: "Englisch"
+    ger: "Deutsch"
+  department_affiliation: "Fakult&auml;t/ Zugeh&ouml;rigkeit"
+  logged_in_as: "Eingeloggt als"
+footer:
+  powered_by: "Powered by <a href='http://www.librecat.org/'>LibreCat</a>"
+tabs:
+  home: "Startseite"
+  all_publications: "Alle Publikationen"
+  publications: "Publikationen"
+  data_publications: "Datenpublikationen"
+  projects: "Projekte"
+  departments: "Einrichtungen"
+  authors: "Autoren"
+hits:
+  id: "GRO-ID"
+  author: "Autorin / Autor"
+  authors: "Autorinnen / Autoren"
+  publication: "Publikation"
+  publications: "Publikationen"
+  data_publication: "Datenpublikation"
+home:
+  search_placeholder: "Publikationen in GRO suchen"
+  fields: "Felder"
+  operators: "Operatoren"
+  stats:
+    publications: "Publikationen"
+    data_publications: "Datenpublikationen"
+    oa_publications: "Open-Access-Publikationen"
+    projects: "Projekte"
+main_page:
+  login: "Anmelden"
+  logout: "Abmelden"
+  add_new_button: "Neue Publikation"
+  qae_drop_text: "<span class='fa fa-hand-o-right fa-2x'></span> <span class='fa fa-file-pdf-o fa-3x'></span><br>Open-Access-Volltext (PDF)<br>hier her ziehen und wir machen den Rest"
+  logged_in_as: "Angemeldet als"
+  by: "von"
+  statuses:
+    public: "Public"
+    returned: "Returned"
+    submitted: "Submitted"
+    invalid: "Invalid"
+    qae: "New QaE"
+    private: "Private"
+  links:
+    edit: "Editieren"
+    details: "Details"
+    view_details: "Publikationsseite in GRO anzeigen (Frontdoor)"
+    files: "Dateien verf&uuml;gbar"
+    file: "Datei"
+    internal_view: "Interne Sicht"
+    request_a_copy: "Exemplar anfordern"
+    request_a_copy_title: "Generiert teilbare Links zu Dateien mit Status 'Request a copy'"
+    request_a_copy_not_public: "Nur Datens&auml;tze mit Status 'public' k&ouml;nnen geteilt werden! Klicken Sie auf \"Public stellen\" und versuchen Sie es erneut."
+    publish: "Public stellen"
+    return: "Zur&uuml;ckstellen"
+    search_similar: "Nach &auml;hnlichen Titeln suchen"
+person_profile:
+  id_not_found: "ID nicht gefunden."
+  former_researcher: "Ehemaliger LibreCat Forscher"
+  local_id: "ID"
+  no_author_ids: "Keine Autoren-IDs gesetzt."
+  person_id_title: "Diese IDs werden direkt nach dem Speichern auf Ihrer Personenseite sichtbar sein."
+project:
+  funded_ext: "Drittmittelprojekt"
+  period: "Projektzeitraum"
+  start_year: "Startjahr"
+  end_year: "Endjahr"
+  funder: "F&ouml;rderer"
+facets:
+  filters_and_searchterms: "Filter und Suchbegriffe"
+  search_filter: "Suche / Filtern"
+  search: "Suche"
+  go_button: "Los!"
+  filter_data_publications: "Datenpublikationen filtern"
+  filter_authorlist: "Autorenliste filtern"
+  filter_publications: "Publikationen filtern"
+  visibility_status: "Status"
+  current_authors: "LibreCat Autoren"
+  current_editors: "LibreCat Herausgeber"
+  former_authors: "Ehemalige LibreCat Autoren"
+  department: "Einrichtung"
+  publication_type: "Publikationstyp"
+  publishing_year: "Publikationsjahr"
+  external_publication: "Externe Publikation(en)"
+  all_external_publication: "Alle Publikationen sind externe Publikationen"
+  fulltext: "OA Volltext(e)"
+  all_fulltext: "Alle Publikationen sind OA Volltexte"
+  popular_science: "Popul&auml;rwiss. Publikation(en)"
+  all_popular_science: "Alle Publikationen sind popul&auml;rwissenschaftlich"
+  indexed_in: "Indexiert in"
+  all_isi: "Alle Publikationen haben eine ISI-Id"
+  all_arxiv: "Alle Publikationen haben eine arXiv-Id"
+  all_pubmed: "Alle Publikationen haben eine PMID-Id"
+  all_inspire: "Alle Publikationen haben eine INSPIRE-Id"
+  display: "Darstellung"
+  sort: "Sortierung"
+  sorted_by: "Sortiert nach"
+  hits_per_page: "Treffer pro Seite"
+  citation_style: "Zitationsstil"
+  save_style: "Zitationsstil speichern"
+  embed: "Einbettung"
+  embed_linktext: "Meine Publikationsliste"
+  export: "Export"
+  export_as: "Exportieren als"
+  export_marked: "Markierte exportieren"
+  export_options: "Exportoptionen"
+  export_withlinks: "Liste mit Links exportieren (GRO | DOI | WoS etc.)"
+  export_withoutlinks: "Liste ohne Links exportieren"
+  exports:
+    rtf: "RTF (z.B. Word, Office)"
+    bibtex: "BibTeX (z.B. Citavi)"
+    ris: "RIS"
+    json: "JSON"
+    yaml: "YAML"
+  sort_text:
+    "year.asc": "Jahr aufsteigend"
+    "year.desc": "Jahr absteigend"
+    "date_updated.asc": "&Auml;nderungsdatum aufsteigend"
+    "date_updated.desc": "&Auml;nderungsdatum absteigend"
+    "title.asc": "Titel aufsteigend"
+    "title.desc": "Titel absteigend"
+    "author.asc": "Erstautor aufsteigend"
+    "author.desc": "Erstautor absteigend"
+    "type.asc": "Publikationstyp aufsteigend"
+    "type.desc": "Publikationstyp absteigend"
+    "publication.asc": "Publ./ Serie/ Journal aufsteigend"
+    "publication.desc": "Publ./ Serie/ Journal absteigend"
+    "publcount.asc": "Anzahl der Publikationen aufsteigend"
+    "publcount.desc": "Anzahl der Publikationen absteigend"
+    "fullname.asc": "Alphabetisch aufsteigend"
+    "fullname.desc": "Alphabetisch absteigend"
+citation:
+  apa: APA
+  american-medical-association: AMA
+  chicago-fullnote-bibliography: Chicago
+  ieee: IEEE
+  modern-language-association: MLA
+frontdoor:
+  publication: Zeitschriftentitel
+  preview: "Vorschau"
+  no_record: "Dieser Eintrag exisitert nicht oder wurde gel&ouml;scht"
+  download: "Download"
+  show_all: "Alle"
+  local_brand: "LibreCat"
+  export: "Export"
+  marked: "Markierte Publikationen"
+  cite_this: "Zitieren"
+  citation: "Zitation"
+  citation_found: "gefunden, die diesen Artikel zitieren"
+  display_10: "von denen 10 angezeigt werden"
+  supplements: "Zusatzmaterialien"
+  show_all: "Alle"
+  view_wos: "Dieser Datensatz im Web of Science"
+  sources: "Quellen"
+  search_this: "Suchen in"
+  isbn_search: "ISBN Suche"
+  item: "Eintrag"
+  items: "Eintr&auml;ge"
+  tabs:
+    details:
+      label: "Details"
+      department: "Einrichtung(en)"
+      reviewed_work: "Rezensiertes Werk"
+      isbn: "ISBN"
+      issn: "ISSN"
+      eissn: "eISSN"
+      ipn: "Int. Patentnummer"
+      ipc: "Internationale Patent<br>Klassifikation"
+      financial_disclosure: "Finanzierungs-Informationen"
+      ubi_funded: "Article Processing Charge funded by the <a href='http://www.dfg.de/'>Deutsche Forschungsgemeinschaft</a> and the <a href=''>Open Access Publication Fund</a> of LibreCat University."
+      scoap3: "Open Access publishing charge funded by <a href='http://scoap3.org/'>SCOAP$^3$ – Sponsoring Consortium for Open Access Publishing in Particle Physics</a> and LibreCat University."
+      alt_name: "Alternativer Name"
+      acronym: "Akronym"
+      coordinator: "Koordinator"
+      investigator: "Leiter"
+      member: "Mitglieder"
+      cooperator: "Mitwirkende"
+    file_details:
+      label: "Dateien"
+      external_material: "Externes Material:"
+      internal_material: "Material in GRO:"
+      name: "Name"
+      title: "Titel"
+      description: "Beschreibung"
+      url: "URL"
+      access_level:
+        label: "Access Level"
+        open_access: "Open Access"
+        local: "LibreCat Only"
+        request_a_copy: "Request a Copy"
+        closed: "Closed Access"
+      last_uploaded: "Zuletzt Hochgeladen"
+      md5: "MD5 Pr&uuml;fsumme"
+    publication:
+      label: "Publikationen"
+      cited_by: "Diese Datenpublikation wird von folgenden Publikationen zitiert:"
+    data_publication:
+      label: "Datenpublikationen"
+      cites: "Diese Publikation zitiert die folgenden Datenpublikationen:"
+    toolkit:
+      label: "Cognitive Interaction Toolkit"
+    ebi_links:
+      label: "EBI BioEntities"
+      data_by: "Daten bereitgestellt von <a href='http://www.ebi.ac.uk/'>European Bioinformatics Institute (EBI)</a>"
+    epmc_citation:
+      label: "Zitationen"
+      data_by: "Daten bereitgestellt von <a href='http://europepmc.org/'>Europe PubMed Central</a>."
+    epmc_references:
+      label: "Referenzen"
+      data_by: "Daten bereitgestellt von <a href='http://europepmc.org/'>Europe PubMed Central</a>."
+    confirmation_letter:
+      label: "Best&auml;tigungsschreiben"
+      confirmation: "Best&auml;tigung"
+    related_material: "Links"
+    external_data:
+      label: "Software/ Ext. Daten"
+      research_data: "Externe Forschungsdaten:"
+      software: "Software:"
+    cite_this: "Zitieren"
+    export_search: "Export / Suche"
+  fulltext:
+    view: "Volltext &ouml;ffnen"
+  id_title: "Auf diese Seite verlinken, z.B. f&uuml;r Bookmarks"
+  license_heading: "Alle Dateien verf&uuml;gbar unter der/den folgenden Lizenz(en):"
+mark:
+  marked_publication: "Markierte Publikation(en)"
+  no_marked_publication: "Sie haben noch keine Publikation 'markiert'. Wenn Sie Publikationen zu dieser Seite hinzuf&uuml;gen m&ouml;chten, klicken Sie auf den Link <em>Markieren</em> neben einer Publikation. Sie finden diesen Link auf Personenseiten, Publikationslisten oder Publikationsseiten. Anschlie&szlig;end k&ouml;nnen Sie markierte Publikationen in verschiedenen Formaten exportieren (z.B. BibTex, RIS oder RTF)."
+  mark_all: "Alle markieren"
+  unmark_all: "Alle Markierungen l&ouml;schen"
+  mark_unmark: "Markieren/ Markierung l&ouml;schen"
+  display_export: "Darstellung / Sortierung"
+add_new:
+  heading: "Neue Publikation anlegen"
+  import: "Option 1:<br />Geben Sie einen Publikations-Identifier zum Import ein"
+  ids:
+    doi: "DOI"
+    pmid: "PMID"
+    arxiv: "ArXiv ID"
+    inspire: "Inspire ID"
+  do_it_yourself: "Option 2:<br />W&auml;hlen Sie einen Typ und f&uuml;llen Sie das Formular aus"
+  drop_oa: "Option 3:<br />Ziehen Sie Ihren Open-Access-Volltext hier her"
+  paste_bibtex: "Option 4:<br />F&uuml;gen Sie Ihren BibTex Eintrag hier ein"
+  paste_bibtex_placeholder: "Bitte f&uuml;gen Sie nur jeweils einen Datensatz ein"
+  wos_import: "Web of Science Import"
+  qae_title: "New Quick And Easy Publication - Will be edited by LibreCat team"
+forms:
+  book:
+    label: "Monographie"
+    tab: &tab
+      basic_fields: "Details"
+      file_upload: "Upload"
+      supplementary_fields: "Weitere Angaben"
+      related_material: "Verkn&uuml;pfungen"
+    field:
+      document_type: &document_type
+        label: "Publikationstyp"
+      doi: &doi
+        label: "DOI"
+        placeholder: "z.B. 10.4119/unibi/2695161"
+        title: "Der DOI wird automatisch generiert und kann nicht ver&auml;ndert werden."
+      title: &booktitle
+        label: "Titel"
+        placeholder: "z.B. Handbuch der eBook-Ver&ouml;ffentlichung"
+      alternative_title: &alternative_title
+        label: "Alternativer Titel"
+        label_short: "Alt. Titel"
+        placeholder: "z.B. Handbook of eBook Publishing"
+      author: &author_translator
+        label: "Autor"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+        idm_extern: "extern"
+        first_name:
+          label: "Vorname"
+          label_short: "Autor Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Autor Nachn."
+          placeholder: "z.B. M&uuml;ller"
+      edition: &edition
+        label: "Auflage"
+        placeholder: "z.B. 2"
+      department: &department
+        label: "Einrichtung"
+        label_short: "Einr."
+        placeholder: "Beginnen Sie zu tippen, oder nutzen Sie (Pfeil runter) um eine Einrichtungen auszuw&auml;hlen."
+      project: &project
+        label: "Projekt"
+        placeholder: "Beginnen Sie zu tippen, oder nutzen Sie (Pfeil runter) um ein Projekt auszuw&auml;hlen."
+      research_group: &research_group
+        label: "Forschungsgruppe"
+        label_short: "Forsch.gr."
+        placeholder: "Beginnen Sie zu tippen, oder nutzen Sie (Pfeil runter) um eine Forschungsgruppe auszuw&auml;hlen."
+      place: &place
+        label: "Verlagsort"
+        label_short: "Ort"
+        placeholder: "z.B. Berlin"
+      publisher: &publisher
+        label: "Verlag"
+        placeholder: "z.B. Elsevier"
+      year_extern: &year_extern
+        label: "Erscheinungsjahr"
+        year:
+          label_short: "Jahr"
+          placeholder: "z.B. 2015"
+        extern:
+          label_short: "Extern"
+          placeholder: "Ver&ouml;ffentlicht vor/nach Besch&auml;ftigung an der LibreCat"
+      page: &pages
+        label_short: "Seiten"
+        label: "Anzahl Seiten"
+        placeholder: "z.B. 345"
+      series_title_volume: &series_title_volume
+        label: "Serientitel / Band"
+        series_title:
+          label: "Serientitel"
+          placeholder: "Serientitel, z.B. Lecture Notes in Computer Science"
+        volume:
+          label: "Band"
+          placeholder: "Band, z.B. 3"
+      publication_identifier: &publication_identifier
+        label: "ISSN / ISBN"
+        label_short: "ISSN/ISBN"
+        placeholder: "z.B. (e)ISBN oder (e)ISSN ausw&auml;hlen und eintragen"
+      publication_status_language: &publication_status_language
+        label: "Status / Sprache"
+        language:
+          label: "Sprache"
+          label_short: "Sprache"
+        publication_status:
+          label: "Status"
+          label_short: "Status"
+      dropzone: &dropzone
+        label: "<strong>Upload f&uuml;r Volltext und Anh&auml;nge/ Zusatzmaterialien</strong> (max. 500MB pro Datei)"
+        dropzone_text: "Datei hier her ziehen... oder klicken!"
+        access_level: "Access Level:"
+        upload_date: "Upload Datum:"
+        user: "Nutzer:"
+        relation: "Relation:"
+        copy_link: "URL der Datei kopieren"
+        copy_link_popup: "Datei-URL in Zwischenablage kopieren:<br />Strg+C, Eingabe"
+        access:
+          closed: "Autor/Reviewer"
+          until: "bis"
+          request_a_copy: "Kopie anfordern"
+          local: "Nur LibreCat"
+          open_access: "Open Access"
+        edit_modal:
+          heading: "Hochgeladene Datei bearbeiten"
+          heading_file: "Datei"
+          current_file: "Aktuelle Datei:"
+          relation: "Relation (\"Hochgeladenes Dokument ist...\")"
+          access:
+            open_access: "Open Access (Datei ist frei verf&uuml;gbar, ab sofort)"
+            local: "Local Access (Nur LibreCat)"
+            closed: "Closed Access (Nur Autor/Reviewer)"
+            request_a_copy: "Request a Copy (Closed Access au&szlig;er auf Anfrage)"
+            embargo: "Zu Open Access wechseln am:"
+          additional_information:
+            heading: "Zus&auml;tzliche Informationen"
+            title: "Titel"
+            description: "Beschreibung"
+      license: &license
+        heading: "Urheberrecht / Lizenzen"
+        pub_license:
+          label: "Hinweise zum Urheberrecht"
+          disclaimer_text: "Hiermit stelle ich der Universit&auml;t LibreCat dieses Dokument zur elektronischen Speicherung und zur &ouml;ffentlichen Zug&auml;nglichmachung in Datennetzen gem&auml;&szlig; den Bedingungen zur Dokumentenspeicherung auf GRO, wie sie in den Rechtlichen Rahmenbedingungen f&uuml;r GRO dargestellt sind, zur Verf&uuml;gung.<br><a href='/docs/howto/policy#depositpolicy' target='_blank'>GRO Deposit Policy / Rechtliche Rahmenbedingungen</a>"
+          accept_text: "Ich stimme zu"
+          alert: "Sie m&uuml;ssen den Hinweisen zum Urheberrecht zustimmen, wenn Sie eine Datei angeh&auml;ngt haben."
+        info:
+          text: "Fragen zur Policy / Lizenz?"
+          contact: "Support Publikationsdienste, Tel.: 999/9999999, E-Mail: <a href=''>helpdesk@librecat.org</a>"
+        open_data_release:
+          label: "Open Data Release - Declaration"
+          disclaimer_text: "I declare, that I am <strong>allowed to publish</strong> and to release the data under an <strong>Open Data License</strong>.<br><br>Rights of third parties are not violated. Any joint author has given his consent to publish and to release the data under an Open Data License.<br><br>I am aware that I am only allowed to publish <strong>anonymous data</strong> or other <strong>data without personal reference</strong>. For publishing person-related data I have to <strong>seek the agreement of the affected persons</strong>.<br>I declare that I do not violate these rules.<br>I am aware that this release might <strong>limit exploitation potential in terms of vending the data or achieving patents</strong>.<br>"
+          accept_text: "I have read and agree with the information above about releasing data under the selected license."
+          alert: "You need to accept the Open Data Release Statement because you have attached files to this record."
+        cc_license:
+          label: "Creative Commons Lizenzen"
+          select_text: "Falls Ihr hochgeladenes Dokument unter einer Creative Commons Lizenz steht, k&ouml;nnen Sie diese hier ausw&auml;hlen:<br>"
+          select_a_license: "Lizenz w&auml;hlen"
+          license_deed: "Lizenzvertrag"
+          cc_0:
+            name: "Creative Commons Public Domain Dedication (CC0 1.0)"
+            deed_url: "http://creativecommons.org/publicdomain/zero/1.0/deed.de"
+            legal_code_url: "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+          cc_by:
+            name: "Creative Commons Namensnennung 4.0 International Public License (CC-BY 4.0)"
+            deed_url: "http://creativecommons.org/licenses/by/4.0/deed.de"
+            legal_code_url: "http://creativecommons.org/licenses/by/4.0/legalcode"
+          cc_by_sa:
+            name: "Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Public License (CC BY-SA 4.0)"
+            deed_url: "http://creativecommons.org/licenses/by-sa/4.0/deed.de"
+            legal_code_url: "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+      urn: &urn
+        label: "URN"
+        placeholder: "z.B. urn:nbn:de:0070-pub-12345678"
+        explain: "(Wenn Sie eine Datei hochladen, wird automatisch eine URN generiert!)"
+        title: "Die URN wurde automatisch generiert und kann nicht ge&auml;ndert werden."
+      ddc: &ddc
+        label: "DDC"
+        select_ddc: "DDC w&auml;hlen"
+      abstract: &abstract
+        label: "Abstract"
+        label2: "Sprache"
+        placeholder: "Abstract Text (Sie k&ouml;nnen Markdown f&uuml;r Formatierungen verwenden)"
+        explain: "Verwenden Sie <a href='/docs/howto/markdown' target='_blank'>Markdown</a> f&uuml;r Formatierungen. Klicken Sie nach dem Speichern auf den Link 'GRO', um sich eine Vorschau anzuzeigen und die Formatierungen zu pr&uuml;fen."
+      keyword: &keyword
+        label: "Stichworte"
+        placeholder: "Stichworte (mehrere Eintr&auml;ge durch Semikolon trennen, z.B. Stichwort1 ; Stichwort 2 ; Stichwort3)"
+      external_id: &external_id
+        label: "Externer Identifier"
+        label_short: "Ext. Id."
+        placeholder: "W&auml;hlen Sie einen Identifier und geben Sie ihn hier ein (nur die Nummer, ohne URL)"
+        select: "W&auml;hlen"
+      message: &message
+        label: "Kommentare"
+        placeholder: "Anmerkungen f&uuml;r Reviewer/ Admins eintragen"
+      popular_science_quality_controlled: &popular_science_quality_controlled
+        label: "Peer Review"
+        popular_science:
+          label: "Popul&auml;rwissenschaftliche Ver&ouml;ffentlichung"
+          label_short: "Pop.wiss. Ver&ouml;ff."
+        quality_controlled:
+          label: "Peer Review"
+      jel: &jel
+        label: "JEL Klassifikation"
+        label_short: "JEL"
+        select_jel: "--- JEL w&auml;hlen ---"
+      thematic_area: &thematic_area
+        label: "Themengebiet"
+        label_short: "Them.geb."
+        select_thematic_area: "--- Themengebiet w&auml;hlen ---"
+      alternative_id: &alternative_id
+        label: "Returned Record IDs"
+        label_short: "Ret. Rec. IDs"
+        placeholder: ""
+      related_material.record: &related_material_record
+        label: "Link zu GRO-Eintrag"
+        label_short: "GRO-Eintr."
+        placeholder: "Beginnen Sie zu tippen, um Ihre Publikationen zu durchsuchen."
+      related_material.select: "Art des Zusatzmaterials w&auml;hlen &hellip;"
+      related_material.link: &related_material_link
+        label: "Link und Relation<br />zu externer Quelle"
+        label_short: "Externe Quelle"
+        url:
+          label_short: "URL"
+          placeholder: "URL der externen Quelle (Eingabe mit http://)"
+        title:
+          label_short: "Titel"
+          placeholder: "Titel der externen Quelle"
+        relation:
+          label_short: "Quelle ist"
+          label: "Externe Quelle ist"
+      locked: &locked
+        label: "Locked for editing (except for admins)"
+        label_short: "Locked"
+      link: &link
+        label: "URL"
+        placeholder: ""
+  book_editor:
+    label: "Herausgeber Sammelwerk"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title: *booktitle
+      editor_solo: &editor_solo
+        first_name:
+          label: "Vorname"
+          label_short: "Hrsg. Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Hrsg. Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "Herausgeber"
+        label_short: "Hrsg."
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      corporate_editor_solo: &corporate_editor_solo
+        label: "K&ouml;rperschaftlicher Herausgeber"
+        label_short: "K&ouml;rp. Hrsg."
+        placeholder: "z.B. World Health Organization - Regional Office for Europe (WHO-Europe)"
+      alternative_title: *alternative_title
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      page: *pages
+      series_title_volume: *series_title_volume
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      conference.divider: &conference_divider
+        label: "Konferenzangaben"
+      conference.name: &conference_name
+        label: "Konferenz"
+        label_short: "Konf."
+        placeholder: "z.B. 3. Konferenz &uuml;ber Nano-Physik"
+      conference.location: &conference_location
+        label: "Konferenzort"
+        label_short: "Ort"
+        placeholder: "z.B. Berlin"
+      conference.date: &conference_date
+        label: "Konferenzdatum"
+        label_start: "Konferenz Beginn"
+        label_start_short: "Beginn"
+        label_end: "Konferenz Ende"
+        label_end_short: "Ende"
+        placeholder_start: "JJJJ-MM-TT"
+        placeholder_end: "JJJJ-MM-TT"
+      edition: *edition
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  book_chapter:
+    label: "Sammelwerksbeitrag"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title:
+        label: "Titel"
+        label_short: "Titel"
+        placeholder: "z.B. Wie man ein eBook ver&ouml;ffentlicht"
+      alternative_title: *alternative_title
+      author: *author_translator
+      editor: &editor_only
+        first_name:
+          label: "Vorname"
+          label_short: "Hrsg. Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Hrsg. Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "Herausgeber"
+        label_short: "Hrsg."
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      corporate_editor: &corporate_editor
+        label: "K&ouml;rperschaftlicher Herausgeber"
+        label_short: "K&ouml;rp. Hrsg."
+        placeholder: "z.B. World Health Organization - Regional Office for Europe (WHO-Europe)"
+      edition: *edition
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      page: &page_range
+        label: "Seite(n)"
+        placeholder: "z.B. 12 oder 20 - 25"
+      series_title_volume: *series_title_volume
+      publication:
+        label: "Buchtitel"
+        placeholder: "z.B. Handbuch der eBook-Ver&ouml;ffentlichung"
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      conference.divider: *conference_divider
+      conference.name: *conference_name
+      conference.location: *conference_location
+      conference.date: *conference_date
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  conference_abstract:
+    label: "Kurzbeitrag Konferenz"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title: &title
+        label: "Titel"
+        placeholder: "z.B. Handbuch der eBook-Ver&ouml;ffentlichung"
+      alternative_title: *alternative_title
+      author: *author_translator
+      editor: &editor
+        first_name:
+          label: "Vorname"
+          label_short: "Hrsg. Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Hrsg. Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "Herausgeber"
+        label_short: "Hrsg."
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      corporate_editor: *corporate_editor
+      department: *department
+      project: *project
+      research_group: *research_group
+      publication:
+        label: "Titel des Konferenzbandes"
+        label_short: "Konf.band Titel"
+        placeholder: "z.B. Berichtsband der 3. Konferenz &uuml;ber Nanophysik"
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      series_title: &series_title
+        label: "Serien- oder Zeitschriftentitel"
+        placeholder: "z.B. Lecture Notes of eBook Publishing"
+      volume_issue_page: &volume_issue_page
+        label: "Band / Ausgabe / Seite(n)"
+        label_short: "Bd./Ausg./S."
+        volume:
+          placeholder: "z.B. 3"
+          label: "Band"
+          label_short: "Band"
+        issue:
+          placeholder: "z.B. 5"
+          label: "Ausgabe"
+          label_short: "Ausg."
+        page:
+          placeholder: "z.B. 12 oder 20 - 25"
+          label: "Anzahl Seiten"
+          label_short: "Seiten"
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      conference.divider: *conference_divider
+      conference.name: *conference_name
+      conference.location: *conference_location
+      conference.date: *conference_date
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  conference_editor:
+    label: "Konferenzband"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title: *booktitle
+      editor_solo: *editor_solo
+      corporate_editor_solo: *corporate_editor_solo
+      alternative_title: *alternative_title
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      series_title: *series_title
+      volume_issue_page: *volume_issue_page
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      conference.divider: *conference_divider
+      conference.name: *conference_name
+      conference.location: *conference_location
+      conference.date: *conference_date
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  conference:
+    label: "Konferenzbeitrag"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title:
+        label: "Titel"
+        placeholder: "z.B. eBook Ver&ouml;ffentlichung"
+      alternative_title: *alternative_title
+      author: *author_translator
+      editor: *editor
+      corporate_editor: *corporate_editor
+      department: *department
+      project: *project
+      research_group: *research_group
+      volume_issue_page: *volume_issue_page
+      publication:
+        label: "Titel des Konferenzbandes"
+        label_short: "Konf.band Titel"
+        placeholder: "z.B. Berichtsband der 3. Konferenz &uuml;ber Nanophysik"
+      series_title: *series_title
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      conference.divider: *conference_divider
+      conference.name: *conference_name
+      conference.location: *conference_location
+      conference.date: *conference_date
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  dissertation:
+    label: "Dissertation"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title: *title
+      alternative_title: *alternative_title
+      author: *author_translator
+      supervisor:
+        first_name:
+          label: "Vorname"
+          label_short: "Betr. Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Betr. Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "Betreuer"
+        idm_extern: "extern"
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      page: *pages
+      series_title_volume: *series_title_volume
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  encyclopedia_article:
+    label: "Lexikoneintrag"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title:
+        label: "Titel"
+        label_short: "Titel"
+        placeholder: "z.B. Das Online-Ver&ouml;ffentlichen"
+      alternative_title: *alternative_title
+      author: *author_translator
+      editor: *editor_only
+      corporate_editor: *corporate_editor
+      edition: *edition
+      department: *department
+      project: *project
+      research_group: *research_group
+      publication:
+        label: "Lexikontitel"
+        placeholder: "z.B. Enzyklop&auml;die des Ver&ouml;ffentlichens"
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      page: *page_range
+      series_title_volume: *series_title_volume
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  journal_article:
+    label: "Zeitschriftenaufsatz"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title:
+        label: "Titel"
+        label_short: "Titel"
+        placeholder: "z.B. Die Folgen der eBook-Ver&ouml;ffentlichung"
+      alternative_title: *alternative_title
+      author: *author_translator
+      department: *department
+      project: *project
+      research_group: *research_group
+      publisher: *publisher
+      publication: &publication_jtitle
+        label: "Zeitschriftentitel"
+        placeholder: "z.B. Nature Genetics"
+      volume_issue_page: *volume_issue_page
+      year_extern: *year_extern
+      article_type:
+        label: "Artikeltyp"
+        label_short: "Art.typ"
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      conference.divider: *conference_divider
+      conference.name: *conference_name
+      conference.location: *conference_location
+      conference.date: *conference_date
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      nasc: &nasc
+        label: "NASC Seed Stock ID"
+        label_short: "NASC"
+        placeholder: "NASC IDs (mehrere Eintr&auml;ge durch Semikolon trennen, z.B. N406423 ; N412826 ; N420684)"
+      genbank: &genbank
+        label: "GenBank ID"
+        label_short: "GenBank"
+        placeholder: "GenBank IDs (mehrere Eintr&auml;ge durch Semikolon trennen, z.B. AY323492 ; AY333421 ; AY323491)"
+      ubi_funded:
+        label: "Finanzierung"
+        placeholder: "Artikelgeb&uuml;hren co-finanziert von der DFG"
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  journal_editor:
+    label: "Sonderausgabe Zeitschrift"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title:
+        label: "Titel"
+        label_short: "Titel"
+        placeholder: "z.B. Handbook of eBook Publishing"
+      editor_solo: *editor_solo
+      corporate_editor_solo: *corporate_editor_solo
+      alternative_title: *alternative_title
+      department: *department
+      project: *project
+      research_group: *research_group
+      publisher: *publisher
+      publication: *publication_jtitle
+      volume_issue_page: &volume_issue_page
+        label: "Band / Ausgabe / Seite(n)"
+        volume:
+          placeholder: "z.B. 3"
+          label: "Band"
+          label_short: "Band"
+        issue:
+          placeholder: "z.B. 5"
+          label: "Ausgabe"
+          label_short: "Ausg."
+        page:
+          label: "Seite(n)"
+          label_short: "Seite(n)"
+          placeholder: "z.B. 12 oder 20 - 25"
+      year_extern: *year_extern
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      conference.divider: *conference_divider
+      conference.name: *conference_name
+      conference.location: *conference_location
+      conference.date: *conference_date
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  newspaper_article:
+    label: "Zeitungsartikel"
+    tab: *tab
+    field:
+      document_type: *document_type
+      title:
+        label: "Titel"
+        label_short: "Titel"
+        placeholder: "z.B. Die Folgen des eBook-Ver&ouml;ffentlichens"
+      alternative_title: *alternative_title
+      author: *author_translator
+      department: *department
+      project: *project
+      research_group: *research_group
+      year_extern: *year_extern
+      publication_date: &publication_date
+        label: "Ver&ouml;ffentlichungsdatum"
+        label_short: "Ver&ouml;ff.datum"
+        placeholder: "JJJJ-MM-TT"
+      volume_issue_page: *volume_issue_page
+      publication:
+        label: "Zeitungstitel"
+        label_short: "Zeit.titel"
+        placeholder: "z.B. The New York Times"
+      publication_status_language: *publication_status_language
+      publication_identifier: *publication_identifier
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      popular_science: &popular_science
+        label: "Popul&auml;rwissenschaftliche Publikation"
+        label_short: "Pop.wiss. Publ."
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  patent:
+    label: "Patent"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title: *title
+      alternative_title: *alternative_title
+      author:
+        first_name:
+          label: "Vorname"
+          label_short: "Erfinder Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Erfinder Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "Erfinder"
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      applicant:
+        label: "Antragsteller"
+        label_short: "Antr.steller"
+        placeholder: "z.B. Hans M&uuml;ller"
+      department: *department
+      project: *project
+      research_group: *research_group
+      year_extern: *year_extern
+      publication_date_number:
+        label: "Ver&ouml;ffentlichungsdatum/-nr."
+        label_pd: "V&ouml;.datum"
+        placeholder_pd: "JJJJ-MM-TT"
+        label_pn: "Pat.nr."
+        placeholder_pn: "Internationale Patentnummer"
+      application_date_number:
+        label: "Antragsdatum/-nummer"
+        label_ad: "Antr.datum"
+        placeholder_ad: "JJJJ-MM-TT"
+        label_an: "Antr.Nr."
+        placeholder_an: "Antragsnummer"
+      ipc:
+        label: "Internationale Patent<br>Klassifikation"
+        label_short: "IPC"
+        placeholder: "z.B. B25J 7/00"
+      language:
+        label: "Sprache"
+        label_short: "Spr."
+      page: *pages
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  preprint:
+    label: "Preprint"
+    tab: *tab
+    field:
+      document_type: *document_type
+      title:
+        label: "Titel"
+        label_short: "Titel"
+        placeholder: "z.B. Die Folgen der eBook-Ver&ouml;ffentlichung"
+      publication: *publication_jtitle
+      author: *author_translator
+      department: *department
+      project: *project
+      research_group: *research_group
+      publisher: *publisher
+      year_extern: *year_extern
+      page: *pages
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  report:
+    label: "Report"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title:
+        label: "Titel"
+        placeholder: "z.B. Technischer Report: Arbeitgeberbefragung Projekt B3"
+      alternative_title: *alternative_title
+      author: *author_translator
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      page: *pages
+      series_title_volume: *series_title_volume
+      report_number:
+        label: "Reportnummer"
+        label_short: "Reportnr."
+        placeholder: "z.B. NASA/TM-2015-123456"
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  review:
+    label: "Rezension"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title: *title
+      alternative_title: *alternative_title
+      author: *author_translator
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      publication_date:
+        label: "Ver&ouml;ffentlichungsdatum"
+        label_short: "Ver&ouml;ff.datum"
+        placeholder: "JJJJ-MM-TT"
+      publication:
+        label: "Zeitschriftentitel"
+        placeholder: "z.B. Nature Genetics"
+      volume_issue_page: *volume_issue_page
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  research_data:
+    label: "Datenpublikation"
+    tab:
+      basic_fields: "Details"
+      file_upload: "Forschungsdatenupload"
+      supplementary_fields: "Weitere Angaben"
+      related_material: "Verkn&uuml;pfungen"
+    field:
+      document_type: *document_type
+      doi: *doi
+      title: *title
+      author:
+        first_name:
+          label: "Vorname"
+          label_short: "Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "Creator"
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      department: *department
+      project: *project
+      research_group: *research_group
+      publisher:
+        label: "Verlag"
+        placeholder: "Verlag"
+        defaultvalue: "LibreCat University"
+      year_extern: *year_extern
+      external_file:
+        label: "Externe Datei(en)"
+        checkbox: "Dateien verf&uuml;gbar unter"
+      dropzone:
+        label: "<strong>Datei(en) hochladen</strong> (max. 500MB per file)"
+        dropzone_text: "Datei hier her ziehen... oder klicken!"
+        access_level: "Access Level:"
+        upload_date: "Upload Datum:"
+        user: "Nutzer:"
+        relation: "Relation:"
+        copy_link: "URL der Datei kopieren"
+        copy_link_popup: "Datei-URL in Zwischenablage kopieren: Strg+C, Eingabe"
+        access:
+          closed: "Autor/Reviewer"
+          until: "bis"
+          request_a_copy: "Kopie anfordern"
+          local: "Nur LibreCat"
+          open_access: "Open Access"
+        edit_modal:
+          heading: "Hochgeladene Datei bearbeiten"
+          heading_file: "Datei"
+          current_file: "Aktuelle Datei:"
+          relation: "Relation (\"Hochgeladenes Dokument ist...\")"
+          access:
+            open_access: "Open Access (Datei ist frei verf&uuml;gbar, ab sofort)"
+            local: "Local Access (Nur LibreCat)"
+            closed: "Closed Access (Nur Autor/Reviewer)"
+            request_a_copy: "Request a Copy (Closed Access au&szlig;er auf Anfrage)"
+            embargo: "Zu Open Access wechseln am:"
+          additional_information:
+            heading: "Zus&auml;tzliche Informationen"
+            title: "Titel"
+            description: "Beschreibung"
+      license:
+        heading: "Copyright und Lizenzen"
+        pub_license:
+            label: "Copyright Disclaimer"
+        data_reuse_license:
+          label: "Data Re-Use License"
+          select_license: "W&auml;hlen Sie eine Lizenz aus unter der Ihre Daten verf&uuml;gbar sein sollen:<br>"
+          select_a_license: "Lizenz w&auml;hlen"
+          alert: "Sie m&uuml;ssen eine Data Re-Use License ausw&auml;hlen, wenn Sie Dateien angeh&auml;ngt haben."
+          pddl:
+            select_text: "No restrictions - PDDL"
+            name: "The Open Data Commons Public Domain Dedication and License (PDDL) v1.0"
+            license_text: "Allows to copy, distribute and use the data, to produce works from the data, and to modify, transform and build upon the data<br><a href='http://opendatacommons.org/licenses/pddl/' target='_blank'>http://opendatacommons.org/licenses/pddl/</a>"
+          odcby:
+            select_text: "Attribution required - ODC-By"
+            name: "The Open Data Commons Attribution License (ODC-By) v1.0"
+            license_text: "Allows to copy, distribute and use the data, to produce works from the data, and to modify, transform and build upon the data. It requires the attribution of any public use of the data, or works produced from the data<br><a href='http://opendatacommons.org/licenses/by/' target='_blank'>http://opendatacommons.org/licenses/by/</a>"
+          odbl:
+            select_text: "Share alike - ODbL"
+            name: "The Open Database License (ODbL) v1.0"
+            license_text: "Allows to copy, distribute and use the data, to produce works from the data, and to modify, transform and build upon the data. It requires the attribution of any public use of the data, or works produced from the data. Adapted version of this data, or works produced from an adapted data must also offer the data under the ODbL.<br><a href='http://opendatacommons.org/licenses/odbl/' target='_blank'>http://opendatacommons.org/licenses/odbl/</a>"
+        open_data_release:
+          label: "Open Data Release - Declaration"
+          disclaimer_text: "I declare, that I am <strong>allowed to publish</strong> and to release the data under an <strong>Open Data License</strong>.<br><br>Rights of third parties are not violated. Any joint author has given his consent to publish and to release the data under an Open Data License.<br><br>I am aware that I am only allowed to publish <strong>anonymous data</strong> or other <strong>data without personal reference</strong>. For publishing person-related data I have to <strong>seek the agreement of the affected persons</strong>.<br>I declare that I do not violate these rules.<br>I am aware that this release might <strong>limit exploitation potential in terms of vending the data or achieving patents</strong>.<br>"
+          accept_text: "I have read and agree with the information above about releasing data under the selected license."
+          alert: "Sie m&uuml;ssen dem Open Data Release Statement zustimmen, da Sie Dateien angeh&auml;ngt haben."
+        other_data_license:
+          warning: "Sichtbar/Editierbar nur f&uuml;r Admins"
+          label: "Andere Lizenz"
+        info:
+          text: "Wenn keine der oben genannten Lizenzen zu Ihren Daten passt oder wenn Sie andere Fragen haben, kontaktieren Sie bitte:<br>"
+          contact: "<strong><a href='' target='_blank'>LibreCat</a><br>999/999999<br><a href=''>helpdesk@librecat.org</a><br></strong>"
+      abstract: *abstract
+      keyword: *keyword
+      jel: *jel
+      alternative_id: *alternative_id
+      ddc: *ddc
+      related_material.rd:
+        label: "Link zu GRO Eintrag"
+        label_short: "GRO-Rec."
+        placeholder: "Beginnen Sie zu tippen, um Ihre Publikationen zu durchsuchen."
+      related_material.link: *related_material_link
+      locked: *locked
+  translation:
+    label: "&Uuml;bersetzung"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title:
+        label: "Titel (&Uuml;bersetzung)"
+        label_short: "Titel (&Uuml;bers.)"
+        placeholder: "z.B. Handbuch des eBook Ver&ouml;ffentlichens"
+      alternative_title:
+        label: "Titel (Original)"
+        label_short: "Titel (Orig)"
+        placeholder: "z.B. Handbook of eBook Publishing"
+      translator:
+        first_name:
+          label: "Vorname"
+          label_short: "Trans. Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Trans. Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "&Uuml;bersetzer"
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      author_secondary:
+        first_name:
+          label: "Vorname"
+          label_short: "Autor Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Autor Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "Autor (Original)"
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      edition: *edition
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      page: *pages
+      series_title_volume: *series_title_volume
+      publication_identifier: *publication_identifier
+      publication_status: &publication_status
+        label: "Status"
+        label_short: "Status"
+      language: &language
+        label: "Sprache"
+      original_language: &original_language
+        label: "Sprache (Original)"
+        label_short: "Spr. (Orig.)"
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  translation_chapter:
+    label: "&Uuml;bersetzung (Aufsatz)"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      editor: *editor_only
+      title:
+        label: "Titel (&Uuml;bersetzung)"
+        label_short: "Titel (&Uuml;bers.)"
+        placeholder: "z.B. Handbuch der eBook-Ver&ouml;ffentlichung"
+      translator:
+        first_name:
+          label: "Vorname"
+          label_short: "Trans. Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Trans. Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "&Uuml;bersetzer"
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      author_secondary:
+        first_name:
+          label: "Vorname"
+          label_short: "Autor Vorn."
+          placeholder: "z.B. Hans"
+        last_name:
+          label: "Nachname"
+          label_short: "Autor Nachn."
+          placeholder: "z.B. M&uuml;ller"
+        label: "Autor"
+        idm_extern: "extern"
+        tooltip: "Autor arbeitet an der Uni LibreCat."
+      alternative_title:
+        label: "Titel (Original)"
+        label_short: "Titel (Orig)"
+        placeholder: "z.B. Handbook of eBook Publishing"
+      edition: *edition
+      editor: *editor_only
+      corporate_editor: *corporate_editor
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      publication:
+        label: "Buchtitel"
+        placeholder: "z.B. Handbook of eBook Publishing"
+      series_title:
+        label: "Serien- oder Zeitschriftentitel"
+        label_short: "Serien-/Zeitschr.titel"
+        placeholder: "z.B. Lecture Notes of eBook Publishing"
+      volume_issue_page: *volume_issue_page
+      year_extern: *year_extern
+      publication_identifier: *publication_identifier
+      publication_status: *publication_status
+      language: *language
+      original_language: *original_language
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      popular_science_quality_controlled: *popular_science_quality_controlled
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  working_paper:
+    label: "Diskussionspapier"
+    tab: *tab
+    field:
+      document_type: *document_type
+      doi: *doi
+      title:
+        label: "Titel"
+        placeholder: "z.B. Diskussionspapier &uuml;ber die eBook-Ver&ouml;ffentlichung"
+      alternative_title: *alternative_title
+      author: *author_translator
+      edition: *edition
+      department: *department
+      project: *project
+      research_group: *research_group
+      place: *place
+      publisher: *publisher
+      year_extern: *year_extern
+      page: *pages
+      series_title_volume: *series_title_volume
+      publication_identifier: *publication_identifier
+      publication_status_language: *publication_status_language
+      dropzone: *dropzone
+      license: *license
+      urn: *urn
+      ddc: *ddc
+      abstract: *abstract
+      keyword: *keyword
+      external_id: *external_id
+      message: *message
+      jel: *jel
+      thematic_area: *thematic_area
+      alternative_id: *alternative_id
+      related_material.record: *related_material_record
+      related_material.link: *related_material_link
+      locked: *locked
+      link: *link
+  to_sp_form: "Gesamtsicht"
+  sp_form: "Gesamtsicht"
+  to_tab_form: "Gegliederte Sicht"
+  tab_form: "Gegliederte Sicht"
+  toggle_dropdown: "Men&uuml; aufklappen"
+  mandatory: "Pflichtfeld"
+  mandatory_error: "Sie haben Pflichtfelder &uuml;bersehen oder es sind andere Probleme aufgetreten! Bitte &uuml;berpr&uuml;fen Sie ihre Daten."
+  form_change_form: "Editiermodus &auml;ndern"
+  form_change_type: "Publikationstyp &auml;ndern"
+  form_sort_item: "Drag & drop, um die Position des Autors in der Autorenliste zu &auml;ndern"
+  form_add_field: "Feld hinzuf&uuml;gen (+) or dieses Feld l&ouml;schen (-)"
+  form_relmat_record: "Eigene Publikation aus GRO mit dieser verbinden. Nach Auswahl w&auml;hlen Sie die Art der Verbindung (z.B. fr&uuml;here Version). Der Link erscheint unter Zusatzmaterial."
+  form_relmat_link: "Externe Webseite mit dieser Publikation verbinden. Nach Klick auf (+) w&auml;hlen Sie die Art der Verbindung (z.B. fr&uuml;here Version). Der Link erscheint unter Zusatzmaterial."
+  confirm_return: "M&ouml;chten Sie diesen Datensatz wirklich zur&uuml;ckstellen und damit von &ouml;ffentlichen Publikationsliste entfernen?"
+  confirm_delete: "M&ouml;chten Sie diesen Datensatz wirklich l&ouml;schen?"
+  confirm_submit: "Sie senden Ihre Daten jetzt an uns. Nachdem wir die Metadaten &uuml;berpr&uuml;ft haben, werden wir den Datensatz public stellen."
+  button:
+    back: "Zur&uuml;ck"
+    cancel: "Abbrechen"
+    close: "Schlie&szlig;en"
+    delete: "L&ouml;schen"
+    import: "Importieren"
+    next: "Weiter"
+    publish: "Public stellen"
+    submitted: "Absenden"
+    return: "Zur&uuml;ckstellen"
+    save: "Speichern"
+    select: "W&auml;hlen"
+    send: "Abschicken"
+    submit: "Hochladen"
+  general:
+    field:
+      email:
+        label: "E-Mail-Adresse"
+        placeholder: "Ihre E-Mail-Adresse"
+      message:
+        label: "Nachricht"
+        placeholder: "Nachricht"
+      message_author:
+        label: "Nachricht"
+        placeholder: "Nachricht an den Autor"
+  publication_status:
+    draft: "Entwurf"
+    submitted: "Eingereicht"
+    accepted: "Angenommen"
+    inpress: "Im Druck"
+    epub_ahead: "Elektronische Ver&ouml;ffentlichung vor dem Druck"
+    published: "Ver&ouml;ffentlicht"
+    unpublished: "Unver&ouml;ffentlicht"
+  article_type:
+    original: "Forschungsartikel"
+    review: "Review"
+    letter_note: "Letter"
+  page_range_number:
+    page: "Seite"
+    pages: "Seiten"
+    page_range: "Seite(nber.)"
+    article_number: "Art.nummer"
+  language:
+    ara: "Arabisch"
+    chi: "Chinesisch"
+    hrv: "Kroatisch"
+    cze: "Tschechisch"
+    dan: "D&auml;nisch"
+    dut: "Niederl&auml;ndisch"
+    eng: "Englisch"
+    fin: "Finnisch"
+    fre: "Franz&ouml;sisch"
+    ger: "Deutsch"
+    gre: "Griechisch"
+    heb: "Hebr&auml;isch"
+    hun: "Ungarisch"
+    ice: "Isl&auml;ndisch"
+    ita: "Italienisch"
+    jpn: "Japanisch"
+    kor: "Koreanisch"
+    lat: "Lateinisch"
+    lav: "Lettisch"
+    mon: "Mongolisch"
+    nor: "Norwegisch"
+    pol: "Polnisch"
+    por: "Portugiesisch"
+    rum: "Rum&auml;nisch"
+    rus: "Russisch"
+    srp: "Serbisch"
+    spa: "Spanisch"
+    swe: "Schwedisch"
+    tur: "T&uuml;rkisch"
+    other: "Andere"
+  relation:
+    main_file:
+      display: "Volltext(e)"
+      select: "Volltext / Hauptdokument"
+    table_of_contents:
+      display: "Inhaltsverzeichnis"
+      select: "Inhaltsverzeichnis"
+    erratum:
+      display: "Erratum"
+      select: "Erratum"
+    supplementary_material:
+      display: "Zusatzmaterial"
+      select: "Zusatzmaterial"
+    research_data:
+      display: "Forschungsdaten"
+      select: "Forschungsdaten"
+    software:
+      display: "Software"
+      select: "Software"
+    earlier_version:
+      display: "Fr&uuml;here Version"
+      select: "Fr&uuml;here Version"
+    later_version:
+      display: "Sp&auml;tere Version"
+      select: "Sp&auml;tere Version"
+    contains:
+      display: "Publikation, die diesen GRO Eintrag enth&auml;lt"
+      select: "Publikation, die diesen GRO Eintrag enth&auml;lt"
+    published_in:
+      display: "Teil von GRO Eintrag"
+      select: "Teil von GRO Eintrag"
+    dissertation_contains:
+      display: "Dissertation, die diesen GRO Eintrag enth&auml;lt"
+      select: "Dissertation, die diesen GRO Eintrag enth&auml;lt"
+    part_of_dissertation:
+      display: "Teil dieser Dissertation"
+      select: "Teil dieser Dissertation"
+    old_edition:
+      display: "Alte Ausgabe"
+      select: "Alte Ausgabe"
+    new_edition:
+      display: "Neue Ausgabe"
+      select: "Neue Ausgabe"
+    continues:
+      display: "Fortsetzung"
+      select: "Fortsetzung"
+    is_continued_by:
+      display: "Vorheriger Teil"
+      select: "Vorheriger Teil"
+    popular_science:
+      display: "Popul&auml;rwissenschaftliche Version"
+      select: "Popul&auml;rwissenschaftliche Version"
+    research_paper:
+      display: "Wissenschaftliche Version"
+      select: "Wissenschaftliche Version"
+    translation:
+      display: "&Uuml;bersetzter Text"
+      select: "&Uuml;bersetzter Text"
+    original:
+      display: "Originaltext"
+      select: "Originaltext"
+    other:
+      display: "In sonstiger Relation"
+      select: "In sonstiger Relation"
+    cites:
+      display: "Zitiert"
+      select: "Zitiert"
+    is_cited_by:
+      display: "Wird zitiert von"
+      select: "Wird zitiert von"
+    confirmation:
+      display: "Best&auml;tigungsschreiben"
+      select: "Best&auml;tigungsschreiben"
+    hidden:
+      display: ""
+      select: "Zusatzmaterial (nur zur Einbettung, keine Anzeige auf Frontdoor)"
+403:
+  heading: "Kein Zugriff (403)"
+404:
+  heading: "Seite nicht gefunden (404)"
+418:
+  heading: "I'm a teapot (418)"
+help:
+  home: "Startseite"
+  brand: "Backend<br>Startseite"
+  my_author_page: "Ihre &ouml;ffentliche<br>Publikationsliste"
+  change_language: "Sprache wechseln"
+  user_settings: "Rolle, Fakult&auml;t,<br>Editiermodus,<br>Standardsprache<br>&auml;ndern"
+  author_id: "Alias (zus&auml;tzlicher Name) und Autoren IDs (ORIC etc.) eintragen."
+  author_id_edit: "ID &auml;ndern / IDs erg&auml;nzen."
+  add_new_button: "Neuen Eintrag in GRO anlegen: Bestehende Daten z.B. via DOI importieren oder &uuml;ber Formular selbst eintragen."
+  quick_and_easy: "Sie haben einen Open-Access-Volltext (PDF-Datei)? Ziehen Sie in hier her und senden Sie das Formular ab. Wir vervollst&auml;ndigen den Eintrag f&uuml;r Sie und machen ihn &ouml;ffentlich sichtbar."
+  publication_user: "Ihre pers&ouml;nliche Publikationsliste. Wenn alle Ihre Publikationen &ouml;ffentlich sichtbar sind, sieht diese Liste genau so aus, wie Ihre &ouml;ffentliche Publikationsliste."
+  publication_user_rd: "Ihre pers&ouml;nliche Publikationsliste - Forschungsdaten."
+  publication_delegate: "Jeder dieser Tabs zeigt Ihnen die Publikationsliste einer bestimmten Person, zu der Ihnen Zugriff gew&auml;hrt wurde. Die Publikationen wurden nach Personen gruppiert, um Ihnen einen besseren &Uuml;berblick &uuml;ber Ihren Arbeitsbereich in GRO zu geben."
+  publication_reviewer: "Diese Liste zeigt Ihnen alle Publikationen der Einrichtung f&uuml;r die Sie die Reviewer-Rechte erhalten haben."
+  publication_project_reviewer: "Diese Liste zeigt Ihnen alle Publikationen des Projektes, für das Sie die Reviewer-Rechte erhalten haben."
+  publication_data_manager: "Diese Liste zeigt Ihnen alle Datenpublikationen der Einrichtung f&uuml;r die Sie die Reviewer-Rechte erhalten haben."
+  publication_admin: "Diese Liste zeigt Ihnen alle Publikationen in GRO."
+  statuses: "Sichtbarkeitsstatus<br> der Publikation.<br>&Auml;nderung &uuml;ber den Link 'Editieren'."
+  citation: "Publikationsdaten im ausgew&auml;hlten Zitationsstil."
+  search: "In dieser Publikationsliste suchen."
+  display_block: "Darstellung der Publikationsliste &auml;ndern (Treffer pro Seite, Sortierung, Zitationsstil)."
